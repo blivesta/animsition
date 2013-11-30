@@ -1,6 +1,7 @@
 /* ==============================================
 
 - clickstream
+- https://github.com/blivesta/jquery.clickstream.js
 - Copyright (c) 2013 blivesta
 - released under the MIT License.
 
