@@ -1,11 +1,11 @@
 jquery.clickstream
 ==================
 
-ページ遷移時にエフェクトを加えるjQueryプラグイン。
-アニメーションのイージングでjQuery Easingを利用しています。
-
-jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
-
+ページ遷移時にエフェクトを加えるjQueryプラグイン。 
+アニメーションのイージングでjQuery Easingを利用しています。 
+ 
+jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/ 
+ 
 
 ##js
 ~~~ go
