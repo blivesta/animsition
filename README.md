@@ -1,4 +1,4 @@
-jquery.clickstream
+clickstream
 ==================
 
 ページ遷移時にエフェクトを加えるjQueryプラグイン。 
