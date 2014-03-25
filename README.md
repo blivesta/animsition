@@ -6,6 +6,8 @@ add an effect to a page transition
  
 jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/ 
  
+##Example
+http://blivesta.github.io/clickstream
 
 ##Usage
 ~~~ go
