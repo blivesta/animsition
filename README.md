@@ -1,6 +1,6 @@
 clickstream
 ==================
-
+add an effect to a page transition
 ページのINとOUTにエフェクトを加えるjQuery  
 アニメーションでjQuery Easingを利用。 
  
@@ -29,8 +29,8 @@ $(document).ready(function() {
     		inactiveClass :   'clickstream_inactive',
     		
     		//アニメーションの種類。
-    		inEffect:         'fade',
-    		outEffect:        'fade',
+    		inEffect:         'fade', // or 'leftToRight','rightToLeft','topToBottom','bottomToTop'
+    		outEffect:        'fade', // or 'leftToRight','rightToLeft','topToBottom','bottomToTop'
     		
     		//アニメーションのイージングの種類。
     		//jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/

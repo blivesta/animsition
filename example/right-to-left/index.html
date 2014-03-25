@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>clickstream.js &middot; blivesta</title>
+<!-- Vendor CSS -->
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://rawgithub.com/teq-inc/cooker/master/dist/css/cooker.css" />
+<!-- Doc CSS -->
+<link rel="stylesheet" href="../../css/docs.css">
+<!-- Vendor js -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="http://cdn.jsdelivr.net/jquery.easing/1.3/jquery.easing.1.3.js"></script>
+<!-- clickstream -->
+<script src="../../dist/jquery.clickstream.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $("body").clickstream({
+      inEffect:         'rightToLeft',
+      outEffect:        'rightToLeft',
+    });
+});	
+</script>
+<style type="text/css">
+  .ck-masthead,
+  .ck-header {
+    background-color: #34b028;
+  }
+</style>
+
+</head>
+<body class="home">
+  <div class="">
+    <main class="ck-masthead" id="content" role="main">
+      <div class="container">
+        <h1>clickstream.js</h1>
+        <p class="lead">Right to Left Example 1</p>
+        <p class="lead"><a href="https://github.com/blivesta/clickstream" class="btn btn-outline-white btn-lg">GitHub Project</a></p>
+        <p class=version>Author: <a href="https://github.com/blivesta">blivesta</a> </p>
+      </div>
+    </main>    
+    
+    <div class="container">
+      <div class="ck-section">
+        <h1 id="clickstream-usage" class="page-header">Example</h1>
+        <ul class="nav nav-pills">
+          <li><a href="./index2.html">Right to Left (default)</a></li>
+          <li><a class="clickstream-inactive" href="index2.html">Right to Left (a class="clickstream-inactive")</a></li>          
+        </ul>
+      </div>
+      <div class="ck-section">
+        <h1 id="drawer-usage" class="page-header">Usage</h1>
+        <h3>JavaScript</h3>
+<pre>
+$("body").clickstream({
+  inEffect:   'rightToLeft',
+  outEffect:  'rightToLeft'
+});
+</pre>
+      </div>    
+    </div>    
+    
+    <!-- Footer==================================================-->
+    <footer class="ck-footer" role="contentinfo">
+      <div class="container">
+        <p>Code licensed under MIT</p>
+        <ul class="ck-footer-links muted">
+          <li>&middot;</li>
+          <li>author: <a href="https://github.com/blivesta">blivesta</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
