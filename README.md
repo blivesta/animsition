@@ -1,6 +1,6 @@
 clickstream
 ==================
-add an effect to a page transition
+add an effect to a page transition  
 ページのINとOUTにエフェクトを加えるjQuery  
 アニメーションでjQuery Easingを利用。 
  
