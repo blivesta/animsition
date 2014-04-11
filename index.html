@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,14 +7,13 @@
 <title>clickstream.js &middot; blivesta</title>
 <!-- Vendor CSS -->
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
-<link rel="stylesheet" href="https://rawgithub.com/teq-inc/cooker/master/dist/css/cooker.css" />
 <!-- Doc CSS -->
 <link rel="stylesheet" href="./css/docs.css">
 <!-- Vendor js -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="http://cdn.jsdelivr.net/jquery.easing/1.3/jquery.easing.1.3.js"></script>
 <!-- clickstream -->
-<script src="./dist/jquery.clickstream.min.js"></script>
+<script src="./dist/clickstream.min.js"></script>
 
 <script type="text/javascript">
 $(document).ready(function() {
@@ -23,37 +22,42 @@ $(document).ready(function() {
 </script>
 </head>
 <body class="home">
-  <div class="">
-    <main class="ck-masthead" id="content" role="main">
-      <div class="container">
-        <h1>clickstream.js</h1>
-        <p class="lead"></p>
-        <p class="lead"><a href="https://github.com/blivesta/clickstream" class="btn btn-outline-white btn-lg">GitHub Project</a></p>
-        <p class=version>Author: <a href="https://github.com/blivesta">blivesta</a> </p>
-      </div>
-    </main>    
-    
+  <main class="ck-masthead" id="content" role="main">
     <div class="container">
-      <div class="ck-section">
-        <h1 id="clickstream-usage" class="page-header">Effect Example</h1>
-        <ul class="nav nav-pills">
-          <li><a href="./example/fade" target="_blank">Fade</a></li>
-          <li><a href="./example/right-to-left" target="_blank">Right to Left</a></li>
-          <li><a href="./example/left-to-right" target="_blank">Left to Right</a></li>
-          <li><a href="./example/top-to-bottom" target="_blank">Top to Bottom</a></li>
-          <li><a href="./example/bottom-to-top" target="_blank">Bottom to Top</a></li>
-        </ul>
-      </div>
+      <h1>clickstream.js</h1>
+      <p class="ck-lead">add an effect to a page transition</p>
+      <p><a href="https://github.com/blivesta/clickstream" class="btn btn- btn-lg">Download on GitHub</a></p>
+      <div class="ck-sns">
+        <iframe src="http://ghbtns.com/github-btn.html?user=blivesta&repo=clickstream&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
+        <iframe src="http://ghbtns.com/github-btn.html?user=blivesta&repo=clickstream&type=watch&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
+        <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      </div>       
+      <p class="ck-version">Author: <a href="http://blivesta.com">blivesta</a></p>
+    </div>
+  </main>    
+    
+  <div class="container">
+    <div class="ck-section">
+      <h1 id="clickstream-usage" class="page-header">Effect Example</h1>
+      <ul class="nav nav-pills">
+        <li><a class="btn btn-default" href="./example/fade" target="_blank">Fade</a></li>
+        <li><a class="btn btn-default" href="./example/right-to-left" target="_blank">Right to Left</a></li>
+        <li><a class="btn btn-default" href="./example/left-to-right" target="_blank">Left to Right</a></li>
+        <li><a class="btn btn-default" href="./example/top-to-bottom" target="_blank">Top to Bottom</a></li>
+        <li><a class="btn btn-default" href="./example/bottom-to-top" target="_blank">Bottom to Top</a></li>
+      </ul>
+    </div>
       
-      <div class="ck-section">
-        <h1 id="clickstream-usage" class="page-header">Usage</h1>
-        <h3>JavaScript</h3>
+    <div class="ck-section">
+      <h1 id="clickstream-usage" class="page-header">Usage</h1>
+      <h3>JavaScript</h3>
 <pre>
 // vendor js
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"&gt;&lt;/script&gt;
 &lt;script src="http://cdn.jsdelivr.net/jquery.easing/1.3/jquery.easing.1.3.js"&gt;&lt;/script&gt;
 // clickstream
-&lt;script src="../../dist/jquery.clickstream.min.js"&gt;&lt;/script&gt;
+&lt;script src="../../dist/clickstream.min.js"&gt;&lt;/script&gt;
 </pre>
 <pre>
 $('body').clickstream({
@@ -95,17 +99,16 @@ $('body').clickstream({
 
     </div>    
     
-    <!-- Footer==================================================-->
-    <footer class="ck-footer" role="contentinfo">
-      <div class="container">
-        <p>Code licensed under MIT</p>
-        <ul class="ck-footer-links muted">
-          <li>&middot;</li>
-          <li>author: <a href="https://github.com/blivesta">blivesta</a></li>
-        </ul>
-      </div>
-    </footer>
-  </div>
+  <!-- Footer==================================================-->
+  <footer class="ck-footer" role="contentinfo">
+    <div class="container">
+      <p>Code licensed under MIT</p>
+      <ul class="ck-footer-links muted">
+        <li>author: <a href="http://blivesta.com">blivesta</a></li>          
+      </ul>
+    </div>
+  </footer>
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

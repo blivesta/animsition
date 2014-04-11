@@ -14,12 +14,13 @@
     banner: 
       '/*!\n' +
       ' * <%= pkg.name %> v<%= pkg.version %>\n' +
-      ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-      ' * Licensed under <%= pkg.licenses %>\n' +
       ' * <%= pkg.url %>\n' +
+      ' * Licensed under <%= pkg.licenses %>\n' +
+      ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+      ' * <%= pkg.author_url %>\n' +
       ' */\n',
     
-    // js uglify (結合、成形、圧縮)
+    // js uglify
     // ====================================================
     uglify: {
       develop:{
@@ -32,8 +33,8 @@
           beautify: true
         },
         files :  { 
-          'dist/jquery.<%= pkg.name %>.js' : [
-            'src/jquery.clickstream.js',
+          'dist/<%= pkg.name %>.js' : [
+            'src/<%= pkg.name %>.js',
            ]
         } 
       },
@@ -45,19 +46,7 @@
           compress:false,
         },
         files :  { 
-          'dist/jquery.<%= pkg.name %>.min.js' : ['dist/jquery.<%= pkg.name %>.js' ]
-        } 
-      },
-      comp:{
-        options: {
-          banner: '<%= banner %>',
-          report: 'min',
-          mangle: false,
-          indentLevel: 2,
-          beautify: true
-        },
-        files :  { 
-          'dist/jquery.<%= pkg.name %>.js' : ['dist/jquery.<%= pkg.name %>.js' ]
+          'dist/<%= pkg.name %>.min.js' : ['dist/<%= pkg.name %>.js' ]
         } 
       }
     },
@@ -69,7 +58,7 @@
         jshintrc: '.jshintrc',
       },
       js: {
-        src: 'src/jquery.clickstream.js'
+        src: 'src/<%= pkg.name %>.js'
       }
     },
     
@@ -127,20 +116,11 @@
   grunt.registerTask('default', function () {
     grunt.log.warn('`grunt` to start a watch.');
     grunt.task.run([
+      'uglify',
+      'jshint',
       'connect',
       'watch'
     ]);
   });
   
-  // Go task
-  // ====================================================
-  grunt.registerTask('go', function () {
-    grunt.log.warn('`grunt go` to start.');
-    grunt.task.run([
-      'uglify',
-      'jshint',
-      'default'
-    ]);
-  });
-      
 };

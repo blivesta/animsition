@@ -1,13 +1,15 @@
 /*!
- * clickstream v1.0.0
- * Copyright 2014 blivesta
+ * clickstream v1.1.0
+ * http://blivesta.github.io/clickstream/
  * Licensed under MIT
- * http://blivesta.com/clickstream/
+ * Copyright 2013-2014 blivesta
+ * http://blivesta.com/
  */
-!function($) {
-  var namespace = "clickstream", methods = {
+(function($) {
+  var namespace = "clickstream";
+  var methods = {
     init: function(options) {
-      return options = $.extend({
+      options = $.extend({
         inSpeed: 800,
         outSpeed: 800,
         inDelay: 100,
@@ -23,18 +25,25 @@
         defaultPositinY: "10%",
         outPositinX: "10%",
         outPositinY: "10%"
-      }, options), this.each(function() {
-        var _this = this, $this = $(this), data = $this.data(namespace);
+      }, options);
+      return this.each(function() {
+        var _this = this;
+        var $this = $(this);
+        var data = $this.data(namespace);
         if (!data) {
-          options = $.extend({}, options), $this.data(namespace, {
+          options = $.extend({}, options);
+          $this.data(namespace, {
             options: options
-          }), methods.defaultPosition.apply(_this), $(window).bind("load", function() {
+          });
+          methods.initPosition.apply(_this);
+          $(window).bind("load", function() {
             methods.pageIn.apply(_this);
           });
-          var $internalLink = $("a:not(." + options.inactiveClass + ",[target*=_blank],[href^=#])");
-          $internalLink.off().on("click", function(e) {
+          var $link = $("a:not(." + options.inactiveClass + ",[target*=_blank],[href^=#])");
+          $link.off().on("click", function(e) {
             e.preventDefault();
-            var url = $(this).attr("href"), goStream = function() {
+            var url = $(this).attr("href");
+            var goStream = function() {
               location.href = url;
             };
             switch (options.outEffect) {
@@ -80,14 +89,16 @@
               }, options.outSpeed, options.outEasing, function() {
                 goStream.call($this, options);
               });
+              break;
             }
           });
         }
       });
     },
-    defaultPosition: function() {
+    initPosition: function() {
       var $this = $(this);
-      switch (options = $this.data(namespace).options, options.inEffect) {
+      options = $this.data(namespace).options;
+      switch (options.inEffect) {
        case "fade":
         $this.css({
           opacity: 0
@@ -120,11 +131,13 @@
           opacity: options.defaultOpacity,
           marginTop: "-" + options.defaultPositinY
         });
+        break;
       }
     },
     pageIn: function() {
       var $this = $(this);
-      options = $this.data(namespace).options, $this.delay(options.inDelay).animate({
+      options = $this.data(namespace).options;
+      $this.delay(options.inDelay).animate({
         opacity: 1,
         margin: 0
       }, options.inSpeed, options.inEasing);
@@ -132,11 +145,18 @@
     destroy: function() {
       return this.each(function() {
         var $this = $(this);
-        $(window).unbind("." + namespace), $this.removeData(namespace);
+        $(window).unbind("." + namespace);
+        $this.removeData(namespace);
       });
     }
   };
   $.fn.clickstream = function(method) {
-    return methods[method] ? methods[method].apply(this, Array.prototype.slice.call(arguments, 1)) : "object" != typeof method && method ? void $.error("Method " + method + " does not exist on jQuery." + namespace) : methods.init.apply(this, arguments);
+    if (methods[method]) {
+      return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+    } else if (typeof method === "object" || !method) {
+      return methods.init.apply(this, arguments);
+    } else {
+      $.error("Method " + method + " does not exist on jQuery." + namespace);
+    }
   };
-}(jQuery);
+})(jQuery);
