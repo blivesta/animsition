@@ -1,6 +1,7 @@
 clickstream
 ==================
-add an effect to a page transition  
+###jquery plugin for add an effect to a page transition
+
 ページのINとOUTにエフェクトを加えるjQuery  
 アニメーションでjQuery Easingを利用。 
  
@@ -13,7 +14,7 @@ http://blivesta.github.io/clickstream
 ~~~ go
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="../jquery.easing.1.3.js"></script>
-<script src="../jquery.clickstream.js"></script>
+<script src="../clickstream.min.js"></script>
 
 $(document).ready(function() {
     
