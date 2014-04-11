@@ -1,5 +1,5 @@
 /*!
- * clickstream v1.1.0
+ * clickstream v1.2.0
  * http://blivesta.github.io/clickstream/
  * Licensed under MIT
  * Copyright 2013-2014 blivesta
@@ -43,7 +43,7 @@
           $link.off().on("click", function(e) {
             e.preventDefault();
             var url = $(this).attr("href");
-            var goStream = function() {
+            var stream = function() {
               location.href = url;
             };
             switch (options.outEffect) {
@@ -51,7 +51,7 @@
               $this.delay(options.outDelay).animate({
                 opacity: options.outOpacity
               }, options.outSpeed, options.outEasing, function() {
-                goStream.call($this, options);
+                stream.call($this, options);
               });
               break;
 
@@ -60,7 +60,7 @@
                 opacity: options.outOpacity,
                 marginLeft: options.outPositinX
               }, options.outSpeed, options.outEasing, function() {
-                goStream.call($this, options);
+                stream.call($this, options);
               });
               break;
 
@@ -69,7 +69,7 @@
                 opacity: options.outOpacity,
                 marginRight: options.outPositinX
               }, options.outSpeed, options.outEasing, function() {
-                goStream.call($this, options);
+                stream.call($this, options);
               });
               break;
 
@@ -78,7 +78,7 @@
                 opacity: options.outOpacity,
                 marginTop: options.outPositinY
               }, options.outSpeed, options.outEasing, function() {
-                goStream.call($this, options);
+                stream.call($this, options);
               });
               break;
 
@@ -87,7 +87,7 @@
                 opacity: options.outOpacity,
                 marginTop: "-" + options.outPositinY
               }, options.outSpeed, options.outEasing, function() {
-                goStream.call($this, options);
+                stream.call($this, options);
               });
               break;
             }
