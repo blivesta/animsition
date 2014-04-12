@@ -1,138 +1,138 @@
 body,html {
-	min-height:100%;
-	height:100%;
-	background:#fff;
+  min-height:100%;
+  height:100%;
+  background:#fff;
 }
 h1[id] {
-	margin-top:0;
-	padding-top:60px;
+  margin-top:0;
+  padding-top:60px;
 }
 .container {
-	max-width:768px;
+  max-width:768px;
 }
 
 .ck-masthead,
 .ck-header {
-	position:relative;
-	padding:30px 15px;
-	background-color:#c30834;
-	color:#fff;
-	text-align:center;
-	text-shadow:0 1px 0 rgba(0,0,0,.1);
+  position:relative;
+  padding:30px 15px;
+  background-color:#c30834;
+  color:#fff;
+  text-align:center;
+  text-shadow:0 1px 0 rgba(0,0,0,.1);
 }
 
 .ck-masthead h1 {
-	font-size:40px;
-	line-height:1;
+  font-size:40px;
+  line-height:1;
 }
 
 .ck-masthead p {
-	margin:0 auto 30px;
-	color:#fff;
+  margin:0 auto 30px;
+  color:#fff;
 }
 
 .ck-masthead .ck-lead {
-	font-weight:400;
-	font-size:16px;
-	line-height:1.6;
+  font-weight:400;
+  font-size:16px;
+  line-height:1.6;
 }
 
 .ck-masthead .btn {
-	border:1px solid #fff;
-	color:#fff;
-	padding:15px 30px;
-	width:100%;
-	font-size:20px;
+  border:1px solid #fff;
+  color:#fff;
+  padding:15px 30px;
+  width:100%;
+  font-size:20px;
 }
 
 .ck-masthead .btn:hover {
-	background-color:#fff;
-	color:#444;
+  background-color:#fff;
+  color:#444;
 }
 
 .ck-masthead .ck-sns {
-	margin-bottom:20px;
-	height:25px;
+  margin-bottom:20px;
+  height:25px;
 }
 
 .ck-masthead .ck-version {
-	margin-bottom:30px;
-	color:#fff;
-	opacity:.8;
+  margin-bottom:30px;
+  color:#fff;
+  opacity:.8;
 }
 
 .ck-masthead .ck-version a {
-	color:#fff;
-	text-decoration:underline;
-	opacity:.8;
+  color:#fff;
+  text-decoration:underline;
+  opacity:.8;
 }
 
 .ck-masthead .ck-version a:hover {
-	text-decoration:none;
-	opacity:1;
+  text-decoration:none;
+  opacity:1;
 }
 
 
 .ck-footer {
-	margin-top:100px;
-	padding-top:40px;
-	padding-bottom:40px;
-	border-top:1px solid #e5e5e5;
-	color:#777;
-	text-align:center;
+  margin-top:100px;
+  padding-top:40px;
+  padding-bottom:40px;
+  border-top:1px solid #e5e5e5;
+  color:#777;
+  text-align:center;
 }
 
 .ck-footer-links {
-	margin-top:20px;
-	padding-left:0;
-	color:#999;
+  margin-top:20px;
+  padding-left:0;
+  color:#999;
 }
 
 .ck-footer-links li {
-	display:inline;
-	padding:0 2px;
+  display:inline;
+  padding:0 2px;
 }
 
 .ck-footer-links li:first-child {
-	padding-left:0;
+  padding-left:0;
 }
 
 .ck-section:last-child {
-	margin-bottom:0;
+  margin-bottom:0;
 }
 @media (min-width: 480px) {
-	.ck-masthead h1 {
-		font-size:60px;
-	}
-	
-	.ck-masthead .ck-lead {
-		font-size:18px;
-	}
-	
-	.ck-masthead .btn {
-		width:auto;
-	}
+  .ck-masthead h1 {
+    font-size:60px;
+  }
+  
+  .ck-masthead .ck-lead {
+    font-size:18px;
+  }
+  
+  .ck-masthead .btn {
+    width:auto;
+  }
 }
 
 @media (min-width: 768px) {
-	.container {
-		width:auto;
-	}
-	
-	.ck-footer p {
-		margin-bottom:0;
-	}
-	
-	.ck-masthead {
-		padding-top:80px;
-		padding-bottom:80px;
-	}
-	
-	.ck-masthead h1 {
-		font-size:72px;
-	}
-	
-	.ck-masthead .ck-lead {
-		font-size:24px;
-	}
+  .container {
+    width:auto;
+  }
+  
+  .ck-footer p {
+    margin-bottom:0;
+  }
+  
+  .ck-masthead {
+    padding-top:80px;
+    padding-bottom:80px;
+  }
+  
+  .ck-masthead h1 {
+    font-size:72px;
+  }
+  
+  .ck-masthead .ck-lead {
+    font-size:24px;
+  }
 }
