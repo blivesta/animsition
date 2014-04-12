@@ -13,8 +13,8 @@ http://blivesta.github.io/clickstream
 ##Usage
 ~~~ go
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="../jquery.easing.1.3.js"></script>
-<script src="../clickstream.min.js"></script>
+<script src="//cdn.jsdelivr.net/jquery.easing/1.3/jquery.easing.1.3.js"></script>
+<script src="../dist/clickstream.min.js"></script>
 
 $(document).ready(function() {
     
