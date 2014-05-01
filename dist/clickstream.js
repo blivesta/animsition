@@ -1,5 +1,5 @@
 /*!
- * clickstream v1.2.0
+ * clickstream v1.3.0
  * http://blivesta.github.io/clickstream/
  * Licensed under MIT
  * Copyright 2013-2014 blivesta
@@ -10,19 +10,19 @@
   var methods = {
     init: function(options) {
       options = $.extend({
+        inactiveClass: "clickstream-inactive",
+        inAnimation: "fade",
+        outAnimation: "fade",
+        inEasing: "easeOutExpo",
+        outEasing: "easeOutExpo",
         inSpeed: 800,
         outSpeed: 800,
         inDelay: 100,
         outDelay: 100,
-        inactiveClass: "clickstream-inactive",
-        inEffect: "fade",
-        outEffect: "fade",
-        inEasing: "easeOutExpo",
-        outEasing: "easeOutExpo",
-        defaultOpacity: 0,
+        inOpacity: 0,
         outOpacity: 0,
-        defaultPositinX: "10%",
-        defaultPositinY: "10%",
+        inPositinX: "10%",
+        inPositinY: "10%",
         outPositinX: "10%",
         outPositinY: "10%"
       }, options);
@@ -46,12 +46,12 @@
             var stream = function() {
               location.href = url;
             };
-            switch (options.outEffect) {
+            switch (options.outAnimation) {
              case "fade":
               $this.delay(options.outDelay).animate({
                 opacity: options.outOpacity
               }, options.outSpeed, options.outEasing, function() {
-                stream.call($this, options);
+                stream.call($this);
               });
               break;
 
@@ -60,7 +60,7 @@
                 opacity: options.outOpacity,
                 marginLeft: options.outPositinX
               }, options.outSpeed, options.outEasing, function() {
-                stream.call($this, options);
+                stream.call($this);
               });
               break;
 
@@ -69,7 +69,7 @@
                 opacity: options.outOpacity,
                 marginRight: options.outPositinX
               }, options.outSpeed, options.outEasing, function() {
-                stream.call($this, options);
+                stream.call($this);
               });
               break;
 
@@ -78,7 +78,7 @@
                 opacity: options.outOpacity,
                 marginTop: options.outPositinY
               }, options.outSpeed, options.outEasing, function() {
-                stream.call($this, options);
+                stream.call($this);
               });
               break;
 
@@ -87,7 +87,7 @@
                 opacity: options.outOpacity,
                 marginTop: "-" + options.outPositinY
               }, options.outSpeed, options.outEasing, function() {
-                stream.call($this, options);
+                stream.call($this);
               });
               break;
             }
@@ -98,7 +98,7 @@
     initPosition: function() {
       var $this = $(this);
       options = $this.data(namespace).options;
-      switch (options.inEffect) {
+      switch (options.inAnimation) {
        case "fade":
         $this.css({
           opacity: 0
@@ -107,29 +107,29 @@
 
        case "rightToLeft":
         $this.css({
-          opacity: options.defaultOpacity,
-          marginLeft: options.defaultPositinX
+          opacity: options.inOpacity,
+          marginLeft: options.inPositinX
         });
         break;
 
        case "leftToRight":
         $this.css({
-          opacity: options.defaultOpacity,
-          marginRight: options.defaultPositinX
+          opacity: options.inOpacity,
+          marginRight: options.inPositinX
         });
         break;
 
        case "bottomToTop":
         $this.css({
-          opacity: options.defaultOpacity,
-          marginTop: options.defaultPositinY
+          opacity: options.inOpacity,
+          marginTop: options.inPositinY
         });
         break;
 
        case "topToBottom":
         $this.css({
-          opacity: options.defaultOpacity,
-          marginTop: "-" + options.defaultPositinY
+          opacity: options.inOpacity,
+          marginTop: "-" + options.inPositinY
         });
         break;
       }
