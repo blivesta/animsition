@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>clickstream.js &middot; jquery plugin for add an effect to a page transition</title>
+<title>clickstream.js &middot; jquery plugin for animated page transitions</title>
 <!-- Vendor CSS -->
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
 <!-- Doc CSS -->
@@ -24,8 +24,9 @@ $(document).ready(function() {
 <body class="home">
   <main class="ck-masthead" id="content" role="main">
     <div class="container">
+      <span class="text-icon text-icon-lg text-icon-outline center-block">C</span>
       <h1>clickstream.js</h1>
-      <p class="ck-lead">jquery plugin for add an effect to a page transition</p>
+      <p class="ck-lead">jquery plugin for animated page transitions</p>
       <p><a href="https://github.com/blivesta/clickstream" class="btn btn- btn-lg">Download on GitHub</a></p>
       <div class="ck-sns">
         <iframe src="http://ghbtns.com/github-btn.html?user=blivesta&repo=clickstream&type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="53" height="20"></iframe>
@@ -39,7 +40,8 @@ $(document).ready(function() {
     
   <div class="container">
     <div class="ck-section">
-      <h1 id="clickstream-usage" class="page-header">Effect Example</h1>
+      <h1 id="clickstream-usage" class="page-header">Example</h1>
+      <p class="lead">clickstream.js is a simple and easy jQuery plugin used to add transition & easing effects to your page load.</p>
       <ul class="nav nav-pills">
         <li><a class="btn btn-default" href="./example/fade" target="_blank">Fade</a></li>
         <li><a class="btn btn-default" href="./example/right-to-left" target="_blank">Right to Left</a></li>
@@ -51,7 +53,6 @@ $(document).ready(function() {
       
     <div class="ck-section">
       <h1 id="clickstream-usage" class="page-header">Usage</h1>
-      <h3>JavaScript</h3>
 <pre>
 // vendor js
 &lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"&gt;&lt;/script&gt;
@@ -61,37 +62,37 @@ $(document).ready(function() {
 </pre>
 <pre>
 $('body').clickstream({
-  //遷移時のスピード。
-  inSpeed:          800,
-  outSpeed:         800,
+    // Class of the link that want to disable the 'clickstream' 
+    inactiveClass :   'clickstream-inactive',
   
-  //遷移時のディレイ時間。
-  inDelay :         100,
-  outDelay :        100,
+    // Animation type
+    inAnimation:         'fade', // or 'leftToRight','rightToLeft','topToBottom','bottomToTop'
+    outAnimation:        'fade', // or 'leftToRight','rightToLeft','topToBottom','bottomToTop'
   
-  //アニメーションさせずに遷移させたい場合に、そのaタグに付けるクラス名。
-  inactiveClass :   'clickstream-inactive',
+    // Easing type
+    //jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
+    inEasing:         'easeOutExpo',
+    outEasing:        'easeOutExpo',
+
+    // Animation speed
+    inSpeed:          800,
+    outSpeed:         800,
+
+    // Delay time
+    inDelay :         100,
+    outDelay :        100,
   
-  //アニメーションの種類。
-  inEffect:         'fade', // or 'leftToRight','rightToLeft','topToBottom','bottomToTop'
-  outEffect:        'fade', // or 'leftToRight','rightToLeft','topToBottom','bottomToTop'
+    // Opacity setting of start and end 
+    inOpacity:        0,
+    outOpacity:       0,
   
-  //アニメーションのイージングの種類。
-  //jQuery Easing v1.3 - http://gsgd.co.uk/sandbox/jquery/easing/
-  inEasing:         'easeOutExpo',
-  outEasing:        'easeOutExpo',
+    // Animation start position of X adn Y
+    inPositinX:       '10%',
+    inPositinY:       '10%',
   
-  //画面IN直前とOUT直前の透過量
-  defaultOpacity:   0,
-  outOpacity:       0,
-  
-  //画面IN直前のポジション（fade選択時以外の時に適応）
-  defaultPositinX:  '10%',
-  defaultPositinY:  '10%',
-  
-  //画面OUT直前のポジション（fade選択時以外の時に適応）
-  outPositinX:      '10%',
-  outPositinY:      '10%',
+    // Animation end position of X adn Y
+    outPositinX:      '10%',
+    outPositinY:      '10%'
 });
 </pre>
 
