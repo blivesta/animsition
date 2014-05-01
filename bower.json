@@ -1,0 +1,15 @@
+{
+  "name": "clickstream",
+  "version": "1.3.0",
+  "main": [
+    "dist/clickstream.js",
+    "dist/clickstream.min.js"
+  ],
+  "ignore": [
+    ".*",
+    "src",
+    "css",
+    "example",
+    "*.html"
+  ]
+}
