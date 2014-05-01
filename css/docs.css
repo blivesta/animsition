@@ -136,3 +136,41 @@ h1[id] {
     font-size:24px;
   }
 }
+.text-icon {
+  display: block;
+  width: 60px;
+  height: 60px;
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 58px;
+  color: #555;
+  text-align: center;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 10%;
+}
+.text-icon-circle {
+  border-radius: 50%;
+}
+.text-icon-sm {
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  line-height: 28px;
+}
+.text-icon-lg {
+  width: 144px;
+  height: 144px;
+  font-size: 108px;
+  line-height: 140px;
+}
+.text-icon-outline {
+  color: #fff;
+  background-color: transparent;
+  border: 1px solid #fff;
+}
