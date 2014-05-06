@@ -9,118 +9,335 @@
     
     pkg: grunt.file.readJSON('package.json'),
         
-    // Banner template
-    // ====================================================
     banner: 
       '/*!\n' +
       ' * <%= pkg.name %> v<%= pkg.version %>\n' +
       ' * <%= pkg.url %>\n' +
       ' * Licensed under <%= pkg.licenses %>\n' +
       ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-      ' * <%= pkg.author_url %>\n' +
+      ' * <%= pkg.authorUrl %>\n' +
       ' */\n',
-    
-    // js uglify
+    // ====================================================
+    clean: {
+      files: [
+        '<%= pkg.dist %>',
+        '<%= pkg.source %>/js/<%= pkg.name %>.js',
+        '<%= pkg.source %>/js/<%= pkg.name %>.min.js',
+        '<%= pkg.public %>'
+      ]
+    },
+    // ====================================================
+    less:{
+      source: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: ['<%= pkg.name %>.css.map'],
+          sourceMapFilename: '<%= pkg.source %>/css/<%= pkg.name %>.css.map'
+        },
+        files: {
+          '<%= pkg.source %>/css/<%= pkg.name %>.css': '<%= pkg.source %>/less/<%= pkg.name %>.less'
+        } 
+      },
+      minify: {
+        options: {
+          cleancss: true
+        },
+        files: {
+          '<%= pkg.source %>/css/<%= pkg.name %>.min.css': '<%= pkg.source %>/css/<%= pkg.name %>.css'
+        }
+      }
+    },
+    // ====================================================
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4', 'opera 12']
+      },
+      source: {
+        options: {
+          map: true
+        },
+        src: '<%= pkg.source %>/css/<%= pkg.name %>.css'
+      }
+    },
+    // ====================================================
+    csscomb: {
+      options: {
+        config: '<%= pkg.source %>/less/.csscomb.json'
+      },
+      source: {
+        expand: true,
+        cwd: '<%= pkg.source %>/css/',
+        src: ['*.css', '!*.min.css'],
+        dest: '<%= pkg.source %>/css/'
+      }
+    },    
+    // ====================================================
+    usebanner: {
+      options: {
+        position: 'top',
+        banner: '<%= banner %>'
+      },
+      source: {
+        src: '<%= pkg.source %>/css/*.css'
+      }
+    },
+    // ====================================================
+    csslint: {
+      options: {
+        csslintrc: '<%= pkg.source %>/less/.csslintrc'
+      },
+      source: [
+        '<%= pkg.source %>/css/<%= pkg.name %>.css'
+      ]
+    },
     // ====================================================
     uglify: {
-      develop:{
+      options: {
+        banner: '<%= banner %>',
+        report: 'min',
+        mangle: false,
+        compress:false,
+      },
+      source:{
         options: {
-          banner: '<%= banner %>',
-          report: 'min',
-          mangle: false,
-          compress:false,
           indentLevel: 2,
           beautify: true
         },
         files :  { 
-          'dist/<%= pkg.name %>.js' : [
-            'src/<%= pkg.name %>.js',
-           ]
+          '<%= pkg.source %>/js/<%= pkg.name %>.js' : [
+            '<%= pkg.source %>/js/plugin.js'
+          ]
         } 
       },
       minify:{
-        options: {
-          banner: '<%= banner %>',
-          report: 'min',
-          mangle: false,
-          compress:false,
-        },
         files :  { 
-          'dist/<%= pkg.name %>.min.js' : ['dist/<%= pkg.name %>.js' ]
+          '<%= pkg.source %>/js/<%= pkg.name %>.min.js' : [
+            '<%= pkg.source %>/js/<%= pkg.name %>.js' 
+          ]
         } 
       }
     },
-    
-    // js jshint
     // ====================================================
     jshint: {
       options: {
-        jshintrc: '.jshintrc',
+        jshintrc: '<%= pkg.source %>/js/.jshintrc',
       },
-      js: {
-        src: 'src/<%= pkg.name %>.js'
+      grunt: {
+        src: 'Gruntfile.js'
+      },
+      source: {
+        src: [
+          '<%= pkg.source %>/js/<%= pkg.name %>.js',
+          '<%= pkg.source %>/js/<%= pkg.name %>.min.js'
+        ]
       }
     },
-    
-    // connect
+    // ====================================================
+    validation: {
+      options: {
+        charset: 'utf-8',
+        doctype: 'HTML5',
+        failHard: true,
+        reset: true,
+        relaxerror: [
+          'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
+          'Element img is missing required attribute src.'
+        ]
+      },
+      files: {
+        src: [
+          '<%= pkg.public %>/index.html',
+          '<%= pkg.public %>/**/*.html'
+        ]
+      }
+    },
+    // ====================================================
+    copy: {
+      dist: {
+        expand: true,
+        cwd: './<%= pkg.source %>',
+        src: [
+          'js/<%= pkg.name %>.js',
+          'js/<%= pkg.name %>.min.js',
+          'css/*.css',
+          'css/*.map'
+        ],
+        dest: './<%= pkg.dist %>'
+      }
+    },
     // ====================================================
     connect: {
       server: {
         options: {
-          port: 9001,
+          port: 9999,
           hostname: '0.0.0.0',
-          base: './',
+          base: '<%= pkg.public %>/',
           open: {
             server: {
               path: 'http://<%= connect.server.options.hostname %>:<%= connect.server.options.port %>'
             }
           }
-        },
-        livereload: {
-          options: {
-            open: true,
-          }
         }
       }
     },
-    
-    // File watch
+    // ====================================================
+    notify: {
+      options: {
+        title: '<%= pkg.name %> Grunt Notify',
+      },
+      success:{
+        options: {
+          message: 'Success!',
+        }
+      }
+    },
+    // ====================================================
+    bower: {
+      install: {
+        options: {
+          targetDir: '<%= pkg.source %>/vendor',
+          layout: 'byComponent',
+          install: true,
+          verbose: false,
+          cleanTargetDir: true,
+          cleanBowerDir: false
+        }
+      }
+    },
+    // ====================================================
+    jekyll: {
+      dist: {
+        options: {
+          config: '_config.yml'
+        }
+      }
+    },
     // ====================================================
     watch: {
+      options: {
+        spawn: false,
+        livereload : true
+      },
+      grunt: {
+        files: ['<%= jshint.grunt.src %>'],
+        tasks: [
+          'jshint:grunt',
+          'notify'
+        ]
+      },
       js: {
         files: [
-          'src/*.js'
+          '<%= pkg.source %>/js/*.js'
         ],
         tasks: [
           'uglify',
-          'jshint:js',
-        ],
-        options: {
-          livereload: true
-        }
+          'jshint:source',
+          //'jscs:source',
+          'jekyll',
+          'notify'
+        ]
       },
       html: {
         files: [
-          '*.html'
+          '<%= pkg.source %>/*.html',
+          '<%= pkg.source %>/_includes/*',
+          '<%= pkg.source %>/_posts/*',
+          '<%= pkg.source %>/_layouts/*'
         ],
+        tasks: [
+          'build-html',
+          'notify'
+        ]
+      },
+      less: {
+        files: [
+          '<%= pkg.source %>/less/*.less',
+          '<%= pkg.source %>/less/**/*.less'
+        ],
+        tasks: [
+          'build-less',
+          'jekyll',
+          'notify'
+        ]
+      }
+    },
+    // ====================================================
+    buildcontrol: {
+      options: {
+        dir: '<%= pkg.public %>',
+        commit: true,
+        push: true,
+        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+      },
+      pages: {
         options: {
-          livereload: true
+          remote: 'git@github.com:<%= pkg.repository.user %>/<%= pkg.name %>.git',
+          branch: 'gh-pages'
         }
       }
-    }  
-    
+    }        
+     
   });
 
-  // Default task
+  //publicに指定したディレクトリをgh-pagesブランチにデプロイ。
+  // ====================================================
+  grunt.registerTask('deploy', [
+    'buildcontrol',
+    'notify'
+  ]);
+
+  // lessコンパイル
+  // ====================================================
+  grunt.registerTask('build-less', [
+    'less:source', 
+    'autoprefixer:source', 
+    'usebanner', 
+    'csscomb:source', 
+    'less:minify',
+  ]);
+
+  // jsコンパイル
+  // ====================================================
+  grunt.registerTask('build-js', [
+    'uglify'
+  ]);
+  
+  // jekyllコンパイル
+  // ====================================================
+  grunt.registerTask('build-html', [
+    'jekyll'
+  ]);
+
+  // js,css,htmlのテスト
+  // ====================================================
+  grunt.registerTask('test', [
+    'jshint:source',
+    //'csslint',
+    'validation'
+  ]);
+
+  // ベンダーファイルのインストール →　コンパイル　→　テスト　→　ウォッチ
+  // ====================================================
+  grunt.registerTask('build', [
+    'clean',
+    'bower',
+    'build-less',
+    'build-js',
+    'build-html',
+    'test',
+    'copy'
+  ]);
+  
+  // サーバー起動　→　ウオッチ
   // ====================================================
   grunt.registerTask('default', function () {
     grunt.log.warn('`grunt` to start a watch.');
     grunt.task.run([
-      'uglify',
-      'jshint',
       'connect',
       'watch'
     ]);
   });
-  
+    
 };

@@ -1,9 +1,9 @@
 {
   "name": "clickstream",
-  "version": "1.3.0",
+  "version": "2.0.0",
   "main": [
-    "dist/clickstream.js",
-    "dist/clickstream.min.js"
+    "dist/js/clickstream.js",
+    "dist/js/clickstream.min.js"
   ],
   "ignore": [
     ".*",
