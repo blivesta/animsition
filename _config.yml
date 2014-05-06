@@ -1,0 +1,18 @@
+markdown:         redcarpet
+pygments:         true
+permalink:        pretty
+exclude:          ['less','vendor','*.json','Gruntfile.js','bower_components','node_modules']
+source:           ./src
+destination:      ./_gh_pages
+encoding:         UTF-8
+url:              http://blivesta.github.io/clickstream/
+title:            clickstream
+author:           blivesta
+author_url:       http://blivesta.com
+current_version:  2.0.0
+twitter:          blivesta
+tag:              
+git_fork_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=fork&amp;count=true
+git_star_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=watch&amp;count=true
+repo:             clickstream
+repo_url:         https://github.com/blivesta/clickstream

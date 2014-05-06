@@ -1,0 +1,13 @@
+{% include head.html %}
+<body class="{{ page.class }} clickstream clickstream-in {{ page.inAnimateClass }}" data-in-animate="{{ page.inAnimateClass }}" data-out-animate="{{ page.outAnimateClass }}">
+  <div class="site-wrapper">
+
+    {% include header.html %}
+    
+    {{ content }}
+
+    {% include footer.html %}
+
+  </div><!-- /.site-wrapper -->
+</body>
+</html>

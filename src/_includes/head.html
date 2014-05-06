@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>
+    {% if page.title == site.title %}
+      {{ page.title }}
+    {% else %}
+      {{ page.title }} &middot; {{ site.title }}
+    {% endif %}
+  </title>
+  {% if page.class == 'home' %}
+  <meta name="description" content="{{ page.title }}">
+  {% endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- icon -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ page.base_url }}ico/touch-icon-144.png">
+  <link rel="shortcut icon" href="{{ page.base_url }}ico/favicon.ico">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//rawgithub.com/blivesta/0788a01a58f262b0b2b0/raw/syntax.css">
+  <link rel="stylesheet" href="//rawgithub.com/blivesta/ashiba/master/src/css/ashiba.min.css">
+<!--   <link rel="stylesheet" href="{{ page.base_url }}css/ashiba.css">
+ --><!--   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css">
+ -->  <link rel="stylesheet" href="{{ page.base_url }}css/clickstream.css">
+
+  <!-- Vendor js -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  
+  <script type="text/javascript" src="{{ page.base_url }}js/clickstream.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $(".clickstream").clickstream();
+}); 
+</script>
+  <!-- Google analytics -->
+  <script type="text/javascript">
+   //  
+  </script>
+</head>
