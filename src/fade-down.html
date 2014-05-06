@@ -1,0 +1,49 @@
+---
+layout: default
+title: Fade-down Class
+lead: fade-in-down, fade-out-down
+class: page-fade-down
+inAnimateClass : fade-in-down
+outAnimateClass : fade-out-down
+base_url: "../"
+---
+<main class="site-masthead" role="main">
+  <div class="container">
+    <h1>{{ page.title }}</h1>
+    <p class="lead">{{ page.lead }}</p>
+  </div><!-- /.container -->
+</main>
+
+<div class="site-body">
+  <div class="site-body-inner container">
+  
+    <div class="site-section">
+      <h2 id="clickstream-usage" class="site-section-title">Example</h2>
+      <div class="site-section-body">
+        <p>
+          <a class="btn btn-default btn-lg clickstream-link" href="./">{{ page.title }}</a>
+          <a class="btn btn-default btn-lg" href="../">Home(inactive)</a>
+        </p>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <h2 class="site-section-title">Usage</h2>
+      <p class="lead"></p>
+      <div class="site-section-body">
+
+{% highlight html %}
+<link rel="stylesheet" href="{{ page.base_url }}css/clickstream.css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="{{ page.base_url }}dist/js/clickstream.min.js"></script>
+<body class="clickstream clickstream-in {{ page.inAnimateClass }}" data-in-animate="{{ page.inAnimateClass }}" data-out-animate="{{ page.outAnimateClass }}">
+<a class="clickstream-link" href="./">clickstream link</a>
+</body>
+{% endhighlight %}
+
+      </div>
+    </div>
+
+  </div><!-- /.container -->
+</div><!-- /.site-body -->
+  
