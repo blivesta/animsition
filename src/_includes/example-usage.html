@@ -1,0 +1,26 @@
+{% highlight html %}
+<!-- clickstream CSS -->
+<link rel="stylesheet" href="{{ page.base_url }}css/clickstream.css">
+
+<!-- vendor js -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+<!-- clickstream js -->
+<script src="{{ page.base_url }}dist/js/clickstream.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $(".clickstream").clickstream();
+}); 
+</script>
+
+<body 
+  class="clickstream clickstream-in {{ page.inAnimateClass }}" 
+  data-in-animate="{{ page.inAnimateClass }}" 
+  data-out-animate="{{ page.outAnimateClass }}"
+>
+
+<a class="clickstream-link" href="./">clickstream link</a>
+
+</body>
+{% endhighlight %}

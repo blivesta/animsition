@@ -1,7 +1,7 @@
 ---
-layout: default
+layout: home
 title: jquery plugin for animated page transitions. 
-class: page-home
+class:
 inAnimateClass : flipInX
 outAnimateClass : flipOutX
 base_url: "./"
@@ -21,46 +21,29 @@ base_url: "./"
   <div class="site-body-inner container">
   
     <div class="site-section">
-      <h2 id="clickstream-usage" class="site-section-title">Example</h2>
+      <!--<h2 id="clickstream-usage" class="site-section-title">Example</h2> -->      
       <p class="lead">clickstream.js is a simple and easy jQuery plugin used to add transition & easing effects to your page load.</p>
+
+      <h2 id="clickstream-usage" class="site-section-title">Example links</h2>
+
       <div class="site-section-body">
         <ul class="nav nav-pills">
-          <li><a class="btn btn-default clickstream-link" href="./fade" target="_blank">Fade</a></li>
+          {% include example-nav.html %}
+
+<!--           <li><a class="btn btn-default clickstream-link" href="./fade" target="_blank">Fade</a></li>
           <li><a class="btn btn-default clickstream-link" href="./fade-down" target="_blank">Fade down</a></li>
           <li><a class="btn btn-default clickstream-link" href="./fade-up" target="_blank">Fade up</a></li>
           <li><a class="btn btn-default clickstream-link" href="./fade-left" target="_blank">Fade left</a></li>
           <li><a class="btn btn-default clickstream-link" href="./fade-right" target="_blank">Fade right</a></li>
-        </ul>
+ -->        </ul>
       </div>
     </div>
 
     <div class="site-section">
       <h2 class="site-section-title">Usage</h2>
-      <p class="lead">install vendor files → Build app</p>
+      <p class="lead"></p>
       <div class="site-section-body">
-{% highlight html %}
-// css
-<link rel="stylesheet" href="{{ page.base_url }}css/clickstream.css">
-
-// vendor js
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-// clickstream
-<script src="{{ page.base_url }}dist/js/clickstream.min.js"></script>
-{% endhighlight %}
-    
-{% highlight html %}
-$(document).ready(function() {
-  $(".clickstream").clickstream();
-}); 
-{% endhighlight %}
-
-{% highlight html %}
-<body class="clickstream clickstream-in" data-in-animate="fadeIn" data-out-animate="fadeOut">
-<a class="clickstream-link" href="./">clickstream link</a>
-</body>
-{% endhighlight %}
-  
+        {% include example-usage.html %}
       </div>
     </div>
 
