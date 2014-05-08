@@ -20,21 +20,17 @@
           var inAnimate = $this.data('in-animate'),
               outAnimate = $this.data('out-animate'),
               inDelay =  $('.'+options.inClass).css('animation-duration').replace(/s/g,'') * 1000;
-          console.log(inDelay);
 
           setTimeout(function(){
             $this
               .removeClass(inAnimate +' '+ options.inClass)
               .addClass(options.outClass);
-          },inDelay);       
-
-
+          },inDelay);
 
           $('.'+options.linkClass).on('click.' + namespace, function(e) {
             e.preventDefault();
             var url = $(this).attr('href'),
                 outDelay =  $('.'+options.outClass).css('animation-duration').replace(/s/g,'') * 1000;
-            console.log(outDelay);
                       
             var stream = function(){
               location.href = url;

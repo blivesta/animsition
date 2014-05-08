@@ -22,14 +22,12 @@
             options: options
           });
           var inAnimate = $this.data("in-animate"), outAnimate = $this.data("out-animate"), inDelay = $("." + options.inClass).css("animation-duration").replace(/s/g, "") * 1e3;
-          console.log(inDelay);
           setTimeout(function() {
             $this.removeClass(inAnimate + " " + options.inClass).addClass(options.outClass);
           }, inDelay);
           $("." + options.linkClass).on("click." + namespace, function(e) {
             e.preventDefault();
             var url = $(this).attr("href"), outDelay = $("." + options.outClass).css("animation-duration").replace(/s/g, "") * 1e3;
-            console.log(outDelay);
             var stream = function() {
               location.href = url;
             };
