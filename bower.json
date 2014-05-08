@@ -2,6 +2,8 @@
   "name": "clickstream",
   "version": "2.0.0",
   "main": [
+    "dist/css/clickstream.css",
+    "dist/css/clickstream.min.css",
     "dist/js/clickstream.js",
     "dist/js/clickstream.min.js"
   ],
