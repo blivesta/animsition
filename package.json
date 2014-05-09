@@ -7,6 +7,10 @@
   "licenses": "MIT",
   "source": "./src",
   "dist": "./dist",
+  "repository": {
+    "user": "blivesta",
+    "type": "git"
+  },
   "public": "./_gh_pages",
   "dependencies": {},
   "devDependencies": {
