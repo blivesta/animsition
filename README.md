@@ -1,6 +1,6 @@
 clickstream
 ==================
-clickstream is a simple and easy jQuery plugin used to add page transition & css animations to page load. 
+clickstream is a simple and easy jQuery plugin used to add page transition on css animations.
 
 ##Example
 http://blivesta.github.io/clickstream
