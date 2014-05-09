@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+  <title>
+    
+      Flip X &middot; clickstream
+    
+  </title>
+  
+  <!-- icon -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../ico/touch-icon-144.png">
+  <link rel="shortcut icon" href="../ico/favicon.ico">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//rawgithub.com/blivesta/0788a01a58f262b0b2b0/raw/syntax.css">
+  <link rel="stylesheet" href="//rawgithub.com/blivesta/ashiba/master/src/css/ashiba.min.css">
+
+  <!-- clickstream CSS -->
+  <link rel="stylesheet" href="../css/clickstream.css">
+
+  <!-- Google analytics -->
+  <script src="//blivesta.com/js/ga.js"></script>
+
+  <!-- Vendor js -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+  <!-- clickstream js -->
+  <script src="../js/clickstream.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    
+      $(".clickstream").clickstream();
+
+      $(".site-example-nav li a").addClass("btn btn-default");
+  }); 
+
+  </script>
+  
+</head>
+<body class="site-flip-x site-base clickstream clickstream-in flip-in-x" data-in-animate="flip-in-x" data-out-animate="flip-out-x">
+  <div class="site-wrapper">
+
+    <header class="site-header navbar navbar-default navbar-static-top" id="top" role="banner">
+  <div class="site-header-inner container">
+    <div class="navbar-header">
+      <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="site-header-brand navbar-brand" href="../">clickstream</a>
+    </div>
+    <nav class="collapse navbar-collapse" role="navigation">
+      <ul class="nav navbar-nav dropdown">
+		    <li><a data-toggle="dropdown" href="#">Example</a>
+				  <ul class="dropdown-menu" role="menu">
+		        <li><a class="clickstream-link" href="../fade" >Fade</a></li>
+<li><a class="clickstream-link" href="../fade-down">Fade down</a></li>
+<li><a class="clickstream-link" href="../fade-up">Fade up</a></li>
+<li><a class="clickstream-link" href="../fade-left">Fade left</a></li>
+<li><a class="clickstream-link" href="../fade-right">Fade right</a></li>
+<li><a class="clickstream-link" href="../rotate">Rotate</a></li>
+<li><a class="clickstream-link" href="../flip-x">Flip X</a></li>
+<li><a class="clickstream-link" href="../flip-y">Flip Y</a></li>
+<li><a class="clickstream-link" href="../zoom">Zoom</a></li>
+				  </ul>
+		    </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      
+      </ul>
+    </nav>
+  </div>
+</header>
+
+		<main class="site-masthead" role="main">
+		  <div class="container">
+		    <h1>Flip X</h1>
+		    <p class="lead">flip-in-x to flip-out-x</p>
+		  </div><!-- /.container -->
+		</main>
+
+		<div class="site-body">
+		  <div class="site-body-inner container">
+
+		    <div class="site-section">
+  <h2 class="site-section-title">Example links</h2>
+  <p class="lead"></p>
+  <div class="site-section-body">
+    <p>
+  <a class="btn btn-primary btn-lg clickstream-link" href="./">
+    <span class="glyphicon glyphicon-ok-circle"></span>&nbsp;Flip X
+  </a>
+  <a class="btn btn-default btn-lg" href="./">
+    <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;Flip X (Normal link)
+  </a>
+</p>
+  </div>
+</div>
+<div class="site-section">
+  <h2 class="site-section-title">Setup</h2>
+  <p class="lead"></p>
+  <div class="site-section-body">
+    <div class="highlight"><pre><code class="html"><span class="c">&lt;!-- clickstream CSS --&gt;</span>
+<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;../css/clickstream.min.css&quot;</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- vendor js --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- clickstream js --&gt;</span>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../dist/js/clickstream.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
+
+<span class="nt">&lt;script&gt;</span>
+<span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.clickstream&quot;</span><span class="p">).</span><span class="nx">clickstream</span><span class="p">();</span>
+<span class="p">});</span> 
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="nt">&lt;body</span> 
+  <span class="na">class=</span><span class="s">&quot;clickstream clickstream-in flip-in-x&quot;</span> 
+  <span class="na">data-in-animate=</span><span class="s">&quot;flip-in-x&quot;</span> 
+  <span class="na">data-out-animate=</span><span class="s">&quot;flip-out-x&quot;</span>
+<span class="nt">&gt;</span>
+
+<span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;clickstream-link&quot;</span> <span class="na">href=</span><span class="s">&quot;./&quot;</span><span class="nt">&gt;</span>clickstream link<span class="nt">&lt;/a&gt;</span>
+
+<span class="nt">&lt;/body&gt;</span>
+</code></pre></div>
+
+  </div>
+</div>
+		  
+		  </div><!-- /.container -->
+		</div><!-- /.site-body -->
+
+    <footer class="site-footer">
+  <div class="site-footer-inner container">
+	  <h2>clickstream</h2>
+    <p>Currently v2.0.0 / Author <a href="http://blivesta.com">blivesta</a>
+    <br>Code licensed under the MIT license.</p>
+        <ul class="site-social">
+  <li>
+    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=fork&amp;count=true" width="100" height="20"></iframe>
+  </li>
+  <li>
+    <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=watch&amp;count=true" width="100" height="20"></iframe>
+  </li>
+  <li>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-related="blivesta" data-count="true" data-hashtags="">Tweet</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  </li>
+</ul>       
+
+  </div>
+</footer>
+
+  </div><!-- /.site-wrapper -->
+</body>
+</html>
