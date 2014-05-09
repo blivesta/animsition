@@ -42,3 +42,7 @@ $(document).ready(function() {
 
 </body>
 ~~~
+
+##License
+
+Released under the MIT license.
