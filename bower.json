@@ -10,8 +10,9 @@
   "ignore": [
     ".*",
     "src",
-    "css",
-    "example",
-    "*.html"
+    "*.yml",
+    "*.html",
+    "*.json",
+    "gruntfile.js"
   ]
 }
