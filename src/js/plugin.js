@@ -8,7 +8,7 @@
         linkClass : 'clickstream-link'
       }, options);
       return this.each(function(){
-        var //_this = this,
+        var _this = this,
             $this = $(this),
             data = $this.data(namespace);
         if (!data) {        
@@ -21,28 +21,31 @@
               outAnimate = $this.data('animate-out'),
               inDelay =  $('.'+options.inClass).css('animation-duration').replace(/s/g,'') * 1000;
 
-          setTimeout(function(){
+          $(window).load(function() {
             $this
-              .removeClass(inAnimate +' '+ options.inClass)
-              .addClass(options.outClass);
-          },inDelay);
+              .addClass(inAnimate);
+            setTimeout(function(){
+              $this
+                .removeClass(inAnimate +' '+ options.inClass)
+                .addClass(options.outClass)
+                .css({
+                  "opacity":1
+                });
+            },inDelay);
+          }); 
 
           $('.'+options.linkClass).on('click.' + namespace, function(e) {
             e.preventDefault();
             var url = $(this).attr('href'),
-                outDelay =  $('.'+options.outClass).css('animation-duration').replace(/s/g,'') * 1000;
-                      
-            var stream = function(){
-              location.href = url;
-            };
-            
+                outDelay =  $('.'+options.outClass).css('animation-duration').replace(/s/g,'') * 1000,
+                stream = function(){
+                  location.href = url;
+                };
             $this
               .addClass(outAnimate);
-
             setTimeout(function(){
-             stream.call();
-            },outDelay);            
-
+             stream.call(_this);
+            },outDelay);        
           });
 
         }

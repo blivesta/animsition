@@ -8,6 +8,7 @@
 
 .clickstream {
   position: relative;
+  opacity: 0;
 
   -webkit-animation-fill-mode: both;
        -o-animation-fill-mode: both;
@@ -19,9 +20,9 @@
           animation-duration: 1.5s;
 }
 .clickstream-out {
-  -webkit-animation-duration: 1.5s;
-       -o-animation-duration: 1.5s;
-          animation-duration: 1.5s;
+  -webkit-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
 }
 @-webkit-keyframes fade-in {
   0% {
@@ -729,7 +730,7 @@
     -webkit-transform: scale(.3);
             transform: scale(.3);
   }
-  50% {
+  100% {
     opacity: 1;
   }
 }
@@ -739,7 +740,7 @@
     -o-transform: scale(.3);
        transform: scale(.3);
   }
-  50% {
+  100% {
     opacity: 1;
   }
 }
@@ -750,7 +751,7 @@
          -o-transform: scale(.3);
             transform: scale(.3);
   }
-  50% {
+  100% {
     opacity: 1;
   }
 }
