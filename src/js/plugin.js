@@ -17,8 +17,8 @@
             options: options
           });          
 
-          var inAnimate = $this.data('in-animate'),
-              outAnimate = $this.data('out-animate'),
+          var inAnimate = $this.data('animate-in'),
+              outAnimate = $this.data('animate-out'),
               inDelay =  $('.'+options.inClass).css('animation-duration').replace(/s/g,'') * 1000;
 
           setTimeout(function(){

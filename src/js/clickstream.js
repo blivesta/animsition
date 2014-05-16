@@ -21,7 +21,7 @@
           $this.data(namespace, {
             options: options
           });
-          var inAnimate = $this.data("in-animate"), outAnimate = $this.data("out-animate"), inDelay = $("." + options.inClass).css("animation-duration").replace(/s/g, "") * 1e3;
+          var inAnimate = $this.data("animate-in"), outAnimate = $this.data("animate-out"), inDelay = $("." + options.inClass).css("animation-duration").replace(/s/g, "") * 1e3;
           setTimeout(function() {
             $this.removeClass(inAnimate + " " + options.inClass).addClass(options.outClass);
           }, inDelay);
