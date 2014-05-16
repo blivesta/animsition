@@ -33,9 +33,9 @@ $(document).ready(function() {
 </script>
 
 <body 
-  class="clickstream clickstream-in fade-in" 
-  data-in-animate="fade-in" 
-  data-out-animate="fade-out-down"
+  class="clickstream clickstream-in" 
+  data-animate-in="fade-in" 
+  data-animate-out="fade-out-down"
 >
 
 <a class="clickstream-link" href="./">clickstream link</a>
