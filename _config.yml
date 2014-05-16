@@ -11,7 +11,7 @@ repo:             clickstream
 repo_url:         https://github.com/blivesta/clickstream
 author:           blivesta
 author_url:       http://blivesta.com
-current_version:  2.0.0
+current_version:  2.1.0
 twitter:          blivesta
 tag:              
 git_fork_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=fork&amp;count=true
