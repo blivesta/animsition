@@ -1,6 +1,6 @@
 {
   "name": "clickstream",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "main": [
     "dist/css/clickstream.css",
     "dist/css/clickstream.min.css",
