@@ -315,7 +315,7 @@
   grunt.registerTask('test', [
     'jshint:source',
     //'csslint',
-    'validation'
+    //'validation'
   ]);
 
   // ベンダーファイルのインストール →　コンパイル　→　テスト　→　ウォッチ
