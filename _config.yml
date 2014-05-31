@@ -14,6 +14,6 @@ author_url:       http://blivesta.com
 current_version:  2.2.0
 twitter:          blivesta
 tag:              
-git_fork_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=fork&amp;count=false
-git_star_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=watch&amp;count=false
+git_fork_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=fork&amp;count=true
+git_star_btn:     http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=clickstream&amp;type=watch&amp;count=true
 git_follow_btn:   http://ghbtns.com/github-btn.html?user=blivesta&type=follow&count=false
