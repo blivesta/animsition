@@ -1,5 +1,5 @@
 /*!
- * clickstream v2.2.0
+ * clickstream v2.2.1
  * http://blivesta.github.io/clickstream/
  * Licensed under MIT
  * Copyright 2013-2014 blivesta

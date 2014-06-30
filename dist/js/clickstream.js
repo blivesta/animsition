@@ -1,5 +1,5 @@
 /*!
- * clickstream v2.2.0
+ * clickstream v2.2.1
  * http://blivesta.github.io/clickstream/
  * Licensed under MIT
  * Copyright 2013-2014 blivesta
@@ -28,7 +28,7 @@
           $(window).load(function() {
             methods.pageIn.call(_this, inAnimate);
           });
-          $("." + options.linkClass).on("click." + namespace, function() {
+          $("." + options.linkClass).on("click." + namespace, function(event) {
             event.preventDefault();
             var $self = $(this);
             methods.pageOut.call(_this, $self, outAnimate);
@@ -40,25 +40,25 @@
       var $this = $(this);
       var options = $this.data(namespace).options;
       var inDelay = $("." + options.inClass).css("animation-duration").replace(/s/g, "") * 1e3;
+      $this.addClass(inAnimate);
       setTimeout(function() {
         $this.removeClass(inAnimate + " " + options.inClass).addClass(options.outClass).css({
           opacity: 1
         });
       }, inDelay);
-      $this.addClass(inAnimate);
     },
     pageOut: function($self, outAnimate) {
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var outDelay = $("." + options.outClass).css("animation-duration").replace(/s/g, "") * 1e3;
       var url = $self.attr("href");
+      var outDelay = $("." + options.outClass).css("animation-duration").replace(/s/g, "") * 1e3;
       var stream = function() {
         location.href = url;
       };
+      $this.addClass(outAnimate);
       setTimeout(function() {
         stream();
       }, outDelay);
-      $this.addClass(outAnimate);
     },
     destroy: function() {
       return this.each(function() {
