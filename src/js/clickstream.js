@@ -12,7 +12,8 @@
       options = $.extend({
         inClass: "clickstream-in",
         outClass: "clickstream-out",
-        linkClass: "clickstream-link"
+        linkClass: "clickstream-link",
+        touchSupport: true
       }, options);
       return this.each(function() {
         var _this = this;
@@ -20,6 +21,8 @@
         var data = $this.data(namespace);
         var inAnimate = $this.data("animate-in");
         var outAnimate = $this.data("animate-out");
+        var bindingEvent = "click." + namespace;
+        
         if (!data) {
           options = $.extend({}, options);
           $this.data(namespace, {
@@ -28,7 +31,10 @@
           $(window).load(function() {
             methods.pageIn.call(_this, inAnimate);
           });
-          $("." + options.linkClass).on("click." + namespace, function(event) {
+          if (options.touchSupport) {
+            bindingEvent += " touchstart." + namespace;
+          }
+          $("." + options.linkClass).on(bindingEvent, function(event) {
             event.preventDefault();
             var $self = $(this);
             methods.pageOut.call(_this, $self, outAnimate);
