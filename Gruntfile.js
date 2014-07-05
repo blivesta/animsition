@@ -107,7 +107,7 @@
         },
         files :  { 
           '<%= pkg.source %>/js/<%= pkg.name %>.js' : [
-            '<%= pkg.source %>/js/plugin.js'
+            '<%= pkg.source %>/js/origin.js'
           ]
         } 
       },
@@ -162,7 +162,8 @@
           'js/<%= pkg.name %>.js',
           'js/<%= pkg.name %>.min.js',
           'css/*.css',
-          'css/*.map'
+          'css/*.map',
+          'less/**'
         ],
         dest: './<%= pkg.dist %>'
       }
@@ -234,7 +235,6 @@
         tasks: [
           'uglify',
           'jshint:source',
-          //'jscs:source',
           'jekyll',
           'notify'
         ]
@@ -258,6 +258,7 @@
         ],
         tasks: [
           'build-less',
+          'csslint',
           'jekyll',
           'notify'
         ]
@@ -281,14 +282,12 @@
      
   });
 
-  //publicに指定したディレクトリをgh-pagesブランチにデプロイ。
   // ====================================================
   grunt.registerTask('deploy', [
     'buildcontrol',
     'notify'
   ]);
 
-  // lessコンパイル
   // ====================================================
   grunt.registerTask('build-less', [
     'less:source', 
@@ -298,27 +297,23 @@
     'less:minify',
   ]);
 
-  // jsコンパイル
   // ====================================================
   grunt.registerTask('build-js', [
     'uglify'
   ]);
   
-  // jekyllコンパイル
   // ====================================================
   grunt.registerTask('build-html', [
     'jekyll'
   ]);
 
-  // js,css,htmlのテスト
   // ====================================================
   grunt.registerTask('test', [
     'jshint:source',
-    //'csslint',
+    'csslint',
     //'validation'
   ]);
 
-  // ベンダーファイルのインストール →　コンパイル　→　テスト　→　ウォッチ
   // ====================================================
   grunt.registerTask('b', [
     'clean',
@@ -330,7 +325,6 @@
     'copy'
   ]);
   
-  // サーバー起動　→　ウオッチ
   // ====================================================
   grunt.registerTask('default', function () {
     grunt.log.warn('`grunt` to start a watch.');

@@ -1,8 +1,8 @@
 {
-  "name": "clickstream",
+  "name": "animsition",
   "author": "blivesta",
-  "version": "2.2.1",
-  "url": "http://blivesta.github.io/clickstream/",
+  "version": "3.0.0",
+  "url": "http://blivesta.github.io/animsition/",
   "author_url": "http://blivesta.com/",
   "licenses": "MIT",
   "source": "./src",

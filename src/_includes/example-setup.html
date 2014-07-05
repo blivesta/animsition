@@ -1,26 +1,36 @@
 {% highlight html %}
-<!-- clickstream CSS -->
-<link rel="stylesheet" href="{{ page.base_url }}css/clickstream.min.css">
+<!-- animsition CSS -->
+<link rel="stylesheet" href="{{ page.base_url }}css/animsition.min.css">
 
 <!-- vendor js -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-<!-- clickstream js -->
-<script src="{{ page.base_url }}dist/js/clickstream.min.js"></script>
+<!-- animsition js -->
+<script src="{{ page.base_url }}dist/js/animsition.min.js"></script>
 
 <script>
 $(document).ready(function() {
-  $(".clickstream").clickstream();
+  $(".animsition").animsition({
+    inClass     : 'animsition-in-duration',
+    outClass    : 'animsition-out-duration',
+    linkElement : '.animsition-link'
+  });
 }); 
 </script>
 
-<body 
-  class="clickstream clickstream-in" 
-  data-animate-in="{{ page.inAnimateClass }}" 
-  data-animate-out="{{ page.outAnimateClass }}"
+<div 
+  class="animsition animsition-in-duration" 
+  data-animsition-in="{{ page.inAnimateClass }}" 
+  data-animsition-out="{{ page.outAnimateClass }}"
 >
 
-<a class="clickstream-link" href="./">clickstream link</a>
+<a href="./page1" class="animsition-link" data-animsition-out="flip-out-y">
+  animsition link 1
+</a>
 
-</body>
+<a href="./page2" class="animsition-link" data-animsition-out="rotate-out">
+  animsition link 2
+</a>
+
+</div>
 {% endhighlight %}
