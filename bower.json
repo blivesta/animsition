@@ -1,11 +1,12 @@
 {
-  "name": "clickstream",
-  "version": "2.2.1",
+  "name": "animsition",
+  "version": "3.0.0",
   "main": [
-    "dist/css/clickstream.css",
-    "dist/css/clickstream.min.css",
-    "dist/js/clickstream.js",
-    "dist/js/clickstream.min.js"
+    "dist/less/**",
+    "dist/css/animsition.css",
+    "dist/css/animsition.min.css",
+    "dist/js/animsition.js",
+    "dist/js/animsition.min.js"
   ],
   "ignore": [
     ".*",
