@@ -1,9 +1,12 @@
-clickstream
+animsition
 ==================
-clickstream is a simple and easy jQuery plugin used to add page transition on css animations.
+
+animsition is a simple and easy jQuery plugin used to add page transition on css animations.
+
+*changed the name to "animsition" from "clickstream".
 
 ##Example
-http://blivesta.github.io/clickstream
+http://blivesta.github.io/animsition
 
 ##Animations class
 ####Fade
@@ -17,30 +20,40 @@ http://blivesta.github.io/clickstream
 
 ##Setup
 ~~~ go
-<!-- clickstream css -->
-<link rel="stylesheet" href="dist/css/clickstream.min.css">
+<!-- animsition css -->
+<link rel="stylesheet" href="dist/css/animsition.min.css">
 
 <!-- vendor js -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-<!-- clickstream js -->
-<script src="dist/js/clickstream.min.js"></script>
+<!-- animsition js -->
+<script src="dist/js/animsition.min.js"></script>
 
 <script>
 $(document).ready(function() {
-  $(".clickstream").clickstream();
+  $(".animsition").animsition({
+	  inClass: "animsition-in-duration",
+	  outClass: "animsition-out-duration",
+	  linkElement: ".animsition-link"
+  });
 }); 
 </script>
 
-<body 
-  class="clickstream clickstream-in" 
-  data-animate-in="fade-in" 
-  data-animate-out="fade-out-down"
+<div 
+  class="animsition animsition-in-duration" 
+  data-animsition-in="fade-in" 
+  data-animsition-out="fade-out-down"
 >
 
-<a class="clickstream-link" href="./">clickstream link</a>
+<a href="./page1" class="animsition-link" data-animsition-out="flip-out-y">
+  animsition link 1
+</a>
 
-</body>
+<a href="./page2" class="animsition-link" data-animsition-out="rotate-out">
+  animsition link 2
+</a>
+
+</div>
 ~~~
 
 ##License
