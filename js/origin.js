@@ -1,63 +1,98 @@
 (function($) {
-  var namespace = 'clickstream';
+  var namespace = 'animsition';
   var methods = {
     
     init: function(options){      
       options = $.extend({
-        inClass :   'clickstream-in',
-        outClass :  'clickstream-out',
-        linkClass : 'clickstream-link'
+        inClass     : 'animsition-in-duration',
+        outClass    : 'animsition-out-duration',
+        linkElement : '.animsition-link'
       }, options);
       return this.each(function(){
+
         var _this = this;
         var $this = $(this);
         var data = $this.data(namespace);
-        var inAnimate = $this.data('animate-in');
-        var outAnimate = $this.data('animate-out');
-        if (!data) {        
+
+        if (!data) { 
+
           options = $.extend({}, options);
+
           $this.data(namespace, {
             options: options
           });                    
+        
           $(window).load(function() {   
-            methods.pageIn.call( _this , inAnimate );
+            methods.pageIn.call( _this );
           }); 
-          $('.'+options.linkClass).on('click.' + namespace, function(event) {
+
+          $(options.linkElement).on('click.' + namespace, function(event) {
+
             event.preventDefault();
             var $self = $(this);
-            methods.pageOut.call( _this,$self , outAnimate );
+            methods.pageOut.call( _this, $self);
+
           });
+
         }
       }); // end each
     },
-    
-    pageIn: function(inAnimate){
+
+    pageIn: function(){
+
       var $this = $(this);
-      var options = $this.data(namespace).options;
-      var inDelay =  $('.'+options.inClass).css( 'animation-duration' ).replace(/s/g,'') * 1000;
-      $this.addClass(inAnimate);
+      options = $this.data(namespace).options;
+      var inClass = $this.data('animsition-in');
+      var inDelay =  $('.' + options.inClass)
+        .css( 'animation-duration' )
+        .replace(/s/g,'') * 1000;
+      var inOutClass = function(){
+        $this.addClass(inClass);
+      }
+
+      inOutClass();
+
       setTimeout(function(){
         $this
-          .removeClass(inAnimate +' '+ options.inClass)
+          .removeClass(inClass + ' ' + options.inClass)
           .addClass(options.outClass)
           .css({
             "opacity":1
           });
       },inDelay);
+
     },
 
-    pageOut: function($self,outAnimate){
+    pageOut: function($self){
+
       var $this = $(this);
       var options = $this.data(namespace).options;
       var url = $self.attr('href');
-      var outDelay =  $('.'+options.outClass).css('animation-duration').replace(/s/g,'') * 1000;
+      var selfOutClass = $self.data('animsition-out');
+      var bodyOutClass = $this.data('animsition-out');
+      var outDelay =  $('.' + options.outClass)
+        .css('animation-duration')
+        .replace(/s/g,'') * 1000;
+      
       var stream = function(){
         location.href = url;
       };
-      $this.addClass(outAnimate);
+
+      var addOutClass = function(){
+        if(selfOutClass){
+          outClass = selfOutClass;
+        } else {
+          outClass = bodyOutClass;
+        }
+        $this.addClass(outClass);
+      }
+
+      addOutClass();
+
       setTimeout(function(){
        stream();
       },outDelay);        
+    
     },
     
     destroy: function(){
@@ -69,7 +104,7 @@
     }
     
   };
-  $.fn.clickstream = function(method){
+  $.fn.animsition = function(method){
     if ( methods[method] ) {
       return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
     } else if ( typeof method === 'object' || ! method ) {
