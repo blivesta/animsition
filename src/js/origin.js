@@ -22,11 +22,14 @@
             options: options
           });                    
         
-          $(window).load(function() {   
+          $(window).on("load." + namespace, function() {   
             methods.pageIn.call( _this );
           }); 
 
-          $(options.linkElement).on('click.' + namespace, function(event) {
+          // Firefox back button issue #4
+          $(window).on("unload." + namespace, function() { });
+
+          $(options.linkElement).on("click." + namespace, function(event) {
 
             event.preventDefault();
             var $self = $(this);
