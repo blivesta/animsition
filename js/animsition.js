@@ -23,9 +23,10 @@
           $this.data(namespace, {
             options: options
           });
-          $(window).load(function() {
+          $(window).on("load." + namespace, function() {
             methods.pageIn.call(_this);
           });
+          $(window).on("unload." + namespace, function() {});
           $(options.linkElement).on("click." + namespace, function(event) {
             event.preventDefault();
             var $self = $(this);
