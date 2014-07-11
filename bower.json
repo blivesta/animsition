@@ -1,6 +1,17 @@
 {
   "name": "animsition",
-  "version": "3.0.0",
+  "description": "a simple and easy jQuery plugin used to add page transition on css animations.",
+  "version": "3.1.0",
+  "keywords": [
+    "css3",
+    "js",
+    "less",
+    "animation",
+    "page transition",
+    "jquery",
+    "pligin"
+  ],
+  "homepage": "http://git.blivesta.com/animsition",
   "main": [
     "dist/less/**",
     "dist/css/animsition.css",
@@ -14,6 +25,6 @@
     "*.yml",
     "*.html",
     "*.json",
-    "gruntfile.js"
+    "Gruntfile.js"
   ]
 }

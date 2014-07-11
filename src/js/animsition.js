@@ -1,9 +1,9 @@
 /*!
- * animsition v3.0.0
+ * animsition v3.1.0
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
- * Copyright 2013-2014 blivesta
- * 
+ * Author : blivesta
+ * http://blivesta.com/
  */
 (function($) {
   var namespace = "animsition";
@@ -23,9 +23,10 @@
           $this.data(namespace, {
             options: options
           });
-          $(window).load(function() {
+          $(window).on("load." + namespace, function() {
             methods.pageIn.call(_this);
           });
+          $(window).on("unload." + namespace, function() {});
           $(options.linkElement).on("click." + namespace, function(event) {
             event.preventDefault();
             var $self = $(this);
