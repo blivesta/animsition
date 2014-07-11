@@ -14,8 +14,8 @@
       ' * <%= pkg.name %> v<%= pkg.version %>\n' +
       ' * <%= pkg.url %>\n' +
       ' * Licensed under <%= pkg.licenses %>\n' +
-      ' * Copyright 2013-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-      ' * <%= pkg.authorUrl %>\n' +
+      ' * Author : <%= pkg.author %>\n' +
+      ' * <%= pkg.author_url %>\n' +
       ' */\n',
     // ====================================================
     clean: {
