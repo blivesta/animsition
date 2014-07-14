@@ -1,0 +1,201 @@
+body,
+html {
+  min-height:100%;
+  height:100%;
+  background:@site-bg-color;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container {
+  max-width:768px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight:200;
+  letter-spacing: .1em;
+}
+
+.lead{
+  font-weight:100;
+  letter-spacing: .05em;
+  font-size: 24px;
+}
+
+.label-class{
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  background-color: @site-main-color-lighter;
+  color:@site-main-color;
+  padding:5px 10px;
+  display: inline-block;
+  font-weight: 200;
+  margin-bottom: 5px;
+  border-radius: 2px;
+}
+
+//===========================================
+// cooker bug override
+//===========================================
+.dropdown-toggle:hover{
+  cursor:pointer;
+}
+.button-border,
+.button-border-primary{
+  background-color: transparent;
+}
+
+// social
+//===========================================
+.site-social{
+  // .clearfix();
+  // padding: 0;
+  // list-style: none;
+  margin-bottom: 20px;
+  .github-btn {
+    overflow: hidden;
+    border: 0;
+  }
+}
+
+// site-header
+//===========================================
+.site-header {
+  margin-bottom: 0;
+  .navbar-nav > li > a,
+  .site-header-brand {
+    font-weight:200;
+    letter-spacing: .05em;
+  }
+}
+.navbar-header {
+  float: left;
+}
+.navbar-right {
+  float: right !important;
+}
+
+// site-masthead
+//===========================================
+.site-masthead {
+  position:relative;
+  padding:15px;
+  padding-top: 40px;
+  background-color: @site-main-color-dark;
+  background-image: linear-gradient(
+    45deg, 
+    @site-main-color-dark 0%, 
+    // @site-main-color-light 10%, 
+    @site-main-color-light 100%
+  );
+  color:#fff;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+  h1{
+    letter-spacing: .04em;
+    font-weight:100;
+  }
+  .lead{
+    opacity: .7;
+    margin-bottom: 40px;
+    font-size: 16px;
+    letter-spacing: .04em;
+  }
+  p {
+    margin:0 auto 40px;
+  }
+  a {
+    color:#fff;
+  }
+}
+
+// site-body
+//===========================================
+.site-body{
+  padding-bottom:30px;
+  line-height: 1.6;
+}
+
+// section
+//===========================================
+.site-section{
+  padding:40px 0;
+  padding-bottom: 60px;
+  border-bottom: @border-base;
+  &:last-child{
+    border-bottom: none;
+  }
+}
+
+.site-section-title{
+  margin-bottom: 20px;
+}
+
+.site-icon-mark{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color:@site-main-color-lighter;
+  .oi{
+    font-size: 54px;
+  }
+}
+
+.site-section-body{  
+  .site-example-nav{
+    font-size: 20px;
+    line-height: 2.2;
+    text-align: center;
+    a{
+      white-space :nowrap;
+    }
+  }
+  .lead{
+    margin-top: 30px !important;
+    &:first-child{
+      margin-top: 0px;
+    }
+  }
+  h2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .highlight{
+    margin-bottom: 60px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+  }
+}
+
+// site-footer
+//===========================================
+.site-footer {
+  padding-top:40px;
+  padding-bottom:40px;
+  border-top:1px solid #fff;
+  background-color: #ddd;
+  color:#777;
+  .site-social{
+    margin-top: 20px;
+  }
+}
+
+// 480px min
+//===========================================
+@media (min-width: 480px) {
+  .site-masthead{
+    .button {
+      padding:16px 32px;
+    }
+  }
+}
+
+// 768px min
+//===========================================
+@media (min-width: 768px) {
+  .container {
+    width:auto;
+  }
+}
+
