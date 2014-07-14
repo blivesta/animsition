@@ -1,0 +1,24 @@
+// .bg-shade-generate(@bg:#000, @n : 9, @i: 1) when (@i =< @n) {
+//   .color-test-@{i * 5}{
+//     background-color: darken(@bg, ((@i * @n) * 5));
+//   }
+//   .bg-shade-generate(@n, (@i + 1));
+// }
+
+// Contextual backgrounds
+
+.bg-variant(@color) {
+  background-color: @color;
+  a&:hover {
+    background-color: darken(@color, 10%);
+  }
+}
+
+// Typography
+
+.text-emphasis-variant(@color) {
+  color: @color;
+  a&:hover {
+    color: darken(@color, 10%);
+  }
+}
