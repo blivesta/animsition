@@ -1,0 +1,19 @@
+//scrollbar
+//=================================================
+.scrollbar(@width: 8px, @z-index: 2000, @bg-color: #eee, @thumb-color: #999){
+	&::-webkit-scrollbar{
+		width: @width;
+		background-color: @bg-color;
+		border-left:1px solid darken(@bg-color,10);
+		z-index:@z-index;
+  	&:hover{
+  		background-color: lighten(@bg-color,15);
+  	}
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: @thumb-color;
+  	&:hover{
+  		background-color: darken(@thumb-color,15);
+  	}
+	}
+}

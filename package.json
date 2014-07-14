@@ -7,11 +7,12 @@
   "licenses": "MIT",
   "source": "./src",
   "dist": "./dist",
+  "public": "./_gh_pages",
+  "assets": "./src/assets",
   "repository": {
     "user": "blivesta",
     "type": "git"
   },
-  "public": "./_gh_pages",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.4",

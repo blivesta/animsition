@@ -26,5 +26,17 @@
     "*.html",
     "*.json",
     "Gruntfile.js"
-  ]
+  ],
+  "dependencies": {
+    "cooker": "~0.4.7"
+  },
+  "exportsOverride": {
+    "cooker": {
+      "js": "dist/js/dropdown.js",
+      "css": "dist/css/",
+      "less": "dist/less/"
+    }
+  }
+
+
 }

@@ -1,0 +1,128 @@
+//
+// variants
+// ====================
+.button-variant(@color; @background; @border; @color-hover; @background-hover; @border-hover) {
+  color: @color;
+  background-color: @background;
+  border-color: @border;
+  &:hover,
+  &:focus,
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    color: @color-hover;
+    background-color: @background-hover;
+        border-color: @border-hover;
+  }
+  &:active,
+  &.active,
+  .open > .dropdown-toggle& {
+    background-image: none;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      background-color: @background;
+          border-color: @border;
+    }
+  }
+  .badge {
+    color: @background;
+    background-color: @color;
+  }
+}
+
+//
+// link button clors
+// ====================
+.button-link-variant(@color){
+  color: @color;
+  &:hover{
+    color: darken(@color,20) !important;
+  }
+  &,
+  &:active,
+  &[disabled],
+  fieldset[disabled] & {
+    background-color: transparent;
+    .box-shadow(none);
+  }
+  &,
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: transparent;
+  }
+  &:hover,
+  &:focus {
+    color: @link-hover-color;
+    text-decoration: underline;
+    background-color: transparent;
+  }
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus {
+      color: @btn-link-disabled-color;
+      text-decoration: none;
+    }
+  }
+}
+
+//
+//
+// ====================
+.button-icon-variant(@color){
+  width: @input-height-base;
+  height: @input-height-base;
+  padding: 0 0;
+  background-color: transparent;
+  transition: opacity 300ms ease-out;
+  color:@color;
+  &:hover{
+    color:@color;
+    .opacity(.6); 
+  }
+  &.active{
+    box-shadow: none;
+  }
+}
+
+//
+// グラデーションボタンmixins
+// ====================
+.button-gradient-variant(@color; @bg-color;) {
+  #gradient > .vertical(@start-color: @bg-color; @end-color: darken(@bg-color, 12%));
+  .reset-filter();
+  background-repeat: repeat-x;
+  border-color: darken(@bg-color, 14%);
+  background-color: @bg-color;
+  text-shadow: 0 1px 0 lighten(#000,20); 
+  color:@color;
+  &:hover,
+  &:focus  {
+    #gradient > .vertical(@start-color: darken(@bg-color, 12%); @end-color: @bg-color);
+    color:@color;
+  }
+  &:active,
+  &.active {
+    background-color: darken(@bg-color, 12%);
+    border-color: darken(@bg-color, 14%);
+  }
+}
+
+
+//
+// Button sizes
+// ====================
+.button-size(@padding-vertical; @padding-horizontal; @font-size; @line-height; @border-radius) {
+  padding: @padding-vertical @padding-horizontal;
+  font-size: @font-size;
+  line-height: @line-height;
+  border-radius: @border-radius;
+}

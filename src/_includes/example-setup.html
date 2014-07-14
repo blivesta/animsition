@@ -1,3 +1,4 @@
+<p class="lead">Step 1: Link required files</p>
 {% highlight html %}
 <!-- animsition CSS -->
 <link rel="stylesheet" href="{{ page.base_url }}css/animsition.min.css">
@@ -7,23 +8,29 @@
 
 <!-- animsition js -->
 <script src="{{ page.base_url }}dist/js/animsition.min.js"></script>
+{% endhighlight %}
 
-<script>
-$(document).ready(function() {
-  $(".animsition").animsition({
-    inClass     : 'animsition-in-duration',
-    outClass    : 'animsition-out-duration',
-    linkElement : '.animsition-link'
-  });
-}); 
-</script>
-
+<p class="lead">Step 2: HTML markup</p>
+{% highlight html %}
 <div 
   class="animsition animsition-in-duration" 
   data-animsition-in="{{ page.inAnimateClass }}" 
   data-animsition-out="{{ page.outAnimateClass }}"
 >
 
+  <a href="./page1" class="animsition-link">
+    animsition link 1
+  </a>
+
+  <a href="./page2" class="animsition-link">
+    animsition link 2
+  </a>
+
+</div>
+{% endhighlight %}
+
+<h4>If you want to set for each "linkElement" a different animation. </h4>
+{% highlight html %}
 <a href="./page1" class="animsition-link" data-animsition-out="flip-out-y">
   animsition link 1
 </a>
@@ -31,6 +38,18 @@ $(document).ready(function() {
 <a href="./page2" class="animsition-link" data-animsition-out="rotate-out">
   animsition link 2
 </a>
-
-</div>
 {% endhighlight %}
+
+
+
+<p class="lead">Step 3: Call the animsition</p>
+{% highlight js %}
+$(document).ready(function() {
+  $(".animsition").animsition({
+    inClass     : 'animsition-in-duration',
+    outClass    : 'animsition-out-duration',
+    linkElement : '.animsition-link'
+  });
+}); 
+{% endhighlight %}
+

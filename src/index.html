@@ -1,41 +1,124 @@
 ---
 layout: home
-title: animsition is a simple and easy jQuery plugin used to add page transition on css animations.
+title: A simple and easy jQuery plugin used to add<br class="hidden-xs">page transition on css animations.
 class:
-inAnimateClass : zoom-in
+inAnimateClass : fade-in
 outAnimateClass : fade-out
 base_url: "./"
 ---
 <main class="site-masthead" role="main">
   <div class="container">
-    <span class="text-icon text-icon-lg text-icon-outline">A</span>
     <h1>{{ site.title }}</h1>
     <p class="lead">{{ page.title }}</p>
-    <p><a href="{{ site.repo_url }}" class="btn btn- btn-lg">Download on GitHub</a></p>
+    <p><a href="{{ site.repo_url }}" class="button button-border button-lg">Download on GitHub</a></p>
     {% include social-buttons.html %}  
-    <p>Currently v{{ site.current_version }}</p>
+    <p>Currently v{{ site.current_version }}  ･  Authtor : <a href="https://twitter.com/blivesta/">@blivesta</a>
+    <br>
+    Licensed under the MIT.</p>
   </div><!-- /.container -->
 </main>
 
 <div class="site-body">
   <div class="site-body-inner container">
-  
     <div class="site-section">
-    <p class="lead">changed the name to "animsition" from "clickstream". 
-</p>
-      <h2 class="site-section-title">Example links</h2>
+      <h2 class="site-section-title">Information</h2>
+      <p class="site-icon-mark"><span class="oi oi-info "></span> </p>
+      <p class="lead">"clickstream" was changed to "animsition"<br class="hidden-xs">a name from the v3.0.0. </p>
+    </div>
+
+    <div class="site-section page-different-animation">
+      <h2 class="site-section-title">18 different animation</h2>
+      <p class="site-icon-mark"><span class="oi oi-cog"></span></p>
       <div class="site-section-body">
-        <ul class="nav nav-pills site-example-nav">
-          {% include example-nav.html %}
+
+        <p class="lead">Fade</p>
+        <ul class="list-inline">
+          <li><span class="label-class">fade-in</span></li>
+          <li><span class="label-class">fade-out</span></li>
+          <li><span class="label-class">fade-in-up</span></li>
+          <li><span class="label-class">fade-out-up</span></li>
+          <li><span class="label-class">fade-in-down</span></li>
+          <li><span class="label-class">fade-out-down</span></li>
+          <li><span class="label-class">fade-in-left</span></li>
+          <li><span class="label-class">fade-out-left</span></li>
+          <li><span class="label-class">fade-in-right</span></li>
+          <li><span class="label-class">fade-out-right</span></li>
         </ul>
+
+        <div class="row">
+          <div class="col col-4">
+            <p class="lead">Rotate</p>
+            <ul class="list-inline">
+              <li><span class="label-class">rotate-in</span></li>
+              <li><span class="label-class">rotate-out</span></li>
+            </ul>
+          </div>
+          <div class="col col-4">
+            <p class="lead">Flip</p>
+            <ul class="list-inline">
+              <li><span class="label-class">flip-in-x</span></li>
+              <li><span class="label-class">flip-out-x</span></li>
+              <li><span class="label-class">flip-in-y</span></li>
+              <li><span class="label-class">flip-out-y</span></li>
+            </ul>
+          </div>
+          <div class="col col-4">
+            <p class="lead">Zoom</p>
+            <ul class="list-inline">
+              <li><span class="label-class">zoom-in</span></li>
+              <li><span class="label-class">zoom-out</span></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
 
     <div class="site-section">
-      <h2 class="site-section-title">Setup</h2>
+      <h2 class="site-section-title">Example</h2>
+      <p class="site-icon-mark"><span class="oi oi-beaker"></span></p>
+      <!-- <p class="lead">18 different animation. </p> -->
+      <div class="site-section-body">
+        <ul class="list-inline site-example-nav">
+          <li><a class="animsition-link" href="{{ page.base_url }}fade" data-animsition-out="fade-out">Fade</a></li>
+          <li><a class="animsition-link" href="{{ page.base_url }}fade-down" data-animsition-out="fade-out-down">Fade down</a></li>
+          <li><a class="animsition-link" href="{{ page.base_url }}fade-up" data-animsition-out="fade-out-up">Fade up</a></li>
+          <li><a class="animsition-link" href="{{ page.base_url }}fade-left" data-animsition-out="fade-out-left">Fade left</a></li>
+          <li><a class="animsition-link" href="{{ page.base_url }}fade-right" data-animsition-out="fade-out-right">Fade right</a></li>
+        </ul>
+        <ul class="list-inline site-example-nav">
+          <li><a class="animsition-link" href="{{ page.base_url }}rotate" data-animsition-out="rotate-out">Rotate</a></li>
+          <li><a class="animsition-link" href="{{ page.base_url }}flip-x" data-animsition-out="flip-out-x">Flip X</a></li>
+          <li><a class="animsition-link" href="{{ page.base_url }}flip-y" data-animsition-out="flip-out-y">Flip Y</a></li>
+          <li><a class="animsition-link" href="{{ page.base_url }}zoom" data-animsition-out="zoom-out">Zoom</a></li>
+        </ul>
+
+     </div>
+    </div>    
+
+    <div class="site-section">
+      <h2 class="site-section-title">Installation</h2>
+      <p class="site-icon-mark"><span class="oi oi-code"></span></p>
       <p class="lead"></p>
       <div class="site-section-body">
+          <p><a href="{{ site.repo_url }}" class="button button-border-primary button-lg">Download on GitHub</a></p>
+
         {% include example-setup.html %}
+      </div>
+    </div>
+
+    <div class="site-section">
+      <h2 class="site-section-title">Browser support</h2>
+      <p class="site-icon-mark"><span class="oi oi-browser"></span></p>
+      <p class="lead">Requires a browser that CSS3 is supported.</p>
+      <div class="site-section-body">
+        <ul class="list-inline">
+          <li><span class="label-class">IE10+</span></li>
+          <li><span class="label-class">Safari</span></li>
+          <li><span class="label-class">Chrome</span></li>
+          <li><span class="label-class">Firefox</span></li>
+          <li><span class="label-class">Opera</span></li>
+        </ul>
       </div>
     </div>
 
