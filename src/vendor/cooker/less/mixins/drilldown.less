@@ -1,0 +1,10 @@
+// drilldown.less
+//=================================================
+.drilldown-level (@level) when (@level > 0) { 
+  .drilldown-level((@level - 1));// next iteration
+	[data-level="@{level}"]{
+		td:first-child{
+			padding-left: (@level * 10px);
+		}
+	}  
+}

@@ -47,18 +47,45 @@
         files: {
           '<%= pkg.source %>/css/<%= pkg.name %>.min.css': '<%= pkg.source %>/css/<%= pkg.name %>.css'
         }
+      },
+      docs: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: ['<%= pkg.name %>.css.map'],
+          sourceMapFilename: '<%= pkg.assets %>/css/docs.css.map'
+        },
+        files: {
+          '<%= pkg.assets %>/css/docs.css': '<%= pkg.assets %>/less/docs.less'
+        } 
+      },
+      docsMin: {
+        options: {
+          cleancss: true
+        },
+        files: {
+          '<%= pkg.assets %>/css/docs.min.css': '<%= pkg.assets %>/css/docs.css'
+        }
       }
+
     },
     // ====================================================
     autoprefixer: {
       options: {
-        browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 2.3', 'android 4', 'opera 12']
+        browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 4', 'opera 12']
       },
       source: {
         options: {
           map: true
         },
         src: '<%= pkg.source %>/css/<%= pkg.name %>.css'
+      },
+      docs: {
+        options: {
+          map: true
+        },
+        src: '<%= pkg.assets %>/css/docs.css'
       }
     },
     // ====================================================
@@ -71,6 +98,12 @@
         cwd: '<%= pkg.source %>/css/',
         src: ['*.css', '!*.min.css'],
         dest: '<%= pkg.source %>/css/'
+      },
+      docs: {
+        expand: true,
+        cwd: '<%= pkg.assets %>/css/',
+        src: ['*.css', '!*.min.css'],
+        dest: '<%= pkg.assets %>/css/'
       }
     },    
     // ====================================================
@@ -81,6 +114,9 @@
       },
       source: {
         src: '<%= pkg.source %>/css/*.css'
+      },
+      docs: {
+        src: '<%= pkg.assets %>/css/*.css'
       }
     },
     // ====================================================
@@ -89,7 +125,8 @@
         csslintrc: '<%= pkg.source %>/less/.csslintrc'
       },
       source: [
-        '<%= pkg.source %>/css/<%= pkg.name %>.css'
+        '<%= pkg.source %>/css/<%= pkg.name %>.css',
+        '<%= pkg.assets %>/css/docs.css'
       ]
     },
     // ====================================================
@@ -262,6 +299,18 @@
           'jekyll',
           'notify'
         ]
+      },
+      docsLess: {
+        files: [
+          '<%= pkg.assets %>/less/*.less',
+          '<%= pkg.assets %>/less/**/*.less'
+        ],
+        tasks: [
+          'build-docsLess',
+          'csslint',
+          'jekyll',
+          'notify'
+        ]
       }
     },
     // ====================================================
@@ -292,9 +341,18 @@
   grunt.registerTask('build-less', [
     'less:source', 
     'autoprefixer:source', 
-    'usebanner', 
+    'usebanner:source', 
     'csscomb:source', 
     'less:minify',
+  ]);
+
+  // ====================================================
+  grunt.registerTask('build-docsLess', [
+    'less:docs', 
+    'autoprefixer:docs', 
+    'usebanner:docs', 
+    'csscomb:docs', 
+    'less:docsMin',
   ]);
 
   // ====================================================
@@ -317,8 +375,9 @@
   // ====================================================
   grunt.registerTask('b', [
     'clean',
-    'bower',
+    // 'bower',
     'build-less',
+    'build-docsLess',
     'build-js',
     'build-html',
     'test',

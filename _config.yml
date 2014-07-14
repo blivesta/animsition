@@ -1,12 +1,12 @@
 markdown:         redcarpet
 pygments:         true
 permalink:        pretty
-exclude:          ['less','vendor','*.json','Gruntfile.js','bower_components','node_modules']
+exclude:          ['less','*.json','Gruntfile.js','bower_components','node_modules']
 source:           ./src
 destination:      ./_gh_pages
 encoding:         UTF-8
-title:            animsition
-discription:      animsition is a simple and easy jQuery plugin used to add page transition on css animations.
+title:            Animsition
+discription:      A simple and easy jQuery plugin used to add page transition on css animations.
 url:              http://git.blivesta.com/animsition
 repo:             animsition
 repo_url:         https://github.com/blivesta/animsition

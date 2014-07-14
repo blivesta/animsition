@@ -1,0 +1,109 @@
+//
+// ====================
+.row-form-generate(@number, @i: 1) when (@i =< @number) {
+  .row-form-generate(@number, (@i + 1));
+  .form-col-@{i}, //廃止予定
+  .col-@{i}  {
+    float: left;
+    width: (@i * 100% / @number);
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+//radioボタン用アイコン（Qcon）
+.radio-icon() {
+  + label {
+    .qcon-circle-o();
+    &:hover {
+      .qcon-target();
+    }
+  }
+  &:checked + label {
+    .qcon-target();
+  }    
+}
+
+//checkbox用アイコン（Qcon）
+.checkbox-icon() {
+  + label {
+    .qcon-square-o();
+    &:hover {
+      .qcon-check-square-o();
+    }
+  }
+  &:checked + label {
+    .qcon-check-square-o();
+  }    
+}
+
+//Radioボタン、checkbox用スタイル
+.checkbox-radio-style(@type) {
+  input[type=@{type}] when (@type = "radio") {
+    .radio-icon();
+  }
+  input[type=@{type}] when (@type = "checkbox") {
+    .checkbox-icon();
+  }
+  input[type=@{type}] {
+    display:none;
+    + label {
+      display:inline;
+      font-weight: bold;
+      cursor:pointer;
+      &:before {
+        .qcon();
+        display:inline-block;
+        margin-right: .5em;
+        color:@gray-light;
+      }
+      &:hover {
+        &:before {
+          color:@link-hover-color;
+        }
+      }
+    }
+    &:checked + label {
+      &:before {
+        color:@link-color;
+      }
+    }    
+  }
+}
+
+//
+// 
+// =====================
+.form-focus(@color: @input-border-focus) {
+  @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+  &:focus {
+    .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 4px @{color-rgba}");
+    outline: 0;
+    border-color: @color;
+  }
+}
+
+// Form control sizing
+.input-size(
+  @input-height; 
+  @padding-vertical; 
+  @padding-horizontal; 
+  @font-size; 
+  @line-height; 
+  @border-radius
+) {
+  padding: @padding-vertical @padding-horizontal;
+  height: @input-height;
+  border-radius: @border-radius;
+  font-size: @font-size;
+  line-height: @line-height;
+  select& {
+    height: @input-height;
+    line-height: @input-height;
+  }
+  textarea&,
+  select[multiple]& {
+    height: auto;
+  }
+}

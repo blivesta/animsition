@@ -16,31 +16,25 @@
   </title>
   
   <!-- icon -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ page.base_url }}ico/touch-icon-144.png">
-  <link rel="shortcut icon" href="{{ page.base_url }}ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ page.base_url }}assets/ico/touch-icon-144.png">
+  <link rel="shortcut icon" href="{{ page.base_url }}assets/ico/favicon.ico">
 
-  <!-- Vendor CSS -->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//rawgithub.com/blivesta/ashiba/master/archive/0.3.3/css/ashiba.min.css">
+  <!-- Vendor css -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css">
+  <link rel="stylesheet" href="{{ page.base_url }}vendor/cooker/css/cooker.css">
+  
+  <!-- animsition docs css -->
+  <link rel="stylesheet" href="{{ page.base_url }}assets/css/docs.css">
 
-  <!-- animsition CSS -->
+  <!-- animsition css -->
   <link rel="stylesheet" href="{{ page.base_url }}css/animsition.css">
-
-  <style>
-    .site-header  a{
-      color:#89b4ba !important;
-    }
-    .site-masthead{
-      background-color:#89b4ba;
-    }
-  </style>
 
   <!-- Google analytics -->
   <script src="//git.blivesta.com/js/ga.js"></script>
 
   <!-- Vendor js -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+  <script src="{{ page.base_url }}vendor/cooker/js/dropdown.js"></script>
 
   <!-- animsition js -->
   <script src="{{ page.base_url }}js/animsition.js"></script>
@@ -49,8 +43,9 @@
   $(document).ready(function() {
     
       $(".animsition").animsition();
+      
+      $(".dropdown").dropdown();
 
-      $(".site-example-nav li a").addClass("btn btn-default");
   }); 
 
   </script>
