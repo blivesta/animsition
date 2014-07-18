@@ -1,5 +1,5 @@
 /*!
- * animsition v3.1.0
+ * animsition v3.1.1
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
@@ -14,6 +14,12 @@
         outClass: "animsition-out-duration",
         linkElement: ".animsition-link"
       }, options);
+      var support = methods.supportCheck.call(this);
+      if (support === false) {
+        console.log("Animsition does not support this browser.");
+        $(this).removeClass(namespace);
+        return methods.destroy.call(this);
+      }
       return this.each(function() {
         var _this = this;
         var $this = $(this);
@@ -35,9 +41,23 @@
         }
       });
     },
+    supportCheck: function() {
+      var $this = $(this);
+      var vendorPrefix = [ "animation-duration", "-webkit-animation-duration", "-o-animation-duration" ];
+      var i;
+      var len;
+      var support = false;
+      for (i = 0, len = vendorPrefix.length; i < len; ++i) {
+        if (typeof $this.css(vendorPrefix[i]) === "string") {
+          support = true;
+          break;
+        }
+      }
+      return support;
+    },
     pageIn: function() {
       var $this = $(this);
-      options = $this.data(namespace).options;
+      var options = $this.data(namespace).options;
       var inClass = $this.data("animsition-in");
       var inDelay = $("." + options.inClass).css("animation-duration").replace(/s/g, "") * 1e3;
       var inOutClass = function() {
@@ -60,6 +80,7 @@
       var stream = function() {
         location.href = url;
       };
+      var outClass;
       var addOutClass = function() {
         if (selfOutClass) {
           outClass = selfOutClass;
