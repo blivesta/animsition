@@ -1,27 +1,34 @@
 (function($) {
   var namespace = 'animsition';
   var methods = {
-    
     init: function(options){      
       options = $.extend({
         inClass     : 'animsition-in-duration',
         outClass    : 'animsition-out-duration',
         linkElement : '.animsition-link'
       }, options);
-      return this.each(function(){
 
+      // Remove the "Animsition" in a browser 
+      // that does not support the "animsition-in-duration".       
+      var support = methods.supportCheck.call( this );
+      if(support === false){
+        console.log("Animsition does not support this browser.");
+        $(this).removeClass(namespace);
+        return methods.destroy.call( this );
+      }
+
+      return this.each(function(){
         var _this = this;
         var $this = $(this);
         var data = $this.data(namespace);
 
         if (!data) { 
-
           options = $.extend({}, options);
 
           $this.data(namespace, {
             options: options
           });                    
-        
+
           $(window).on("load." + namespace, function() {   
             methods.pageIn.call( _this );
           }); 
@@ -30,28 +37,41 @@
           $(window).on("unload." + namespace, function() { });
 
           $(options.linkElement).on("click." + namespace, function(event) {
-
             event.preventDefault();
             var $self = $(this);
             methods.pageOut.call( _this, $self);
-
           });
-
         }
       }); // end each
     },
 
-    pageIn: function(){
-
+    supportCheck: function(){
       var $this = $(this);
-      options = $this.data(namespace).options;
+      var vendorPrefix = [
+        'animation-duration',
+        '-webkit-animation-duration',
+        '-o-animation-duration'
+      ];
+      var i;
+      var len;
+      var support = false;      
+      for (i = 0, len = vendorPrefix.length; i < len; ++i) {
+        if (typeof $this.css(vendorPrefix[i]) === "string") {
+          support = true;
+          break;
+        }
+      }
+      return support;
+    },
+
+    pageIn: function(){
+      var $this = $(this);
+      var options = $this.data(namespace).options;
       var inClass = $this.data('animsition-in');
       var inDelay =  $('.' + options.inClass)
         .css( 'animation-duration' )
         .replace(/s/g,'') * 1000;
-      var inOutClass = function(){
-        $this.addClass(inClass);
-      }
+      var inOutClass = function(){ $this.addClass(inClass); }
 
       inOutClass();
 
@@ -62,12 +82,10 @@
           .css({
             "opacity":1
           });
-      },inDelay);
-
+      }, inDelay );
     },
 
     pageOut: function($self){
-
       var $this = $(this);
       var options = $this.data(namespace).options;
       var url = $self.attr('href');
@@ -76,11 +94,8 @@
       var outDelay =  $('.' + options.outClass)
         .css('animation-duration')
         .replace(/s/g,'') * 1000;
-      
-      var stream = function(){
-        location.href = url;
-      };
-
+      var stream = function(){ location.href = url; };
+      var outClass;
       var addOutClass = function(){
         if(selfOutClass){
           outClass = selfOutClass;
@@ -92,10 +107,7 @@
 
       addOutClass();
 
-      setTimeout(function(){
-       stream();
-      },outDelay);        
-    
+      setTimeout(function(){ stream() }, outDelay );
     },
     
     destroy: function(){
@@ -107,6 +119,7 @@
     }
     
   };
+
   $.fn.animsition = function(method){
     if ( methods[method] ) {
       return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
@@ -116,4 +129,5 @@
       $.error( 'Method ' +  method + ' does not exist on jQuery.'+namespace);
     }
   };
+
 })(jQuery);
