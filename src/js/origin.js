@@ -5,7 +5,8 @@
       options = $.extend({
         inClass     : 'animsition-in-duration',
         outClass    : 'animsition-out-duration',
-        linkElement : '.animsition-link'
+        linkElement : '.animsition-link',
+        touchSupport: true
       }, options);
 
       // Remove the "Animsition" in a browser 
@@ -25,9 +26,15 @@
         if (!data) { 
           options = $.extend({}, options);
 
+          // Bind to touchstart event listener as well, if touchSupport enabled
+          var bindEvts = "click." + namespace;
+          if (options.touchSupport) {
+            bindEvts += " touchstart." + namespace;
+          }
+
           $this.data(namespace, {
             options: options
-          });                    
+          });
 
           $(window).on("load." + namespace, function() {   
             methods.pageIn.call( _this );
@@ -36,7 +43,7 @@
           // Firefox back button issue #4
           $(window).on("unload." + namespace, function() { });
 
-          $(options.linkElement).on("click." + namespace, function(event) {
+          $(options.linkElement).on(bindEvts, function(event) {
             event.preventDefault();
             var $self = $(this);
             methods.pageOut.call( _this, $self);
