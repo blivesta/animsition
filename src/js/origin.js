@@ -6,15 +6,19 @@
         inClass     : 'animsition-in-duration',
         outClass    : 'animsition-out-duration',
         linkElement : '.animsition-link',
-        touchSupport: true
+        touchSupport: true,
+        unSupportCss:[
+                      'animation-duration',
+                      '-webkit-animation-duration',
+                      '-o-animation-duration'
+                     ]
       }, options);
 
       // Remove the "Animsition" in a browser 
       // that does not support the "animsition-in-duration".       
-      var support = methods.supportCheck.call( this );
+      var support = methods.supportCheck.call(this, options);
       if(support === false){
         console.log("Animsition does not support this browser.");
-        $(this).removeClass(namespace);
         return methods.destroy.call( this );
       }
 
@@ -52,18 +56,13 @@
       }); // end each
     },
 
-    supportCheck: function(){
+    supportCheck: function(options){
       var $this = $(this);
-      var vendorPrefix = [
-        'animation-duration',
-        '-webkit-animation-duration',
-        '-o-animation-duration'
-      ];
-      var i;
-      var len;
-      var support = false;      
-      for (i = 0, len = vendorPrefix.length; i < len; ++i) {
-        if (typeof $this.css(vendorPrefix[i]) === "string") {
+      var props = options.unSupportCss;
+      var support = false;
+
+      for (var i = 0; i < props.length; i++) {
+        if (typeof $this.css(props[i]) === "string") {
           support = true;
           break;
         }
@@ -121,7 +120,9 @@
       return this.each(function(){
         var $this = $(this);
         $(window).unbind('.'+namespace);
-        $this.removeData(namespace);
+        $this
+          .removeClass(namespace)
+          .removeData(namespace);
       });      
     }
     
