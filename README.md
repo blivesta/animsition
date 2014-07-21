@@ -1,14 +1,14 @@
 animsition
 ==================
 
-animsition is a simple and easy jQuery plugin used to add page transition on css animations.
+Animsition is a simple and easy jQuery plugin used to add page transition on css animations.
 
 *changed the name to "animsition" from "clickstream".
 
 ##Example
 http://blivesta.github.io/animsition
 
-##Animations class
+##18 different animation class
 ####Fade
 `fade-in` `fade-out` `fade-in-up` `fade-out-up` `fade-in-down` `fade-out-down` `fade-in-left` `fade-out-left` `fade-in-right` `fade-out-right`  
 ####Rotate
@@ -18,8 +18,9 @@ http://blivesta.github.io/animsition
 ####Zoom
 `zoom-in` `zoom-out`
 
-##Setup
-~~~ go
+##Installation
+####Step 1: Link required files
+~~~ html
 <!-- animsition css -->
 <link rel="stylesheet" href="dist/css/animsition.min.css">
 
@@ -28,34 +29,66 @@ http://blivesta.github.io/animsition
 
 <!-- animsition js -->
 <script src="dist/js/animsition.min.js"></script>
+~~~
 
-<script>
-$(document).ready(function() {
-  $(".animsition").animsition({
-	  inClass: "animsition-in-duration",
-	  outClass: "animsition-out-duration",
-	  linkElement: ".animsition-link"
-  });
-}); 
-</script>
+####Step 2: HTML markup
+~~~ html
+<div class="animsition">
 
-<div 
-  class="animsition animsition-in-duration" 
-  data-animsition-in="fade-in" 
-  data-animsition-out="fade-out-down"
->
+  <a href="./page1" class="animsition-link">animsition link 1</a>
 
-<a href="./page1" class="animsition-link" data-animsition-out="flip-out-y">
-  animsition link 1
-</a>
-
-<a href="./page2" class="animsition-link" data-animsition-out="rotate-out">
-  animsition link 2
-</a>
+  <a href="./page2" class="animsition-link">animsition link 2</a>
 
 </div>
 ~~~
 
-##License
+####If you want to set for each "linkElement" a different animation. 
+~~~ html
+<a 
+  href="./page1" 
+  class="animsition-link" 
+  data-animsition-out="flip-out-y"
+  data-animsition-out-duration="2000"
+>
+  animsition link 1
+</a>
 
+<a 
+  href="./page2" 
+  class="animsition-link" 
+  data-animsition-out="rotate-out"
+  data-animsition-out-duration="500"
+>
+  animsition link 2
+</a>
+~~~
+
+####Step 3: Call the animsition
+~~~ js
+$(document).ready(function() {
+  $(".animsition").animsition({
+    inClass        :'fade-in',
+    outClass       :'fade-out',
+    inDuration     : 1500,
+    outDuration    : 800,
+    linkElement    :'.animsition-link', //e.g.'a:not([target="_blank"]):not([href^=#])', 
+    touchSupport   : true, 
+    unSupportCss   :[
+                    'animation-duration',
+                    '-webkit-animation-duration',
+                    '-o-animation-duration'
+                    ]
+  });
+}); 
+~~~
+
+##Wordpress plugin
+#####[Page Transition](http://wordpress.org/plugins/page-transition/ "Page Transition")
+Authors
+
+- numixtech
+- gauravpadia
+- asalamwp
+
+##License
 Released under the MIT license.
