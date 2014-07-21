@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ page.base_url }}css/animsition.min.css">
 
 <!-- vendor js -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 <!-- animsition js -->
 <script src="{{ page.base_url }}dist/js/animsition.min.js"></script>
@@ -12,30 +12,32 @@
 
 <p class="lead">Step 2: HTML markup</p>
 {% highlight html %}
-<div 
-  class="animsition animsition-in-duration" 
-  data-animsition-in="{{ page.inAnimateClass }}" 
-  data-animsition-out="{{ page.outAnimateClass }}"
->
+<div class="animsition">
 
-  <a href="./page1" class="animsition-link">
-    animsition link 1
-  </a>
+  <a href="./page1" class="animsition-link">animsition link 1</a>
 
-  <a href="./page2" class="animsition-link">
-    animsition link 2
-  </a>
+  <a href="./page2" class="animsition-link">animsition link 2</a>
 
 </div>
 {% endhighlight %}
 
 <h4>If you want to set for each "linkElement" a different animation. </h4>
 {% highlight html %}
-<a href="./page1" class="animsition-link" data-animsition-out="flip-out-y">
+<a 
+  href="./page1" 
+  class="animsition-link" 
+  data-animsition-out="flip-out-y"
+  data-animsition-out-duration="2000"
+>
   animsition link 1
 </a>
 
-<a href="./page2" class="animsition-link" data-animsition-out="rotate-out">
+<a 
+  href="./page2" 
+  class="animsition-link" 
+  data-animsition-out="rotate-out"
+  data-animsition-out-duration="500"
+>
   animsition link 2
 </a>
 {% endhighlight %}
@@ -46,10 +48,17 @@
 {% highlight js %}
 $(document).ready(function() {
   $(".animsition").animsition({
-    inClass     : 'animsition-in-duration',
-    outClass    : 'animsition-out-duration',
-    linkElement : '.animsition-link',
-    touchSupport: true
+    inClass        :'fade-in',
+    outClass       :'fade-out',
+    inDuration     : 1500,
+    outDuration    : 800,
+    linkElement    :'.animsition-link', //e.g.'a:not([target="_blank"]):not([href^=#])', 
+    touchSupport   : true, 
+    unSupportCss   :[
+                    'animation-duration',
+                    '-webkit-animation-duration',
+                    '-o-animation-duration'
+                    ]
   });
 }); 
 {% endhighlight %}

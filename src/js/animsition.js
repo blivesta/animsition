@@ -10,8 +10,10 @@
   var methods = {
     init: function(options) {
       options = $.extend({
-        inClass: "animsition-in-duration",
-        outClass: "animsition-out-duration",
+        inClass: "fade-in",
+        outClass: "fade-out",
+        inDuration: 1500,
+        outDuration: 800,
         linkElement: ".animsition-link",
         touchSupport: true,
         unSupportCss: [ "animation-duration", "-webkit-animation-duration", "-o-animation-duration" ]
@@ -58,44 +60,86 @@
       }
       return support;
     },
-    pageIn: function() {
+    pageInClass: function() {
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var inClass = $this.data("animsition-in");
-      var inDelay = $("." + options.inClass).css("animation-duration").replace(/s/g, "") * 1e3;
-      var inOutClass = function() {
-        $this.addClass(inClass);
-      };
-      inOutClass();
+      var thisInClass = $this.data("animsition-in");
+      var inClass;
+      if (typeof thisInClass === "string") {
+        inClass = thisInClass;
+      } else {
+        inClass = options.inClass;
+      }
+      return inClass;
+    },
+    pageInDuration: function() {
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+      var thisInDuration = $this.data("animsition-in-duration");
+      var inDuration;
+      if (typeof thisInDuration === "number") {
+        inDuration = thisInDuration;
+      } else {
+        inDuration = options.inDuration;
+      }
+      return inDuration;
+    },
+    pageIn: function() {
+      var _this = this;
+      var $this = $(this);
+      var inClass = methods.pageInClass.call(_this);
+      var inDuration = methods.pageInDuration.call(_this);
+      $this.css({
+        "animation-duration": inDuration / 1e3 + "s"
+      }).addClass(inClass);
       setTimeout(function() {
-        $this.removeClass(inClass + " " + options.inClass).addClass(options.outClass).css({
+        $this.removeClass(inClass).css({
           opacity: 1
         });
-      }, inDelay);
+      }, inDuration);
     },
-    pageOut: function($self) {
+    pageOutClass: function($self) {
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var url = $self.attr("href");
       var selfOutClass = $self.data("animsition-out");
-      var bodyOutClass = $this.data("animsition-out");
-      var outDelay = $("." + options.outClass).css("animation-duration").replace(/s/g, "") * 1e3;
-      var stream = function() {
-        location.href = url;
-      };
+      var thisOutClass = $this.data("animsition-out");
       var outClass;
-      var addOutClass = function() {
-        if (selfOutClass) {
-          outClass = selfOutClass;
-        } else {
-          outClass = bodyOutClass;
-        }
-        $this.addClass(outClass);
-      };
-      addOutClass();
+      if (typeof selfOutClass === "string") {
+        outClass = selfOutClass;
+      } else if (typeof thisOutClass === "string") {
+        outClass = thisOutClass;
+      } else {
+        outClass = options.outClass;
+      }
+      return outClass;
+    },
+    pageOutDuration: function($self) {
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+      var selfOutDuration = $self.data("animsition-out-duration");
+      var thisOutDuration = $this.data("animsition-out-duration");
+      var outDuration;
+      if (typeof selfOutDuration === "number") {
+        outDuration = selfOutDuration;
+      } else if (typeof thisOutDuration === "number") {
+        outDuration = thisOutDuration;
+      } else {
+        outDuration = options.outDuration;
+      }
+      return outDuration;
+    },
+    pageOut: function($self) {
+      var _this = this;
+      var $this = $(this);
+      var url = $self.attr("href");
+      var outClass = methods.pageOutClass.call(_this, $self);
+      var outDuration = methods.pageOutDuration.call(_this, $self);
+      $this.css({
+        "animation-duration": outDuration / 1e3 + "s"
+      }).addClass(outClass);
       setTimeout(function() {
-        stream();
-      }, outDelay);
+        location.href = url;
+      }, outDuration);
     },
     destroy: function() {
       return this.each(function() {
