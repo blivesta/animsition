@@ -20,7 +20,7 @@
       // that does not support the "animsition-in-duration".       
       var support = methods.supportCheck.call(this, options);
       if(support === false){
-        // If do not have a console object to object windo
+        // If do not have a console object to object window
         if (!('console' in window)) {
           window.console = {};
           window.console.log = function(str){return str};
