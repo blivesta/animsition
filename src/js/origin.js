@@ -18,6 +18,12 @@
         return methods.destroy.call( this );
       }
 
+      // Bind to touchend event listener as well, if touchSupport enabled
+      var bindEvts = "click." + namespace;
+      if (options.touchSupport) {
+        bindEvts += " touchend." + namespace;
+      }
+
       return this.each(function(){
         var _this = this;
         var $this = $(this);
@@ -25,12 +31,6 @@
 
         if (!data) { 
           options = $.extend({}, options);
-
-          // Bind to touchstart event listener as well, if touchSupport enabled
-          var bindEvts = "click." + namespace;
-          if (options.touchSupport) {
-            bindEvts += " touchstart." + namespace;
-          }
 
           $this.data(namespace, {
             options: options

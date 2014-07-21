@@ -12,13 +12,18 @@
       options = $.extend({
         inClass: "animsition-in-duration",
         outClass: "animsition-out-duration",
-        linkElement: ".animsition-link"
+        linkElement: ".animsition-link",
+        touchSupport: true
       }, options);
       var support = methods.supportCheck.call(this);
       if (support === false) {
         console.log("Animsition does not support this browser.");
         $(this).removeClass(namespace);
         return methods.destroy.call(this);
+      }
+      var bindEvts = "click." + namespace;
+      if (options.touchSupport) {
+        bindEvts += " touchend." + namespace;
       }
       return this.each(function() {
         var _this = this;
@@ -33,7 +38,7 @@
             methods.pageIn.call(_this);
           });
           $(window).on("unload." + namespace, function() {});
-          $(options.linkElement).on("click." + namespace, function(event) {
+          $(options.linkElement).on(bindEvts, function(event) {
             event.preventDefault();
             var $self = $(this);
             methods.pageOut.call(_this, $self);
