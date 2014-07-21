@@ -63,6 +63,19 @@ http://blivesta.github.io/animsition
 </a>
 ~~~
 
+####If you want to set for each page a different animation.</h4>  
+~~~ html
+<div 
+  class="animsition" 
+  data-animsition-in-class="zoom-in"
+  data-animsition-in-duration="1000"
+  data-animsition-out-class="zoom-out"
+  data-animsition-out-duration="800"
+>
+  ...
+</div>
+~~~
+
 ####Step 3: Call the animsition
 ~~~ js
 $(document).ready(function() {
