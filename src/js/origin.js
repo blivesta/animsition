@@ -20,6 +20,11 @@
       // that does not support the "animsition-in-duration".       
       var support = methods.supportCheck.call(this, options);
       if(support === false){
+        // If do not have a console object to object windo
+        if (!('console' in window)) {
+          window.console = {};
+          window.console.log = function(str){return str};
+        }
         console.log("Animsition does not support this browser.");
         return methods.destroy.call( this );
       }
@@ -108,8 +113,7 @@
       
       $this
         .css({ "animation-duration" : (inDuration / 1000) + "s" })
-        .addClass(inClass)
-        ; 
+        .addClass(inClass); 
 
       setTimeout(function(){ 
         $this

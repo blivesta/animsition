@@ -20,6 +20,12 @@
       }, options);
       var support = methods.supportCheck.call(this, options);
       if (support === false) {
+        if (!("console" in window)) {
+          window.console = {};
+          window.console.log = function(str) {
+            return str;
+          };
+        }
         console.log("Animsition does not support this browser.");
         return methods.destroy.call(this);
       }
