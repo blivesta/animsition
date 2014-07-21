@@ -1,5 +1,5 @@
 /*!
- * animsition v3.1.1
+ * animsition v3.2.0
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
@@ -13,16 +13,6 @@
   -webkit-animation-fill-mode: both;
        -o-animation-fill-mode: both;
           animation-fill-mode: both;
-}
-.animsition-in-duration {
-  -webkit-animation-duration: 1.5s;
-       -o-animation-duration: 1.5s;
-          animation-duration: 1.5s;
-}
-.animsition-out-duration {
-  -webkit-animation-duration: 1s;
-       -o-animation-duration: 1s;
-          animation-duration: 1s;
 }
 @-webkit-keyframes fade-in {
   0% {

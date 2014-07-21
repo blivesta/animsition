@@ -3,18 +3,36 @@
   var methods = {
     init: function(options){      
       options = $.extend({
-        inClass     : 'animsition-in-duration',
-        outClass    : 'animsition-out-duration',
-        linkElement : '.animsition-link'
+        inClass        :'fade-in',
+        outClass       :'fade-out',
+        inDuration     : 1500,
+        outDuration    : 800,
+        linkElement    :'.animsition-link', //e.g.'a:not([target="_blank"]):not([href^=#])', 
+        touchSupport   : true, 
+        unSupportCss   :[
+                        'animation-duration',
+                        '-webkit-animation-duration',
+                        '-o-animation-duration'
+                        ]
       }, options);
 
       // Remove the "Animsition" in a browser 
       // that does not support the "animsition-in-duration".       
-      var support = methods.supportCheck.call( this );
+      var support = methods.supportCheck.call(this, options);
       if(support === false){
+        // If do not have a console object to object window
+        if (!('console' in window)) {
+          window.console = {};
+          window.console.log = function(str){return str};
+        }
         console.log("Animsition does not support this browser.");
-        $(this).removeClass(namespace);
         return methods.destroy.call( this );
+      }
+
+      // Bind to touchend event listener as well, if touchSupport enabled
+      var bindEvts = "click." + namespace;
+      if (options.touchSupport) {
+        bindEvts += " touchend." + namespace;
       }
 
       return this.each(function(){
@@ -27,7 +45,7 @@
 
           $this.data(namespace, {
             options: options
-          });                    
+          });
 
           $(window).on("load." + namespace, function() {   
             methods.pageIn.call( _this );
@@ -36,7 +54,7 @@
           // Firefox back button issue #4
           $(window).on("unload." + namespace, function() { });
 
-          $(options.linkElement).on("click." + namespace, function(event) {
+          $(options.linkElement).on(bindEvts, function(event) {
             event.preventDefault();
             var $self = $(this);
             methods.pageOut.call( _this, $self);
@@ -45,18 +63,13 @@
       }); // end each
     },
 
-    supportCheck: function(){
+    supportCheck: function(options){
       var $this = $(this);
-      var vendorPrefix = [
-        'animation-duration',
-        '-webkit-animation-duration',
-        '-o-animation-duration'
-      ];
-      var i;
-      var len;
-      var support = false;      
-      for (i = 0, len = vendorPrefix.length; i < len; ++i) {
-        if (typeof $this.css(vendorPrefix[i]) === "string") {
+      var props = options.unSupportCss;
+      var support = false;
+
+      for (var i = 0; i < props.length; i++) {
+        if (typeof $this.css(props[i]) === "string") {
           support = true;
           break;
         }
@@ -64,57 +77,108 @@
       return support;
     },
 
-    pageIn: function(){
+    pageInClass : function(){
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var inClass = $this.data('animsition-in');
-      var inDelay =  $('.' + options.inClass)
-        .css( 'animation-duration' )
-        .replace(/s/g,'') * 1000;
-      var inOutClass = function(){ $this.addClass(inClass); }
+      var thisInClass = $this.data('animsition-in');
+      var inClass;
 
-      inOutClass();
+      if(typeof thisInClass === "string"){
+        inClass = thisInClass;
+      } else {
+        inClass = options.inClass;
+      }
+      return inClass;
+    },
 
-      setTimeout(function(){
+    pageInDuration : function(){
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+      var thisInDuration = $this.data('animsition-in-duration');
+      var inDuration;
+
+      if(typeof thisInDuration === "number"){
+        inDuration = thisInDuration;
+      } else {
+        inDuration = options.inDuration;
+      }
+      return inDuration;
+    },
+
+    pageIn: function(){
+      var _this = this;
+      var $this = $(this);
+      var inClass = methods.pageInClass.call(_this);
+      var inDuration = methods.pageInDuration.call(_this);
+      
+      $this
+        .css({ "animation-duration" : (inDuration / 1000) + "s" })
+        .addClass(inClass); 
+
+      setTimeout(function(){ 
         $this
-          .removeClass(inClass + ' ' + options.inClass)
-          .addClass(options.outClass)
-          .css({
-            "opacity":1
-          });
-      }, inDelay );
+          .removeClass(inClass)
+          .css({ "opacity" : 1 });
+      }, inDuration);
+    },
+
+    pageOutClass : function($self){
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+      var selfOutClass = $self.data('animsition-out');
+      var thisOutClass = $this.data('animsition-out');
+      var outClass;
+
+      if(typeof selfOutClass === "string"){
+        outClass = selfOutClass;
+      } else if(typeof thisOutClass === "string") {
+        outClass = thisOutClass;
+      } else {
+        outClass = options.outClass;
+      }
+      return outClass;
+    },
+
+    pageOutDuration : function($self){
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+      var selfOutDuration = $self.data('animsition-out-duration');
+      var thisOutDuration = $this.data('animsition-out-duration');
+      var outDuration;
+
+      if(typeof selfOutDuration === "number"){
+        outDuration = selfOutDuration;
+      } else if(typeof thisOutDuration === "number") {
+        outDuration = thisOutDuration;
+      } else {
+        outDuration = options.outDuration;
+      }
+      return outDuration;
     },
 
     pageOut: function($self){
+      var _this = this;
       var $this = $(this);
-      var options = $this.data(namespace).options;
       var url = $self.attr('href');
-      var selfOutClass = $self.data('animsition-out');
-      var bodyOutClass = $this.data('animsition-out');
-      var outDelay =  $('.' + options.outClass)
-        .css('animation-duration')
-        .replace(/s/g,'') * 1000;
-      var stream = function(){ location.href = url; };
-      var outClass;
-      var addOutClass = function(){
-        if(selfOutClass){
-          outClass = selfOutClass;
-        } else {
-          outClass = bodyOutClass;
-        }
-        $this.addClass(outClass);
-      }
+      var outClass = methods.pageOutClass.call(_this, $self);
+      var outDuration = methods.pageOutDuration.call(_this, $self);
+      
+      $this
+        .css({ "animation-duration" : (outDuration / 1000) + "s" })
+        .addClass(outClass);
 
-      addOutClass();
-
-      setTimeout(function(){ stream() }, outDelay );
+      setTimeout(function(){ 
+        location.href = url 
+      }, outDuration );
     },
     
     destroy: function(){
       return this.each(function(){
         var $this = $(this);
         $(window).unbind('.'+namespace);
-        $this.removeData(namespace);
+        $this
+          .removeClass(namespace)
+          .removeData(namespace);
       });      
     }
     
