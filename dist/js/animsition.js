@@ -6,6 +6,7 @@
  * http://blivesta.com/
  */
 (function($) {
+  "use strict";
   var namespace = "animsition";
   var methods = {
     init: function(options) {
@@ -16,6 +17,9 @@
         outDuration: 800,
         linkElement: ".animsition-link",
         touchSupport: true,
+        loading: true,
+        loadingParentElement: "body",
+        loadingClass: "animsition-loading",
         unSupportCss: [ "animation-duration", "-webkit-animation-duration", "-o-animation-duration" ]
       }, options);
       var support = methods.supportCheck.call(this, options);
@@ -32,6 +36,9 @@
       var bindEvts = "click." + namespace;
       if (options.touchSupport) {
         bindEvts += " touchend." + namespace;
+      }
+      if (options.loading === true) {
+        methods.addLoading.call(this, options);
       }
       return this.each(function() {
         var _this = this;
@@ -66,6 +73,15 @@
       }
       return support;
     },
+    addLoading: function(options) {
+      $(options.loadingParentElement).append('<div class="' + options.loadingClass + '"></div>');
+    },
+    removeLoading: function() {
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+      var $loading = $(options.loadingParentElement).children("." + options.loadingClass);
+      $loading.remove();
+    },
     pageInClass: function() {
       var $this = $(this);
       var options = $this.data(namespace).options;
@@ -93,8 +109,12 @@
     pageIn: function() {
       var _this = this;
       var $this = $(this);
+      var options = $this.data(namespace).options;
       var inClass = methods.pageInClass.call(_this);
       var inDuration = methods.pageInDuration.call(_this);
+      if (options.loading === true) {
+        methods.removeLoading.call(_this);
+      }
       $this.css({
         "animation-duration": inDuration / 1e3 + "s"
       }).addClass(inClass);
