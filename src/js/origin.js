@@ -1,19 +1,23 @@
 (function($) {
+  "use strict";
   var namespace = 'animsition';
   var methods = {
     init: function(options){      
       options = $.extend({
-        inClass        :'fade-in',
-        outClass       :'fade-out',
-        inDuration     : 1500,
-        outDuration    : 800,
-        linkElement    :'.animsition-link', //e.g.'a:not([target="_blank"]):not([href^=#])', 
-        touchSupport   : true, 
-        unSupportCss   :[
-                        'animation-duration',
-                        '-webkit-animation-duration',
-                        '-o-animation-duration'
-                        ]
+        inClass               :   'fade-in',
+        outClass              :   'fade-out',
+        inDuration            :    1500,
+        outDuration           :    800,
+        linkElement           :   '.animsition-link', 
+        // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+        touchSupport          :    true, 
+        loading               :    true,
+        loadingParentElement  :   'body', //animsition wrapper element
+        loadingClass          :   'animsition-loading',
+        unSupportCss          : [ 'animation-duration',
+                                  '-webkit-animation-duration',
+                                  '-o-animation-duration'
+                                ]
       }, options);
 
       // Remove the "Animsition" in a browser 
@@ -33,6 +37,10 @@
       var bindEvts = "click." + namespace;
       if (options.touchSupport) {
         bindEvts += " touchend." + namespace;
+      }
+
+      if(options.loading === true) { 
+        methods.addLoading.call(this, options); 
       }
 
       return this.each(function(){
@@ -77,6 +85,18 @@
       return support;
     },
 
+    addLoading: function(options){
+      $(options.loadingParentElement)
+        .append('<div class="'+options.loadingClass+'"></div>');
+    },
+
+    removeLoading: function(){
+      var $this     = $(this);
+      var options   = $this.data(namespace).options;
+      var $loading  = $(options.loadingParentElement).children("."+options.loadingClass);
+      $loading.remove();
+    },
+
     pageInClass : function(){
       var $this = $(this);
       var options = $this.data(namespace).options;
@@ -108,9 +128,14 @@
     pageIn: function(){
       var _this = this;
       var $this = $(this);
+      var options = $this.data(namespace).options;
       var inClass = methods.pageInClass.call(_this);
       var inDuration = methods.pageInDuration.call(_this);
-      
+
+      if(options.loading === true) {
+        methods.removeLoading.call(_this);
+      }
+
       $this
         .css({ "animation-duration" : (inDuration / 1000) + "s" })
         .addClass(inClass); 
