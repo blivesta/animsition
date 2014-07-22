@@ -14,6 +14,37 @@
        -o-animation-fill-mode: both;
           animation-fill-mode: both;
 }
+.animsition-loading {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  font-size: 24px;
+  text-align: center;
+  opacity: 0;
+  -webkit-animation-name: blink-slow;
+       -o-animation-name: blink-slow;
+          animation-name: blink-slow;
+  -webkit-animation-duration: .3s;
+       -o-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-timing-function: ease-in-out;
+       -o-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+       -o-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+       -o-animation-direction: alternate;
+          animation-direction: alternate;
+
+  -webkit-animation-fill-mode: both;
+       -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.animsition-loading:after {
+  color: #aaa;
+  content: "Loading";
+}
 @-webkit-keyframes fade-in {
   0% {
     opacity: 0;
@@ -801,5 +832,55 @@
   -webkit-animation-name: zoom-out;
        -o-animation-name: zoom-out;
           animation-name: zoom-out;
+}
+.blink-slow {
+  -webkit-animation-name: blink-slow;
+       -o-animation-name: blink-slow;
+          animation-name: blink-slow;
+  -webkit-animation-duration: .3s;
+       -o-animation-duration: .3s;
+          animation-duration: .3s;
+  -webkit-animation-timing-function: ease-in-out;
+       -o-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+       -o-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: alternate;
+       -o-animation-direction: alternate;
+          animation-direction: alternate;
+}
+@-webkit-keyframes blink-slow {
+  0% {
+    opacity: .4;
+  }
+  50% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes blink-slow {
+  0% {
+    opacity: .4;
+  }
+  50% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes blink-slow {
+  0% {
+    opacity: .4;
+  }
+  50% {
+    opacity: .7;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=animsition.css.map */
