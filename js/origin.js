@@ -46,6 +46,7 @@
       return this.each(function(){
         var _this = this;
         var $this = $(this);
+        var $window = $(window);
         var data = $this.data(namespace);
 
         if (!data) { 
@@ -55,12 +56,12 @@
             options: options
           });
 
-          $(window).on("load." + namespace, function() {   
+          $window.on("load." + namespace, function() {   
             methods.pageIn.call( _this );
           }); 
 
           // Firefox back button issue #4
-          $(window).on("unload." + namespace, function() { });
+          $window.on("unload." + namespace, function() { });
 
           $(options.linkElement).on(bindEvts, function(event) {
             event.preventDefault();
@@ -74,9 +75,13 @@
     supportCheck: function(options){
       var $this = $(this);
       var props = options.unSupportCss;
-      var support = false;
+      var propsNum = props.length;
+      var support  = false;
 
-      for (var i = 0; i < props.length; i++) {
+      if (propsNum === 0) {
+        support = true;
+      }
+      for (var i = 0; i < propsNum; i++) {
         if (typeof $this.css(props[i]) === "string") {
           support = true;
           break;
