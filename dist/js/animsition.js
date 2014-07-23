@@ -43,16 +43,17 @@
       return this.each(function() {
         var _this = this;
         var $this = $(this);
+        var $window = $(window);
         var data = $this.data(namespace);
         if (!data) {
           options = $.extend({}, options);
           $this.data(namespace, {
             options: options
           });
-          $(window).on("load." + namespace, function() {
+          $window.on("load." + namespace, function() {
             methods.pageIn.call(_this);
           });
-          $(window).on("unload." + namespace, function() {});
+          $window.on("unload." + namespace, function() {});
           $(options.linkElement).on(bindEvts, function(event) {
             event.preventDefault();
             var $self = $(this);
@@ -65,6 +66,9 @@
       var $this = $(this);
       var props = options.unSupportCss;
       var support = false;
+      if (props.length === 0) {
+        support = true;
+      }
       for (var i = 0; i < props.length; i++) {
         if (typeof $this.css(props[i]) === "string") {
           support = true;
