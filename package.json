@@ -6,9 +6,10 @@
   "author_url": "http://blivesta.com/",
   "licenses": "MIT",
   "source": "./src",
+  "docs": "./docs",
   "dist": "./dist",
   "public": "./_gh_pages",
-  "assets": "./src/assets",
+  "assets": "./docs/assets",
   "repository": {
     "user": "blivesta",
     "type": "git"

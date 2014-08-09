@@ -2,7 +2,7 @@ markdown:         redcarpet
 pygments:         true
 permalink:        pretty
 exclude:          ['less','*.json','Gruntfile.js','bower_components','node_modules']
-source:           ./src
+source:           ./docs
 destination:      ./_gh_pages
 encoding:         UTF-8
 title:            Animsition

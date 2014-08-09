@@ -21,8 +21,8 @@
     clean: {
       files: [
         '<%= pkg.dist %>',
-        '<%= pkg.source %>/js/<%= pkg.name %>.js',
-        '<%= pkg.source %>/js/<%= pkg.name %>.min.js',
+        '<%= pkg.docs %>/js/*.js',
+        '<%= pkg.docs %>/css/*.css',
         '<%= pkg.public %>'
       ]
     },
@@ -34,10 +34,10 @@
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: ['<%= pkg.name %>.css.map'],
-          sourceMapFilename: '<%= pkg.source %>/css/<%= pkg.name %>.css.map'
+          sourceMapFilename: '<%= pkg.docs %>/css/<%= pkg.name %>.css.map'
         },
         files: {
-          '<%= pkg.source %>/css/<%= pkg.name %>.css': '<%= pkg.source %>/less/<%= pkg.name %>.less'
+          '<%= pkg.docs %>/css/<%= pkg.name %>.css': '<%= pkg.source %>/less/<%= pkg.name %>.less'
         } 
       },
       minify: {
@@ -45,7 +45,7 @@
           cleancss: true
         },
         files: {
-          '<%= pkg.source %>/css/<%= pkg.name %>.min.css': '<%= pkg.source %>/css/<%= pkg.name %>.css'
+          '<%= pkg.docs %>/css/<%= pkg.name %>.min.css': '<%= pkg.docs %>/css/<%= pkg.name %>.css'
         }
       },
       docs: {
@@ -72,10 +72,6 @@
     },
     // ====================================================
     autoprefixer: {
-      // options: {
-      //   browsers: ['last 2 versions', 'ie 8', 'ie 9', 'android 4', 'opera 12']
-      // },
-
       options: {
         browsers: [
           'Android 2.3',
@@ -88,13 +84,11 @@
           'Safari >= 6'
         ]
       },
-
-      
       source: {
         options: {
           map: true
         },
-        src: '<%= pkg.source %>/css/<%= pkg.name %>.css'
+        src: '<%= pkg.docs %>/css/<%= pkg.name %>.css'
       },
       docs: {
         options: {
@@ -110,9 +104,9 @@
       },
       source: {
         expand: true,
-        cwd: '<%= pkg.source %>/css/',
+        cwd: '<%= pkg.docs %>/css/',
         src: ['*.css', '!*.min.css'],
-        dest: '<%= pkg.source %>/css/'
+        dest: '<%= pkg.docs %>/css/'
       },
       docs: {
         expand: true,
@@ -128,7 +122,7 @@
         banner: '<%= banner %>'
       },
       source: {
-        src: '<%= pkg.source %>/css/*.css'
+        src: '<%= pkg.docs %>/css/*.css'
       },
       docs: {
         src: '<%= pkg.assets %>/css/*.css'
@@ -140,7 +134,7 @@
         csslintrc: '<%= pkg.source %>/less/.csslintrc'
       },
       source: [
-        '<%= pkg.source %>/css/<%= pkg.name %>.css',
+        '<%= pkg.docs %>/css/<%= pkg.name %>.css',
         '<%= pkg.assets %>/css/docs.css'
       ]
     },
@@ -158,15 +152,15 @@
           beautify: true
         },
         files :  { 
-          '<%= pkg.source %>/js/<%= pkg.name %>.js' : [
-            '<%= pkg.source %>/js/origin.js'
+          '<%= pkg.docs %>/js/<%= pkg.name %>.js' : [
+            '<%= pkg.source %>/js/<%= pkg.name %>.js'
           ]
         } 
       },
       minify:{
         files :  { 
-          '<%= pkg.source %>/js/<%= pkg.name %>.min.js' : [
-            '<%= pkg.source %>/js/<%= pkg.name %>.js' 
+          '<%= pkg.docs %>/js/<%= pkg.name %>.min.js' : [
+            '<%= pkg.docs %>/js/<%= pkg.name %>.js' 
           ]
         } 
       }
@@ -181,8 +175,8 @@
       },
       source: {
         src: [
-          '<%= pkg.source %>/js/<%= pkg.name %>.js',
-          '<%= pkg.source %>/js/<%= pkg.name %>.min.js'
+          '<%= pkg.docs %>/js/<%= pkg.name %>.js',
+          '<%= pkg.docs %>/js/<%= pkg.name %>.min.js'
         ]
       }
     },
@@ -209,13 +203,12 @@
     copy: {
       dist: {
         expand: true,
-        cwd: './<%= pkg.source %>',
+        cwd: './<%= pkg.docs %>',
         src: [
           'js/<%= pkg.name %>.js',
           'js/<%= pkg.name %>.min.js',
           'css/*.css',
-          'css/*.map',
-          'less/**'
+          'css/*.map'
         ],
         dest: './<%= pkg.dist %>'
       }
@@ -250,7 +243,7 @@
     bower: {
       install: {
         options: {
-          targetDir: '<%= pkg.source %>/vendor',
+          targetDir: '<%= pkg.docs %>/vendor',
           layout: 'byComponent',
           install: true,
           verbose: false,
@@ -293,10 +286,10 @@
       },
       html: {
         files: [
-          '<%= pkg.source %>/*.html',
-          '<%= pkg.source %>/_includes/*',
-          '<%= pkg.source %>/_posts/*',
-          '<%= pkg.source %>/_layouts/*'
+          '<%= pkg.docs %>/*.html',
+          '<%= pkg.docs %>/_includes/*',
+          '<%= pkg.docs %>/_posts/*',
+          '<%= pkg.docs %>/_layouts/*'
         ],
         tasks: [
           'build-html',
