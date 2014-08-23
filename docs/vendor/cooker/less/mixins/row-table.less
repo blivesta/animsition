@@ -1,8 +1,0 @@
-// row-table.less
-//=================================================
-.row-table-generate(@n, @i: 1) when (@i =< @n) {
-  .col-@{i} {
-    width: (@i * 100% / @n);
-  }
-  .row-table-generate(@n, (@i + 1));
-}
