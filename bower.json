@@ -28,7 +28,7 @@
     "Gruntfile.js"
   ],
   "dependencies": {
-    "cooker": "~0.4.7"
+    "cooker": "~0.4.8"
   },
   "exportsOverride": {
     "cooker": {

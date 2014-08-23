@@ -2,11 +2,7 @@ node_modules
 bower_components
 validation-*.json
 _gh_pages
-docs/vendor/bootstrap
-docs/vendor/drawer
-docs/vendor/jquery
-docs/vendor/cooker/less/qcon
-docs/vendor/cooker/less/core
-docs/vendor/cooker/less/component
+docs/assets/css
+docs/vendor
 docs/css
 docs/js

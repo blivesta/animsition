@@ -152,15 +152,15 @@
           beautify: true
         },
         files :  { 
-          '<%= pkg.docs %>/js/<%= pkg.name %>.js' : [
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js' : [
             '<%= pkg.source %>/js/<%= pkg.name %>.js'
           ]
         } 
       },
       minify:{
         files :  { 
-          '<%= pkg.docs %>/js/<%= pkg.name %>.min.js' : [
-            '<%= pkg.docs %>/js/<%= pkg.name %>.js' 
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.min.js' : [
+            '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js' 
           ]
         } 
       }
@@ -175,8 +175,8 @@
       },
       source: {
         src: [
-          '<%= pkg.docs %>/js/<%= pkg.name %>.js',
-          '<%= pkg.docs %>/js/<%= pkg.name %>.min.js'
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js',
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.min.js'
         ]
       }
     },
@@ -205,8 +205,8 @@
         expand: true,
         cwd: './<%= pkg.docs %>',
         src: [
-          'js/<%= pkg.name %>.js',
-          'js/<%= pkg.name %>.min.js',
+          'js/jquery.<%= pkg.name %>.js',
+          'js/jquery.<%= pkg.name %>.min.js',
           'css/*.css',
           'css/*.map'
         ],
@@ -383,7 +383,7 @@
   // ====================================================
   grunt.registerTask('b', [
     'clean',
-    // 'bower',
+    'bower',
     'build-less',
     'build-docsLess',
     'build-js',
