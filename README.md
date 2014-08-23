@@ -30,7 +30,7 @@ http://blivesta.github.io/animsition
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
 <!-- animsition js -->
-<script src="dist/js/animsition.min.js"></script>
+<script src="dist/js/jquery.animsition.min.js"></script>
 ~~~
 
 ####Step 2: HTML markup
