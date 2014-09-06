@@ -10,16 +10,33 @@
   }
   .site-masthead {
     h1 {
-      font-size:48px;
+      font-size:52px;
     }
   }
+  .site-ads {
+    margin:0;
+    padding:0px;
+    background-color:#fff;
+  }
   .site-body{
-    padding-top:30px;
+    .site-ads {
+      .site-ads-inner {
+        width:320px;
+        .center-block;
+      }
+    }
     h2 {
       font-size: 36px;
     }
   }
   .site-section-body{
+      .site-example-nav{
+        font-size: 20px;
+        line-height: 2.2;
+        text-align: center;
+        margin-top:20px;
+      }
+    
     .site-example-nav,
     .highlight {
       .center-block;
@@ -44,17 +61,19 @@
       font-size:24px;
     }
   }
+  .site-ads {
+    padding:15px 0;
+  }
 }
 
 // min-width: 768px
 //===========================================
 @media (min-width: 768px) {
   .site-masthead {
-    padding-top:90px;
-    padding-bottom:90px;
+    padding-top:80px;
+    padding-bottom:80px;
     h1 {
       font-size:80px;
-      margin-bottom: 20px;
     }
   }    
 }

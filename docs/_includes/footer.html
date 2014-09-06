@@ -1,8 +1,38 @@
 <footer class="site-footer">
   <div class="site-footer-inner container">
-	  <h3>{{ site.title }}</h3>
-    <p>Currently v{{ site.current_version }} / Author <a href="{{ site.author_url }}">{{ site.author }}</a>
-     / Code licensed under the MIT license.</p>
-    {% include social-buttons.html %}
+    {% if page.layout == 'base' %}
+      {% include social-link.html %}
+    {% endif %}
+    {% include social-follow.html %}
+    
+    <hr>
+    
+    <ul class="list-inline">
+      <li>Currently v{{ site.current_version }}</li>
+      <li>·</li>
+      <li>Code licensed under the MIT.</li>
+      <li>·</li>
+      <li>
+        Author <a href="{{ site.author_url }}">
+          &nbsp;{{ site.author }}
+        </a>
+      </li>
+    </ul>
+    
+    
+    
+    <ul class="list-inline">
+      <li>Other projects</li>
+      <li>·</li>
+      <li><a href="../animsition">Animsition</a></li>
+      <li>·</li>
+      <li><a href="../drawer">Drawer</a></li>
+      <li>·</li>
+      <li><a href="../rippler">Rippler</a></li>
+      <li>·</li>
+      <li><a href="../oblurlay">Oblurlay</a></li>
+      <li>·</li>
+      <li><a href="../chaffle">Chaffle</a></li>
+    </ul>
   </div>
 </footer>

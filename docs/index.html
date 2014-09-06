@@ -11,21 +11,20 @@ base_url: "./"
     <h1>{{ site.title }}</h1>
     <p class="lead">{{ page.title }}</p>
     <p><a href="{{ site.repo_url }}" class="button button-border button-lg">Download on GitHub</a></p>
-    {% include social-buttons.html %}  
-    <p>Currently v{{ site.current_version }}  ･  Authtor : <a href="https://twitter.com/blivesta/">@blivesta</a>
+    {% include social-link.html %}  
+    <p>Currently v{{ site.current_version }}  ･  Authtor : 
+      <a href="http://blivesta.com/" target="_blank">blivesta</a>
     <br>
-    Licensed under the MIT.</p>
+    Licensed under the MIT.</p>        
   </div><!-- /.container -->
 </main>
 
 <div class="site-body">
+  
+  {% include ads320x50.html %}  
+  
   <div class="site-body-inner container">
-    <div class="site-section">
-      <h2 class="site-section-title">Information</h2>
-      <p class="site-icon-mark"><span class="oi oi-info "></span> </p>
-      <p class="lead">"clickstream" was changed to "animsition"<br class="hidden-xs">a name from the v3.0.0. </p>
-    </div>
-
+        
     <div class="site-section page-different-animation">
       <h2 class="site-section-title">18 different animation</h2>
       <p class="site-icon-mark"><span class="oi oi-cog"></span></p>
