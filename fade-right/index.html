@@ -15,6 +15,8 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/touch-icon-144.png">
   <link rel="shortcut icon" href="../assets/ico/favicon.ico">
 
+  <link href='http://fonts.googleapis.com/css?family=Roboto:900,100,700,400' rel='stylesheet' type='text/css'>
+
   <!-- Vendor css -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/open-iconic/1.1.0/font/css/open-iconic-bootstrap.min.css">
   <link rel="stylesheet" href="../vendor/cooker/css/cooker.css">
@@ -53,19 +55,12 @@
     <header class="site-header navbar navbar-default navbar-static-top" id="top" role="banner">
   <div class="site-header-inner container">
     <div class="navbar-header">
-      <!-- <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".site-navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button> -->
-       <a class="site-header-brand navbar-brand" href="../">Animsition</a>
+       <a class="site-header-brand navbar-brand animsition-link" href="../">Animsition</a>
     </div>
-    <!--<nav class="collapse navbar-collapse site-navbar-collapse" role="navigation">-->    
-    <nav class="site-navbar-coll hidden-xs" role="navigation">
+    <nav class="site-navbar-coll hidden-x" role="navigation">
       <ul class="navs navbar-nav navbar-right">
         <li class="dropdown">
-          <a class="dropdown-toggle" href="#">Example  <span class="drop"></span></a>
+          <a class="dropdown-toggle hidden-xs" href="#">Example  <span class="drop"></span></a>
           <ul class="dropdown-menu" role="menu">
             
 
@@ -85,7 +80,7 @@
 
           </ul>
         </li>
-        <li class=""><a href="https://github.com/blivesta/animsition">GitHub project</a></li>
+        <li class=""><a href="https://github.com/blivesta/animsition">GitHub</a></li>
       </ul>
     </nav>
   </div>
@@ -99,23 +94,59 @@
 		</main>
 
 		<div class="site-body">
+      
+      
 		  <div class="site-body-inner container">
 
 		    <div class="site-section">
   <h2 class="site-section-title">Example links</h2>
   <p class="lead"></p>
   <div class="site-section-body">
-    <p>
-  <a class="button button-flat-primary button-lg animsition-link" href="./">
+    <p class="site-example-links">
+  <a class="button button-flat-primary animsition-link" href="./">
     <span class="oi oi-loop"></span>&nbsp;Fade right
   </a>
   <span class="hidden-xs">&nbsp;</span>
-  <a class="button button-border-primary button-lg" href="./">
-    <span class="oi oi-ban"></span>&nbsp;Fade right (Normal link)
+  <a class="button button-flat-info" href="./">
+    <span class="oi oi-ban"></span>&nbsp;Fade right <samll>(Normal link)</samll>
   </a>
 </p>
+
+<h4 style="margin-top:20px;">Other</h4>
+<ul class="list-inline site-example-nav">
+  <li><a class="animsition-link" href="../fade" data-animsition-out="fade-out">Fade</a></li>
+  <li><a class="animsition-link" href="../fade-down" data-animsition-out="fade-out-down">Fade down</a></li>
+  <li><a class="animsition-link" href="../fade-up" data-animsition-out="fade-out-up">Fade up</a></li>
+  <li><a class="animsition-link" href="../fade-left" data-animsition-out="fade-out-left">Fade left</a></li>
+  <li><a class="animsition-link" href="../fade-right" data-animsition-out="fade-out-right">Fade right</a></li>
+</ul>
+<ul class="list-inline site-example-nav" style="margin-bottom:0;">
+  <li><a class="animsition-link" href="../rotate" data-animsition-out="rotate-out">Rotate</a></li>
+  <li><a class="animsition-link" href="../flip-x" data-animsition-out="flip-out-x">Flip X</a></li>
+  <li><a class="animsition-link" href="../flip-y" data-animsition-out="flip-out-y">Flip Y</a></li>
+  <li><a class="animsition-link" href="../zoom" data-animsition-out="zoom-out">Zoom</a></li>
+</ul>
+
+
+
   </div>
 </div>
+
+<div class="site-ads">
+  <div class="site-ads-inner">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- git-320x50 -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:320px;height:50px"
+         data-ad-client="ca-pub-9883876704954677"
+         data-ad-slot="9098392698"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</div>
+  
+
 <div class="site-section">
   <h2 class="site-section-title">Installation</h2>
   <p class="lead"></p>
@@ -208,25 +239,71 @@
 
     <footer class="site-footer">
   <div class="site-footer-inner container">
-	  <h3>Animsition</h3>
-    <p>Currently v3.2.1 / Author <a href="http://blivesta.com">blivesta</a>
-     / Code licensed under the MIT license.</p>
-    <ul class="site-social list-inline">
-	<li>
+    
+      <ul class="site-social list-inline">
+	<li class="btn-gh">
 	  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=animsition&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
 	</li>
-	<li>
+	<li class="btn-tw">
+	  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Animsition : A simple and easy jQuery plugin used to add page transition on css animations." data-url="http://git.blivesta.com/animsition" data-related="blivesta" data-count="1" data-hashtags="">Tweet</a>
+	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>
+	</li>
+	<li class="btn-gg">
+		<div class="g-plusone" data-size="medium" data-href="http://git.blivesta.com/animsition"></div>
+		<script type="text/javascript">
+		  (function() {
+		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		    po.src = 'https://apis.google.com/js/platform.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+		  })();
+		</script>
+	</li>
+</ul>       
+
+    
+    <ul class="site-social-folow list-inline">
+	<li style="width:126px">
 	  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&type=follow&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="132" height="20"></iframe>
 	</li>
 	<li>
-	  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Animsition : A simple and easy jQuery plugin used to add page transition on css animations." data-url="http://git.blivesta.com/animsition" data-related="blivesta" data-count="1" data-hashtags="">Tweet</a>
+		<a href="https://twitter.com/blivesta" class="twitter-follow-button" data-show-count="false">Follow @blivesta</a>
+	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		</script>		
 	</li>
-  
-
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 
 </ul>       
 
+    
+    <hr>
+    
+    <ul class="list-inline">
+      <li>Currently v3.2.1</li>
+      <li>·</li>
+      <li>Code licensed under the MIT.</li>
+      <li>·</li>
+      <li>
+        Author <a href="http://blivesta.com">
+          &nbsp;blivesta
+        </a>
+      </li>
+    </ul>
+    
+    
+    
+    <ul class="list-inline">
+      <li>Other projects</li>
+      <li>·</li>
+      <li><a href="../animsition">Animsition</a></li>
+      <li>·</li>
+      <li><a href="../drawer">Drawer</a></li>
+      <li>·</li>
+      <li><a href="../rippler">Rippler</a></li>
+      <li>·</li>
+      <li><a href="../oblurlay">Oblurlay</a></li>
+      <li>·</li>
+      <li><a href="../chaffle">Chaffle</a></li>
+    </ul>
   </div>
 </footer>
 
