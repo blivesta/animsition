@@ -353,6 +353,10 @@ h4 {
 .site-header {
   margin-bottom: 0;
 }
+.site-header .navbar-nav > li > a:hover,
+.site-header .site-header-brand:hover {
+  opacity: .6;
+}
 .navbar-header {
   float: left;
 }
@@ -373,6 +377,7 @@ h4 {
 .site-masthead h1 {
   margin-bottom: 5px;
   font-weight: 700;
+  opacity: .95;
 }
 .site-masthead .lead {
   font-size: 16px;
@@ -499,7 +504,7 @@ h4 {
 .site-home .site-ads {
   padding: 0;
   margin: 0;
-  background-color: #fff;
+  border: none;
 }
 .site-home .site-body .site-ads .site-ads-inner {
   display: block;
@@ -538,7 +543,7 @@ h4 {
     font-size: 24px;
   }
   .site-home .site-ads {
-    padding: 15px 0;
+    padding: 40px 0 0 0;
   }
 }
 @media (min-width: 768px) {
