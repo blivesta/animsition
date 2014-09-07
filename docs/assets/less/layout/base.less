@@ -79,7 +79,11 @@ h4 {
 .site-header {
   margin-bottom: 0;
   .navbar-nav > li > a,
-  .site-header-brand {  }
+  .site-header-brand { 
+    &:hover {
+      opacity:.6;
+    }
+  }
 }
 .navbar-header {
   float: left;
@@ -105,6 +109,7 @@ h4 {
   h1{
     font-weight:700;
     margin-bottom:5px;
+    opacity:.95;
   }
   .lead{
     opacity: .7;
