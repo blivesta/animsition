@@ -3,7 +3,7 @@
 Animsition
 ==================
 
-Animsition is a simple and easy jQuery plugin used to add page transition on css animations.
+A simple and easy jQuery plugin for CSS animated page transitions. 
 
 ##Example & Installation
 http://blivesta.github.io/animsition
