@@ -1,6 +1,6 @@
 {
   "name": "animsition",
-  "description": "a simple and easy jQuery plugin used to add page transition on css animations.",
+  "description": "A simple and easy jQuery plugin for CSS animated page transitions.",
   "version": "3.2.1",
   "keywords": [
     "css3",
@@ -32,11 +32,8 @@
   },
   "exportsOverride": {
     "cooker": {
-      "js": "dist/js/dropdown.js",
       "css": "dist/css/",
       "less": "dist/less/"
     }
   }
-
-
 }
