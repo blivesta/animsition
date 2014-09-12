@@ -27,7 +27,7 @@
     "*.json",
     "Gruntfile.js"
   ],
-  "dependencies": {
+  "devDependencies": {
     "cooker": "~0.4.8"
   },
   "exportsOverride": {
