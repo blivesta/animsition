@@ -4,14 +4,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  {% if page.class == 'site-home' %}
-  <meta name="description" content="{{ page.title }}">
+  {% if page.layout == 'home' %}
+  <meta name="description" content="{{ site.discription }}">
   {% endif %}
   <title>
-    {% if page.title == site.title %}
-      {{ page.title }}
+    {% if page.layout == 'home' %}
+      {{ site.title }} &middot; {{ site.discription }}
     {% else %}
-      {{ page.title }} &middot; {{ site.title }}
+      {{ page.title }} &middot; {{ site.title }} &middot; {{ site.discription }}
     {% endif %}
   </title>
   
