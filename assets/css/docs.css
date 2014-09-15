@@ -501,16 +501,8 @@ h4 {
 .site-home .site-masthead h1 {
   font-size: 52px;
 }
-.site-home .site-ads {
-  padding: 0;
-  margin: 0;
-  border: none;
-}
-.site-home .site-body .site-ads .site-ads-inner {
-  display: block;
-  width: 320px;
-  margin-right: auto;
-  margin-left: auto;
+.site-home .site-body {
+  padding-top: 30px;
 }
 .site-home .site-body h2 {
   font-size: 36px;
@@ -541,9 +533,6 @@ h4 {
   }
   .site-home .site-masthead .lead {
     font-size: 24px;
-  }
-  .site-home .site-ads {
-    padding: 40px 0 0 0;
   }
 }
 @media (min-width: 768px) {
