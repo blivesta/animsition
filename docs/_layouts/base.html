@@ -5,10 +5,11 @@
     {% include header.html %}
 
 		<main class="site-masthead" role="main">
-		  <div class="container">
-		  	<h1>{{ page.title }}</h1>
-		    <p class="lead">{{ site.discription }}</p>
-		  </div><!-- /.container -->
+			<div class="container">
+				<h1>{{ page.title }}</h1>
+				<p class="lead">{{ site.discription }}</p>
+				{% include adpacks.html %}
+			</div><!-- /.container -->
 		</main>
 
 		<div class="site-body">
