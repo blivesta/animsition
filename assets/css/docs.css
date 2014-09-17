@@ -376,6 +376,7 @@ h4 {
 }
 .site-masthead h1 {
   margin-bottom: 5px;
+  font-size: 3em;
   font-weight: 700;
   opacity: .95;
 }
@@ -398,17 +399,43 @@ h4 {
   display: block;
   margin-bottom: 10px;
 }
-.site-ads {
-  padding: 15px 0;
-  margin: 0 -15px;
-  border-bottom: 1px solid #ddd;
+.site-adpacks {
+  bottom: 10px;
+  left: 10px;
+  z-index: 99;
+  max-width: 340px;
+  padding: 15px;
+  margin: 0;
+  margin-bottom: 30px;
+  font-size: 12px;
+  text-align: left!important;
+  background: #fff;
+  background: rgba(255, 255, 255, .2);
+  border-radius: 4px;
 }
-.site-ads .site-ads-inner {
+.site-adpacks:before,
+.site-adpacks:after {
+  display: table;
+  content: " ";
+}
+.site-adpacks:after {
+  clear: both;
+}
+@media (min-width: 480px) {
+  .site-home .site-adpacks {
+    margin: 60px auto 0 auto;
+  }
+}
+.adpacks-wrap .adpacks-img {
+  float: left;
+  width: 145px;
+}
+.adpacks-wrap .adpacks-img img {
+  margin-right: 15px;
+}
+.adpacks-poweredby {
   display: block;
-  max-width: 768px;
-  height: 50px;
-  margin-right: auto;
-  margin-left: auto;
+  margin-top: 10px;
 }
 .site-section {
   padding: 30px 0;
@@ -467,18 +494,6 @@ h4 {
   .site-example-links .button {
     display: inline-block;
     margin-bottom: 0;
-  }
-  .site-ads {
-    margin: 0;
-  }
-  .site-ads .site-ads-inner {
-    height: 50px;
-    -webkit-box-sizing: content-box;
-       -moz-box-sizing: content-box;
-            box-sizing: content-box;
-  }
-  .site-ads .site-ads-inner iframe {
-    overflow: hidden;
   }
 }
 @media (min-width: 768px) {
