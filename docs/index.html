@@ -12,7 +12,8 @@ base_url: "./"
     <p class="lead">{{ page.title }}</p>
     <p><a href="{{ site.repo_url }}" class="button button-border button-lg">Download on GitHub</a></p>
     {% include social-link.html %}  
-    <p>Currently v{{ site.current_version }}  ･  Authtor : 
+    <p>Currently v{{ site.current_version }}  ･  Authtor :&nbsp; 
+      <span class="icon-blivesta icon-small"></span>&nbsp;
       <a href="http://blivesta.com/" target="_blank">blivesta</a>
     <br>
     Licensed under the MIT.</p>
@@ -94,17 +95,6 @@ base_url: "./"
     </div>    
 
     <div class="site-section">
-      <h2 class="site-section-title">Installation</h2>
-      <p class="site-icon-mark"><span class="oi oi-code"></span></p>
-      <p class="lead"></p>
-      <div class="site-section-body">
-          <p><a href="{{ site.repo_url }}" class="button button-border-primary button-lg">Download on GitHub</a></p>
-
-        {% include example-setup.html %}
-      </div>
-    </div>
-
-    <div class="site-section">
       <h2 class="site-section-title">Browser support</h2>
       <p class="site-icon-mark"><span class="oi oi-browser"></span></p>
       <p class="lead">Requires a browser that supports CSS3.</p>
@@ -116,6 +106,17 @@ base_url: "./"
           <li><span class="label-class">Firefox</span></li>
           <li><span class="label-class">Opera</span></li>
         </ul>
+      </div>
+    </div>    
+
+    <div class="site-section">
+      <h2 class="site-section-title">Installation</h2>
+      <p class="site-icon-mark"><span class="oi oi-code"></span></p>
+      <p class="lead"></p>
+      <div class="site-section-body">
+          <p><a href="{{ site.repo_url }}" class="button button-border-primary button-lg">Download on GitHub</a></p>
+
+        {% include example-setup.html %}
       </div>
     </div>
 
