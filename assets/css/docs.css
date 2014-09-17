@@ -315,6 +315,21 @@ h4 {
   background-color: #cbd5df;
   border-radius: 2px;
 }
+.icon-blivesta {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2216px%22%20height%3D%2216px%22%20viewBox%3D%220%200%2016%2016%22%3E%0A%09%3Cpath%20d%3D%22M8.773%2C0L4.781%2C3.991l3.993%2C3.991l-4.01%2C4.009L8.773%2C16H16V0H8.773z%20M12.398%2C13.703l-2.017-2.016l2.017-2.016l2.016%2C2.016%0A%09L12.398%2C13.703z%20M12.398%2C6.259l-2.017-2.016l2.017-2.016l2.016%2C2.016L12.398%2C6.259z%22/%3E%0A%3C/svg%3E");
+  -webkit-background-size: 16px 16px;
+          background-size: 16px;
+}
+.icon-blivesta.icon-small {
+  width: 12px;
+  height: 12px;
+  -webkit-background-size: 12px 12px;
+          background-size: 12px;
+}
 .dropdown-toggle:hover {
   cursor: pointer;
 }
@@ -376,12 +391,10 @@ h4 {
 }
 .site-masthead h1 {
   margin-bottom: 5px;
-  font-size: 3em;
   font-weight: 700;
   opacity: .95;
 }
 .site-masthead .lead {
-  font-size: 16px;
   opacity: .7;
 }
 .site-masthead p {
@@ -514,13 +527,10 @@ h4 {
   text-align: center;
 }
 .site-home .site-masthead h1 {
-  font-size: 52px;
+  font-size: 50px;
 }
 .site-home .site-body {
   padding-top: 30px;
-}
-.site-home .site-body h2 {
-  font-size: 36px;
 }
 .site-home .site-section-body .site-example-nav {
   margin-top: 20px;
@@ -544,10 +554,7 @@ h4 {
     padding-bottom: 70px;
   }
   .site-home .site-masthead h1 {
-    font-size: 68px;
-  }
-  .site-home .site-masthead .lead {
-    font-size: 24px;
+    font-size: 60px;
   }
 }
 @media (min-width: 768px) {
@@ -556,7 +563,7 @@ h4 {
     padding-bottom: 80px;
   }
   .site-home .site-masthead h1 {
-    font-size: 80px;
+    font-size: 70px;
   }
 }
 /*# sourceMappingURL=docs.css.map */
