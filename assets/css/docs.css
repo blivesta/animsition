@@ -324,11 +324,20 @@ h4 {
   -webkit-background-size: 16px 16px;
           background-size: 16px;
 }
-.icon-blivesta.icon-small {
+.icon-blivesta.icon-sm {
   width: 12px;
   height: 12px;
   -webkit-background-size: 12px 12px;
           background-size: 12px;
+}
+.icon-blivesta.icon-lg {
+  width: 24px;
+  height: 24px;
+  -webkit-background-size: 12px 12px;
+          background-size: 12px;
+}
+.icon-blivesta.icon-circle {
+  border-radius: 50%;
 }
 .dropdown-toggle:hover {
   cursor: pointer;
