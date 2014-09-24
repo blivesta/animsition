@@ -40,7 +40,7 @@
       if (options.touchSupport) {
         bindEvts += " touchend." + namespace;
       }
-      if (options.overlayMode === true) {
+      if (options.overlay === true) {
         methods.addOverlay.call(this, options);
       }
       if (options.loading === true) {
@@ -129,7 +129,7 @@
       if (options.loading === true) {
         methods.removeLoading.call(_this);
       }
-      if (options.overlayMode === true) {
+      if (options.overlay === true) {
         methods.pageInOverlay.call(_this, inClass, inDuration);
       } else {
         methods.pageInBasic.call(_this, inClass, inDuration);
@@ -189,7 +189,7 @@
       var outClass = methods.pageOutClass.call(_this, $self);
       var outDuration = methods.pageOutDuration.call(_this, $self);
       var url = $self.attr("href");
-      if (options.overlayMode === true) {
+      if (options.overlay === true) {
         methods.pageOutOverlay.call(_this, outClass, outDuration, url);
       } else {
         methods.pageOutBasic.call(_this, outClass, outDuration, url);
