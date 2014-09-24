@@ -18,7 +18,7 @@
                                   '-webkit-animation-duration',
                                   '-o-animation-duration'
                                 ],
-        overlayMode           :   false,
+        overlay               :   false,
         overlayClass          :   'animsition-overlay-slide',
         overlayParentElement  :   'body'
       }, options);
