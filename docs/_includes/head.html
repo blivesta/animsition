@@ -42,8 +42,13 @@
 
   <script type="text/javascript">
   $(document).ready(function() {
-    
+    {% if page.layout == 'overlay' %}
+      $(".animsition-overlay").animsition({
+        overlayMode:true
+      });
+    {% else %}
       $(".animsition").animsition();
+    {% endif %}
       
   }); 
 

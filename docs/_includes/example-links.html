@@ -8,19 +8,44 @@
   </a>
 </p>
 
-<h4 style="margin-top:20px;">Other</h4>
-<ul class="list-inline site-example-nav">
-  <li><a class="animsition-link" href="{{ page.base_url }}fade" data-animsition-out="fade-out">Fade</a></li>
-  <li><a class="animsition-link" href="{{ page.base_url }}fade-down" data-animsition-out="fade-out-down">Fade down</a></li>
-  <li><a class="animsition-link" href="{{ page.base_url }}fade-up" data-animsition-out="fade-out-up">Fade up</a></li>
-  <li><a class="animsition-link" href="{{ page.base_url }}fade-left" data-animsition-out="fade-out-left">Fade left</a></li>
-  <li><a class="animsition-link" href="{{ page.base_url }}fade-right" data-animsition-out="fade-out-right">Fade right</a></li>
+{% if page.layout == 'base' %}
+ <ul class="list-inline site-example-nav" style="margin-top:20px;">
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}fade" data-animsition-out="fade-out">Fade</a></li>
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}fade-down" data-animsition-out="fade-out-down">Fade down</a></li>
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}fade-up" data-animsition-out="fade-out-up">Fade up</a></li>
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}fade-left" data-animsition-out="fade-out-left">Fade left</a></li>
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}fade-right" data-animsition-out="fade-out-right">Fade right</a></li>
 </ul>
-<ul class="list-inline site-example-nav" style="margin-bottom:0;">
-  <li><a class="animsition-link" href="{{ page.base_url }}rotate" data-animsition-out="rotate-out">Rotate</a></li>
-  <li><a class="animsition-link" href="{{ page.base_url }}flip-x" data-animsition-out="flip-out-x">Flip X</a></li>
-  <li><a class="animsition-link" href="{{ page.base_url }}flip-y" data-animsition-out="flip-out-y">Flip Y</a></li>
-  <li><a class="animsition-link" href="{{ page.base_url }}zoom" data-animsition-out="zoom-out">Zoom</a></li>
+
+<ul class="list-inline site-example-nav" style="margin-bottom:20px;">
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}rotate" data-animsition-out="rotate-out">Rotate</a></li>
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}flip-x" data-animsition-out="flip-out-x">Flip X</a></li>
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}flip-y" data-animsition-out="flip-out-y">Flip Y</a></li>
+  <li><a class="animsition-link button button-flat" href="{{ page.base_url }}zoom" data-animsition-out="zoom-out">Zoom</a></li>
 </ul>
+
+<p><a class="button button-flat-success" href="{{ page.base_url }}slide-top">Overlay Mode</a></p>
+
+
+{% else if page.layout == 'overlay' %}
+ <ul class="list-inline site-example-nav" style="margin-top:20px; margin-bottom:20px;">
+  <li>
+    <a class="animsition-link button button-flat" href="{{ page.base_url }}slide-top" data-animsition-out="overlay-slide-out-top">slide top</a>
+  </li>
+  <li>
+    <a class="animsition-link button button-flat" href="{{ page.base_url }}slide-bottom" data-animsition-out="overlay-slide-out-bottom">slide bottom</a>
+  </li>
+  <li>
+    <a class="animsition-link button button-flat" href="{{ page.base_url }}slide-left" data-animsition-out="overlay-slide-out-left">slide left</a>
+  </li>
+  <li>
+    <a class="animsition-link button button-flat" href="{{ page.base_url }}slide-right" data-animsition-out="overlay-slide-out-right">slide right</a>
+  </li>
+</ul>
+
+<p><a class="button button-flat-success" href="{{ page.base_url }}fade">Basic Mode</a></p>
+
+{% endif %}
+
 
 
