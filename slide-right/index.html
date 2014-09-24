@@ -7,7 +7,7 @@
   
   <title>
     
-      Fade down &middot; Animsition &middot; A simple and easy jQuery plugin for CSS animated page transitions.
+      Overlay Slide Right &middot; Animsition &middot; A simple and easy jQuery plugin for CSS animated page transitions.
     
   </title>
   
@@ -39,7 +39,9 @@
   <script type="text/javascript">
   $(document).ready(function() {
     
-      $(".animsition").animsition();
+      $(".animsition-overlay").animsition({
+        overlayMode:true
+      });
     
       
   }); 
@@ -48,8 +50,8 @@
   
 </head>
 <body class=" site-base">
-  <div class="animsition" data-animsition-in="fade-in-down" data-animsition-out="fade-out-down">
-  
+ <div class="animsition-overlay" data-animsition-in="overlay-slide-in-right" data-animsition-out="overlay-slide-out-right">
+
     <a href="https://github.com/blivesta/animsition" style="z-index:9999; "><img style="position: absolute; top: 0; right: 0; border: 0; z-index:9999; " src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
 
 <header class="site-header navbar navbar-default navbar-static-top" id="top" role="banner">
@@ -62,7 +64,7 @@
 
 		<main class="site-masthead" role="main">
 			<div class="container">
-				<h1>Fade down</h1>
+				<h1>Overlay Slide Right</h1>
 				<p class="lead">A simple and easy jQuery plugin for CSS animated page transitions.</p>
 				<div class="site-adpacks">
   <script async type="text/javascript" src="//cdn.adpacks.com/adpacks.js?zoneid=1386&serve=C6SI42Y&placement=blivesta" id="_adpacks_js"></script>
@@ -77,37 +79,35 @@
 		  <div class="site-body-inner container">
 
 		    <div class="site-section">
-  <h2 class="site-section-title">Example links</h2>
-  <p class="lead"></p>
+  <h2 class="site-section-title">Overlay Example links</h2>
   <div class="site-section-body">
     <p class="site-example-links">
   <a class="button button-flat-primary animsition-link" href="./">
-    <span class="oi oi-loop"></span>&nbsp;Fade down
+    <span class="oi oi-loop"></span>&nbsp;Overlay Slide Right
   </a>
   <span class="hidden-xs">&nbsp;</span>
   <a class="button button-flat-info" href="./">
-    <span class="oi oi-ban"></span>&nbsp;Fade down <samll>(Normal link)</samll>
+    <span class="oi oi-ban"></span>&nbsp;Overlay Slide Right <samll>(Normal link)</samll>
   </a>
 </p>
 
 
- <ul class="list-inline site-example-nav" style="margin-top:20px;">
-  <li><a class="animsition-link button button-flat" href="../fade" data-animsition-out="fade-out">Fade</a></li>
-  <li><a class="animsition-link button button-flat" href="../fade-down" data-animsition-out="fade-out-down">Fade down</a></li>
-  <li><a class="animsition-link button button-flat" href="../fade-up" data-animsition-out="fade-out-up">Fade up</a></li>
-  <li><a class="animsition-link button button-flat" href="../fade-left" data-animsition-out="fade-out-left">Fade left</a></li>
-  <li><a class="animsition-link button button-flat" href="../fade-right" data-animsition-out="fade-out-right">Fade right</a></li>
+ <ul class="list-inline site-example-nav" style="margin-top:20px; margin-bottom:20px;">
+  <li>
+    <a class="animsition-link button button-flat" href="../slide-top" data-animsition-out="overlay-slide-out-top">slide top</a>
+  </li>
+  <li>
+    <a class="animsition-link button button-flat" href="../slide-bottom" data-animsition-out="overlay-slide-out-bottom">slide bottom</a>
+  </li>
+  <li>
+    <a class="animsition-link button button-flat" href="../slide-left" data-animsition-out="overlay-slide-out-left">slide left</a>
+  </li>
+  <li>
+    <a class="animsition-link button button-flat" href="../slide-right" data-animsition-out="overlay-slide-out-right">slide right</a>
+  </li>
 </ul>
 
-<ul class="list-inline site-example-nav" style="margin-bottom:20px;">
-  <li><a class="animsition-link button button-flat" href="../rotate" data-animsition-out="rotate-out">Rotate</a></li>
-  <li><a class="animsition-link button button-flat" href="../flip-x" data-animsition-out="flip-out-x">Flip X</a></li>
-  <li><a class="animsition-link button button-flat" href="../flip-y" data-animsition-out="flip-out-y">Flip Y</a></li>
-  <li><a class="animsition-link button button-flat" href="../zoom" data-animsition-out="zoom-out">Zoom</a></li>
-</ul>
-
-<p><a class="button button-flat-success" href="../slide-top">Overlay Mode</a></p>
-
+<p><a class="button button-flat-success" href="../fade">Basic Mode</a></p>
 
 
 
@@ -119,7 +119,6 @@
 
 <div class="site-section">
   <h2 class="site-section-title">Installation</h2>
-  <p class="lead"></p>
   <div class="site-section-body">
     <p class="lead">Step 1: Link required files</p>
 <div class="highlight"><pre><code class="html"><span class="c">&lt;!-- animsition CSS --&gt;</span>
@@ -135,7 +134,7 @@
 <p class="lead">Step 2: HTML markup</p>
 <div class="highlight"><pre><code class="html"><span class="nt">&lt;body&gt;</span>
 
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;animsition&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;animsition-overlay&quot;</span><span class="nt">&gt;</span>
 
 
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;./page1&quot;</span> <span class="na">class=</span><span class="s">&quot;animsition-link&quot;</span><span class="nt">&gt;</span>animsition link 1<span class="nt">&lt;/a&gt;</span>
@@ -149,10 +148,11 @@
 
 <h4>If you want each "linkElement" to use a different animation. </h4>
 <div class="highlight"><pre><code class="html">  
+
   <span class="nt">&lt;a</span> 
     <span class="na">href=</span><span class="s">&quot;./page1&quot;</span> 
     <span class="na">class=</span><span class="s">&quot;animsition-link&quot;</span> 
-    <span class="na">data-animsition-out=</span><span class="s">&quot;fade-out-right&quot;</span>
+    <span class="na">data-animsition-out=</span><span class="s">&quot;overlay-slide-out-top&quot;</span>
     <span class="na">data-animsition-out-duration=</span><span class="s">&quot;2000&quot;</span>
   <span class="nt">&gt;</span>
     animsition link 1
@@ -161,7 +161,7 @@
   <span class="nt">&lt;a</span> 
     <span class="na">href=</span><span class="s">&quot;./page2&quot;</span> 
     <span class="na">class=</span><span class="s">&quot;animsition-link&quot;</span> 
-    <span class="na">data-animsition-out=</span><span class="s">&quot;rotate-out&quot;</span>
+    <span class="na">data-animsition-out=</span><span class="s">&quot;overlay-slide-out-right&quot;</span>
     <span class="na">data-animsition-out-duration=</span><span class="s">&quot;500&quot;</span>
   <span class="nt">&gt;</span>
     animsition link 2
@@ -171,10 +171,10 @@
 
 <h4>If you want to each page to use a different animation.</h4>  
 <div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> 
-  <span class="na">class=</span><span class="s">&quot;animsition&quot;</span> 
-  <span class="na">data-animsition-in-class=</span><span class="s">&quot;fade-in-down&quot;</span>
+  <span class="na">class=</span><span class="s">&quot;animsition-overlay&quot;</span> 
+  <span class="na">data-animsition-in-class=</span><span class="s">&quot;overlay-slide-in-right&quot;</span>
   <span class="na">data-animsition-in-duration=</span><span class="s">&quot;1000&quot;</span>
-  <span class="na">data-animsition-out-class=</span><span class="s">&quot;fade-out-down&quot;</span>
+  <span class="na">data-animsition-out-class=</span><span class="s">&quot;overlay-slide-out-right&quot;</span>
   <span class="na">data-animsition-out-duration=</span><span class="s">&quot;800&quot;</span>
 <span class="nt">&gt;</span>
   ...
@@ -185,10 +185,10 @@
 <p class="lead">Step 3: Call the animsition</p>
 <div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   
-  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.animsition&quot;</span><span class="p">).</span><span class="nx">animsition</span><span class="p">({</span>
+  <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.animsition-overlay&quot;</span><span class="p">).</span><span class="nx">animsition</span><span class="p">({</span>
   
-    <span class="nx">inClass</span>               <span class="o">:</span>   <span class="s1">&#39;fade-in-down&#39;</span><span class="p">,</span>
-    <span class="nx">outClass</span>              <span class="o">:</span>   <span class="s1">&#39;fade-out-down&#39;</span><span class="p">,</span>
+    <span class="nx">inClass</span>               <span class="o">:</span>   <span class="s1">&#39;overlay-slide-in-right&#39;</span><span class="p">,</span>
+    <span class="nx">outClass</span>              <span class="o">:</span>   <span class="s1">&#39;overlay-slide-out-right&#39;</span><span class="p">,</span>
     <span class="nx">inDuration</span>            <span class="o">:</span>    <span class="mi">1500</span><span class="p">,</span>
     <span class="nx">outDuration</span>           <span class="o">:</span>    <span class="mi">800</span><span class="p">,</span>
     <span class="nx">linkElement</span>           <span class="o">:</span>   <span class="s1">&#39;.animsition-link&#39;</span><span class="p">,</span> 
@@ -204,7 +204,7 @@
     <span class="c1">//&quot;unSupportCss&quot; option allows you to disable the &quot;animsition&quot; in case the css property in the array is not supported by your browser. </span>
     <span class="c1">//The default setting is to disable the &quot;animsition&quot; in a browser that does not support &quot;animation-duration&quot;.</span>
     
-    <span class="nx">overlay</span>               <span class="o">:</span>   <span class="kc">false</span><span class="p">,</span>
+    <span class="nx">overlayMode</span>           <span class="o">:</span>   <span class="kc">true</span><span class="p">,</span>
     
     <span class="nx">overlayClass</span>          <span class="o">:</span>   <span class="s1">&#39;animsition-overlay-slide&#39;</span><span class="p">,</span>
     <span class="nx">overlayParentElement</span>  <span class="o">:</span>   <span class="s1">&#39;body&#39;</span>
@@ -215,34 +215,14 @@
 
   </div>
 </div>
+
+
 		  
 		  </div><!-- /.container -->
 		</div><!-- /.site-body -->
 
     <footer class="site-footer">
   <div class="site-footer-inner container">
-    
-      <ul class="site-social list-inline">
-	<li class="btn-gh">
-	  <iframe class="github-btn" src="http://ghbtns.com/github-btn.html?user=blivesta&amp;repo=animsition&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="95" height="20"></iframe>
-	</li>
-	<li class="btn-tw">
-	  <a href="https://twitter.com/share" class="twitter-share-button" data-text="Animsition : A simple and easy jQuery plugin for CSS animated page transitions." data-url="http://git.blivesta.com/animsition" data-related="blivesta" data-count="1" data-hashtags="jquery,css3,animsition">Tweet</a>
-	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
-		</script>
-	</li>
-	<li class="btn-gg">
-		<div class="g-plusone" data-size="medium" data-href="http://git.blivesta.com/animsition"></div>
-		<script type="text/javascript">
-		  (function() {
-		    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-		    po.src = 'https://apis.google.com/js/platform.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-		  })();
-		</script>
-	</li>
-</ul>       
-
     
     <ul class="site-social-folow list-inline">
 	<li style="width:126px">

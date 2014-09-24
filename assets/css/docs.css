@@ -426,6 +426,7 @@ h4 {
   left: 10px;
   z-index: 99;
   max-width: 340px;
+  min-height: 130px;
   padding: 15px;
   margin: 0;
   margin-bottom: 30px;
@@ -550,7 +551,6 @@ h4 {
 .site-home .site-section-body .site-example-nav,
 .site-home .site-section-body .highlight {
   display: block;
-  max-width: 600px;
   margin-right: auto;
   margin-left: auto;
 }
