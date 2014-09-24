@@ -17,7 +17,10 @@
         unSupportCss          : [ 'animation-duration',
                                   '-webkit-animation-duration',
                                   '-o-animation-duration'
-                                ]
+                                ],
+        overlayMode           :   false,
+        overlayClass          :   'animsition-overlay-slide',
+        overlayParentElement  :   'body'
       }, options);
 
       // Remove the "Animsition" in a browser 
@@ -39,6 +42,10 @@
         bindEvts += " touchend." + namespace;
       }
 
+      if(options.overlayMode === true) { 
+        methods.addOverlay.call(this, options); 
+      }
+
       if(options.loading === true) { 
         methods.addLoading.call(this, options); 
       }
@@ -56,7 +63,7 @@
             options: options
           });
 
-          $window.on("load." + namespace, function() {   
+          $window.on("load." + namespace, function() {  
             methods.pageIn.call( _this );
           }); 
 
@@ -88,6 +95,11 @@
         }
       }
       return support;
+    },
+
+    addOverlay: function(options){
+      $(options.overlayParentElement)
+        .prepend('<div class="'+options.overlayClass+'"></div>');
     },
 
     addLoading: function(options){
@@ -141,15 +153,33 @@
         methods.removeLoading.call(_this);
       }
 
+      if(options.overlayMode === true) { 
+        methods.pageInOverlay.call(_this,inClass,inDuration);
+      } else {
+        methods.pageInBasic.call(_this,inClass,inDuration);
+      }
+    },
+
+    pageInBasic: function(inClass,inDuration){
+      var $this = $(this);
+
       $this
         .css({ "animation-duration" : (inDuration / 1000) + "s" })
-        .addClass(inClass); 
+        .addClass(inClass)
+        .animateCallback(function(){
+          $this
+            .removeClass(inClass)
+            .css({ "opacity" : 1 });
+        });
+    },
 
-      setTimeout(function(){ 
-        $this
-          .removeClass(inClass)
-          .css({ "opacity" : 1 });
-      }, inDuration);
+    pageInOverlay: function(inClass,inDuration){
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+
+      $(options.overlayParentElement).children('.' + options.overlayClass)
+        .css({ "animation-duration" : (inDuration / 1000) + "s" })
+        .addClass(inClass); 
     },
 
     pageOutClass : function($self){
@@ -189,17 +219,42 @@
     pageOut: function($self){
       var _this = this;
       var $this = $(this);
-      var url = $self.attr('href');
+      var options = $this.data(namespace).options;
       var outClass = methods.pageOutClass.call(_this, $self);
       var outDuration = methods.pageOutDuration.call(_this, $self);
+      var url = $self.attr('href');
+
+      if(options.overlayMode === true) { 
+        methods.pageOutOverlay.call(_this,outClass,outDuration,url);
+      } else {
+        methods.pageOutBasic.call(_this,outClass,outDuration,url);
+      }
+    },
+
+    pageOutBasic: function(outClass,outDuration,url){
+      var $this = $(this);
       
       $this
         .css({ "animation-duration" : (outDuration / 1000) + "s" })
-        .addClass(outClass);
+        .addClass(outClass)
+        .animateCallback(function(){
+          location.href = url 
+        });      
+    },
 
-      setTimeout(function(){ 
-        location.href = url 
-      }, outDuration );
+    pageOutOverlay: function(outClass,outDuration,url){
+      var _this = this;
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+      var inClass = methods.pageInClass.call(_this);
+
+      $(options.overlayParentElement).children('.' + options.overlayClass)
+        .css({ "animation-duration" : (outDuration / 1000) + "s" })
+        .removeClass(inClass)
+        .addClass(outClass)
+        .animateCallback(function(){
+          location.href = url 
+        });  
     },
     
     destroy: function(){
@@ -212,6 +267,16 @@
       });      
     }
     
+  };
+
+  $.fn.animateCallback = function(callback){
+    var animationEnd = "animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd"
+      return this.each(function() {
+        $(this).bind(animationEnd, function(){
+          $(this).unbind(animationEnd);
+          return callback.call(this);
+        });
+    });
   };
 
   $.fn.animsition = function(method){
