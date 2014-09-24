@@ -15,10 +15,24 @@
   font-size: 24px;
   text-align: center;
   .blink-slow();
+  z-index: 100;
   &:after {
   	content:"Loading";
     color: #aaa;
   }
 }
 
+// overlay option
+.animsition-overlay {
+  opacity:1;
+  position:relative;
+  animation-fill-mode: both;
+}
 
+.animsition-overlay-slide {
+  position:fixed;
+  height:100%;
+  width:100%;
+  z-index:1;
+  background-color: #ddd;
+}
