@@ -40,7 +40,8 @@
       if (options.touchSupport) {
         bindEvts += " touchend." + namespace;
       }
-      if (options.overlay === true) {
+      var overlayMode = methods.state.call(this, options);
+      if (overlayMode === true) {
         methods.addOverlay.call(this, options);
       }
       if (options.loading === true) {
@@ -56,7 +57,7 @@
           $this.data(namespace, {
             options: options
           });
-          $window.on("load." + namespace, function() {
+          $window.on("load." + namespace + " pageshow." + namespace, function() {
             methods.pageIn.call(_this);
           });
           $window.on("unload." + namespace, function() {});
@@ -84,6 +85,16 @@
       }
       return support;
     },
+    state: function(options) {
+      var $this = $(this);
+      var overlayMode;
+      if (options.overlay === true || $this.data("animsition-overlay") === true) {
+        overlayMode = true;
+      } else {
+        overlayMode = false;
+      }
+      return overlayMode;
+    },
     addOverlay: function(options) {
       $(options.overlayParentElement).prepend('<div class="' + options.overlayClass + '"></div>');
     },
@@ -94,7 +105,7 @@
       var $this = $(this);
       var options = $this.data(namespace).options;
       var $loading = $(options.loadingParentElement).children("." + options.loadingClass);
-      $loading.remove();
+      $loading.fadeOut().remove();
     },
     pageInClass: function() {
       var $this = $(this);
@@ -126,10 +137,11 @@
       var options = $this.data(namespace).options;
       var inClass = methods.pageInClass.call(_this);
       var inDuration = methods.pageInDuration.call(_this);
+      var overlayMode = methods.state.call(_this, options);
       if (options.loading === true) {
         methods.removeLoading.call(_this);
       }
-      if (options.overlay === true) {
+      if (overlayMode === true) {
         methods.pageInOverlay.call(_this, inClass, inDuration);
       } else {
         methods.pageInBasic.call(_this, inClass, inDuration);
@@ -148,6 +160,9 @@
     pageInOverlay: function(inClass, inDuration) {
       var $this = $(this);
       var options = $this.data(namespace).options;
+      $this.css({
+        opacity: 1
+      });
       $(options.overlayParentElement).children("." + options.overlayClass).css({
         "animation-duration": inDuration / 1e3 + "s"
       }).addClass(inClass);
@@ -188,8 +203,9 @@
       var options = $this.data(namespace).options;
       var outClass = methods.pageOutClass.call(_this, $self);
       var outDuration = methods.pageOutDuration.call(_this, $self);
+      var overlayMode = methods.state.call(_this, options);
       var url = $self.attr("href");
-      if (options.overlay === true) {
+      if (overlayMode === true) {
         methods.pageOutOverlay.call(_this, outClass, outDuration, url);
       } else {
         methods.pageOutBasic.call(_this, outClass, outDuration, url);
