@@ -14,7 +14,7 @@
 {% highlight html %}
 <body>
 {% if page.layout == 'overlay' %}
-  <div class="animsition-overlay">
+  <div class="animsition-overlay" data-animsition-overlay="true">
 {% else %}
   <div class="animsition">
 {% endif %}
@@ -77,6 +77,7 @@
 {% if page.layout == 'overlay' %}
 <div 
   class="animsition-overlay" 
+  data-animsition-overlay="true"
   data-animsition-in-class="{{ page.inAnimateClass }}"
   data-animsition-in-duration="1000"
   data-animsition-out-class="{{ page.outAnimateClass }}"
