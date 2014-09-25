@@ -42,7 +42,8 @@
         bindEvts += " touchend." + namespace;
       }
 
-      if(options.overlay === true) { 
+      var overlayMode = methods.state.call(this, options); 
+      if(overlayMode === true) { 
         methods.addOverlay.call(this, options); 
       }
 
@@ -97,6 +98,17 @@
       return support;
     },
 
+    state: function(options){
+      var $this = $(this);
+      var overlayMode;
+      if(options.overlay === true || $this.data('animsition-overlay') === true){
+        overlayMode = true
+      } else {
+        overlayMode = false
+      }
+      return overlayMode;
+    },
+
     addOverlay: function(options){
       $(options.overlayParentElement)
         .prepend('<div class="'+options.overlayClass+'"></div>');
@@ -148,12 +160,13 @@
       var options = $this.data(namespace).options;
       var inClass = methods.pageInClass.call(_this);
       var inDuration = methods.pageInDuration.call(_this);
+      var overlayMode = methods.state.call(_this, options); 
 
       if(options.loading === true) {
         methods.removeLoading.call(_this);
       }
 
-      if(options.overlay === true) { 
+      if(overlayMode === true) { 
         methods.pageInOverlay.call(_this,inClass,inDuration);
       } else {
         methods.pageInBasic.call(_this,inClass,inDuration);
@@ -222,9 +235,10 @@
       var options = $this.data(namespace).options;
       var outClass = methods.pageOutClass.call(_this, $self);
       var outDuration = methods.pageOutDuration.call(_this, $self);
+      var overlayMode = methods.state.call(_this, options); 
       var url = $self.attr('href');
 
-      if(options.overlay === true) { 
+      if(overlayMode === true) { 
         methods.pageOutOverlay.call(_this,outClass,outDuration,url);
       } else {
         methods.pageOutBasic.call(_this,outClass,outDuration,url);
