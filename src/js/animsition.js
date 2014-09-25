@@ -64,9 +64,9 @@
             options: options
           });
 
-          $window.on("load." + namespace, function() {  
+          $window.on("load." + namespace + " pageshow." + namespace, function() {  
             methods.pageIn.call( _this );
-          }); 
+          });
 
           // Firefox back button issue #4
           $window.on("unload." + namespace, function() { });
@@ -123,7 +123,7 @@
       var $this     = $(this);
       var options   = $this.data(namespace).options;
       var $loading  = $(options.loadingParentElement).children("."+options.loadingClass);
-      $loading.remove();
+      $loading.fadeOut().remove();
     },
 
     pageInClass : function(){
