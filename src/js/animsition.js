@@ -24,7 +24,7 @@
       }, options);
 
       // Remove the "Animsition" in a browser 
-      // that does not support the "animsition-in-duration".       
+      // that does not support the "animaition-duration".       
       var support = methods.supportCheck.call(this, options);
       if(support === false){
         // If do not have a console object to object window
@@ -190,6 +190,8 @@
       var $this = $(this);
       var options = $this.data(namespace).options;
 
+      $this
+        .css({ "opacity" : 1 });
       $(options.overlayParentElement).children('.' + options.overlayClass)
         .css({ "animation-duration" : (inDuration / 1000) + "s" })
         .addClass(inClass); 
