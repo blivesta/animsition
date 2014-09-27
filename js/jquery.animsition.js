@@ -237,7 +237,9 @@
       return this.each(function() {
         var $this = $(this);
         $(window).unbind("." + namespace);
-        $this.removeClass(namespace).removeData(namespace);
+        $this.css({
+          opacity: 1
+        }).removeData(namespace);
       });
     }
   };
