@@ -2,7 +2,7 @@ body,
 html {
   min-height:100%;
   height:100%;
-  background:@site-bg-color;
+  background:@bg-color;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -21,14 +21,14 @@ h4 {
   font-weight:100;
 }
 
-.label-class{
+.labels{
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
-  background-color: @site-main-color-lighter;
-  color:@site-main-color;
+  background-color: @main-color-lighter;
+  color:@main-color;
   padding:5px 10px;
   display: inline-block;
   font-weight: 100;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   border-radius: 2px;
 }
 
@@ -63,17 +63,21 @@ h4 {
 }
 .button-border,
 .button-border-primary,
+.button-border-warning,
+.button-border-success,
+.button-border-danger,
 .button-border-info{
   background-color: transparent;
 }
 .button {
   font-weight:400;
-  padding:20px;
+  padding:15px 30px;
+  margin-bottom:10px;
 }
 
 // social
 //===========================================
-.site-social{
+.social{
   padding-top: 10px;
   margin-bottom: 10px;
   li {
@@ -97,12 +101,12 @@ h4 {
   }
 }
 
-// site-header
+// header
 //===========================================
-.site-header {
+.header {
   margin-bottom: 0;
   .navbar-nav > li > a,
-  .site-header-brand { 
+  .header-brand { 
     &:hover {
       opacity:.6;
     }
@@ -115,17 +119,17 @@ h4 {
   float: right !important;
 }
 
-// site-masthead
+// masthead
 //===========================================
-.site-masthead {
+.masthead {
   position:relative;
   padding:15px;
   padding-top: 20px;
-  background-color: @site-main-color-dark;
+  background-color: @main-color-dark;
   background-image: linear-gradient(
     45deg, 
-    @site-main-color-dark 0%, 
-    @site-main-color-light 100%
+    @main-color-dark 0%, 
+    @main-color-light 100%
   );
   color:#fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
@@ -133,6 +137,7 @@ h4 {
     font-weight:700;
     margin-bottom:5px;
     opacity:.95;
+    font-size:50px;
   }
   .lead{
     opacity: .7;
@@ -144,27 +149,34 @@ h4 {
   a {
     color:#fff;
   }
+  .site-home & {
+    text-align: center;
+    @media (min-width: 768px) {
+      padding-top:60px;
+      padding-bottom:60px;
+      h1 {
+        font-size:70px;
+      }
+    }
+  }
+
 }
 
-// site-body
+// body
 //===========================================
-.site-body{
-  padding-bottom:30px;
-  line-height: 1.6;
-}
-
-// site-example-links
-//===========================================
-.site-example-links {
-  .button {
-    display:block;
-    margin-bottom:10px;
+.body{
+  @media (min-width: 768px) {
+    padding:40px 0;
   }
 }
 
-// site-adpacks
+// example-links
 //===========================================
-.site-adpacks {
+.example-links {}
+
+// adpacks
+//===========================================
+.adpacks {
   left: 10px;
   bottom: 10px;
   background: #fff;
@@ -179,10 +191,9 @@ h4 {
   margin:0;
   margin-bottom:30px;
   min-height:130px;
-}
-.site-home .site-adpacks {
-  @media (min-width: 480px) {
-    margin:60px auto 0 auto;
+  .site-home & {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 .adpacks-wrap {
@@ -202,37 +213,34 @@ h4 {
 
 // section
 //===========================================
-.site-section{
+.section{
   padding:30px 0;
-  padding-bottom: 60px;
   border-bottom: @border-base;
   &:last-child{
     border-bottom: none;
+    padding-bottom: 60px;
+  }
+  .site-home & {
+    text-align: center;
   }
 }
 
-.site-section-title{
+.section-title{
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.site-icon-mark{
+.icon-mark{
   text-align: center;
   margin-top: 30px;
   margin-bottom: 30px;
-  color:@site-main-color-lighter;
+  color:@main-color-lighter;
   .oi{
     font-size: 54px;
   }
 }
 
-.site-section-body{  
-  .site-example-nav{
-    font-size: 16px;
-    margin-bottom:10px;
-    a{
-      white-space :nowrap;
-    }
-  }
+.section-body{  
   .lead{
     margin-top: 30px !important;
     &:first-child{
@@ -245,15 +253,16 @@ h4 {
   }
   .highlight{
     margin-bottom: 60px;
+    text-align: left !important;
     &:last-child{
       margin-bottom: 0;
     }
   }
 }
 
-// site-footer
+// footer
 //===========================================
-.site-footer {
+.footer {
   padding-top:40px;
   padding-bottom:40px;
   border-top:1px solid #fff;
@@ -262,29 +271,7 @@ h4 {
   hr {
     border-color:#ccc;
   }
-}
-
-// 480px min
-//===========================================
-@media (min-width: 480px) {
-  
-  .site-masthead{  }
-  .site-example-links {
-    .button {
-      display:inline-block;
-      margin-bottom:0px;
-    }
+  .site-home & {
+    text-align: center;
   }
 }
-
-// 768px min
-//===========================================
-@media (min-width: 768px) {
-  .button {
-    padding:10px 24px;
-  }
-  .container {
-    width:auto;
-  }
-}
-
