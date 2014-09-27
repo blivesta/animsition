@@ -279,7 +279,7 @@
         var $this = $(this);
         $(window).unbind('.'+namespace);
         $this
-          .removeClass(namespace)
+          .css({'opacity':1})
           .removeData(namespace);
       });      
     }
