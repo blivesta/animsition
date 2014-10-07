@@ -10,7 +10,6 @@
         outDuration           :    800,
         linkElement           :   '.animsition-link', 
         // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
-        touchSupport          :    true, 
         loading               :    true,
         loadingParentElement  :   'body', //animsition wrapper element
         loadingClass          :   'animsition-loading',
@@ -34,12 +33,6 @@
         }
         console.log("Animsition does not support this browser.");
         return methods.destroy.call( this );
-      }
-
-      // Bind to touchend event listener as well, if touchSupport enabled
-      var bindEvts = "click." + namespace;
-      if (options.touchSupport) {
-        bindEvts += " touchend." + namespace;
       }
 
       var overlayMode = methods.state.call(this, options); 
@@ -71,7 +64,7 @@
           // Firefox back button issue #4
           $window.on("unload." + namespace, function() { });
 
-          $(options.linkElement).on(bindEvts, function(event) {
+          $(options.linkElement).on("click." + namespace, function(event) {
             event.preventDefault();
             var $self = $(this);
             methods.pageOut.call( _this, $self);
