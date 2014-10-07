@@ -1,5 +1,5 @@
 /*!
- * animsition v3.3.2
+ * animsition v3.3.3
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
@@ -16,7 +16,6 @@
         inDuration: 1500,
         outDuration: 800,
         linkElement: ".animsition-link",
-        touchSupport: true,
         loading: true,
         loadingParentElement: "body",
         loadingClass: "animsition-loading",
@@ -35,10 +34,6 @@
         }
         console.log("Animsition does not support this browser.");
         return methods.destroy.call(this);
-      }
-      var bindEvts = "click." + namespace;
-      if (options.touchSupport) {
-        bindEvts += " touchend." + namespace;
       }
       var overlayMode = methods.state.call(this, options);
       if (overlayMode === true) {
@@ -61,7 +56,7 @@
             methods.pageIn.call(_this);
           });
           $window.on("unload." + namespace, function() {});
-          $(options.linkElement).on(bindEvts, function(event) {
+          $(options.linkElement).on("click." + namespace, function(event) {
             event.preventDefault();
             var $self = $(this);
             methods.pageOut.call(_this, $self);
@@ -244,10 +239,10 @@
     }
   };
   $.fn.animateCallback = function(callback) {
-    var animationEnd = "animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd";
+    var end = "animationend webkitAnimationEnd mozAnimationEnd oAnimationEnd MSAnimationEnd";
     return this.each(function() {
-      $(this).bind(animationEnd, function() {
-        $(this).unbind(animationEnd);
+      $(this).bind(end, function() {
+        $(this).unbind(end);
         return callback.call(this);
       });
     });
