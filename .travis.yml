@@ -4,5 +4,4 @@ node_js:
   - 0.10
 before_script:
   - npm install grunt-cli
-  - npm install grunt-contrib-jshint --save-dev
-script: grunt ci --verbose
+script: grunt test
