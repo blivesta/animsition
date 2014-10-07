@@ -1,4 +1,4 @@
-[![Bower version](https://badge.fury.io/bo/animsition.svg)](http://badge.fury.io/bo/animsition) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Bower version](https://badge.fury.io/bo/animsition.svg)](http://badge.fury.io/bo/animsition) 
 
 Animsition
 ==================
