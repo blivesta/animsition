@@ -136,6 +136,10 @@
       source: [
         '<%= pkg.docs %>/css/<%= pkg.name %>.css',
         '<%= pkg.assets %>/css/docs.css'
+      ],
+      dist: [
+        '<%= pkg.dist %>/css/<%= pkg.name %>.css',
+        '<%= pkg.dist %>/css/<%= pkg.name %>.min.css'
       ]
     },
     // ====================================================
@@ -178,8 +182,16 @@
           '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js',
           '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.min.js'
         ]
+      },
+      all: {
+        src:[
+          '<%= pkg.source %>/js/*.js', 
+          '<%= pkg.dist %>/js/*.js',
+          '<%= jshint.grunt.src %>'
+        ]
       }
     },
+
     // ====================================================
     validation: {
       options: {
@@ -375,9 +387,8 @@
 
   // ====================================================
   grunt.registerTask('test', [
-    'jshint:source',
-    'csslint',
-    //'validation'
+    'jshint:all',
+    'csslint:dist'
   ]);
 
   // ====================================================
