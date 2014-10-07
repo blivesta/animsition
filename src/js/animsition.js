@@ -15,8 +15,7 @@
         loadingClass          :   'animsition-loading',
         unSupportCss          : [ 'animation-duration',
                                   '-webkit-animation-duration',
-                                  '-o-animation-duration'
-                                ],
+                                  '-o-animation-duration'],
         overlay               :   false,
         overlayClass          :   'animsition-overlay-slide',
         overlayParentElement  :   'body'
@@ -280,12 +279,12 @@
   };
 
   $.fn.animateCallback = function(callback){
-    var animationEnd = "animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd"
-      return this.each(function() {
-        $(this).bind(animationEnd, function(){
-          $(this).unbind(animationEnd);
-          return callback.call(this);
-        });
+    var end = "animationend webkitAnimationEnd mozAnimationEnd oAnimationEnd MSAnimationEnd";
+    return this.each(function() {
+      $(this).bind(end, function(){
+        $(this).unbind(end);
+        return callback.call(this);
+      });
     });
   };
 
