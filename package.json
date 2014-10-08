@@ -14,7 +14,9 @@
     "user": "blivesta",
     "type": "git"
   },
-  "dependencies": {},
+  "dependencies": {
+    "jquery": ">= 1.11.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-html-validation": "~0.1.13",

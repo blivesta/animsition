@@ -27,6 +27,9 @@
     "*.json",
     "Gruntfile.js"
   ],
+  "dependencies": {
+    "jquery": ">= 1.11.0"
+  },
   "devDependencies": {
     "cooker": "~0.4.8"
   },
