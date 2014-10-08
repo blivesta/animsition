@@ -1,8 +1,7 @@
+# [Animsition](http://blivesta.github.io/animsition)
+
 [![Build Status](https://travis-ci.org/blivesta/animsition.svg?branch=master)](https://travis-ci.org/blivesta/animsition)
 [![Bower version](https://badge.fury.io/bo/animsition.svg)](http://badge.fury.io/bo/animsition) 
-
-Animsition
-==================
 
 A simple and easy jQuery plugin for CSS animated page transitions. 
 
