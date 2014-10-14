@@ -1,15 +1,16 @@
 body,
 html {
-  min-height:100%;
-  height:100%;
+  // min-height:100%;
+  // height:100%;
   background:@bg-color;
   font-family: 'Roboto', sans-serif;
 }
 
 hr {
-  border-color:#ddd;
+  width:60px;
+  margin:40px auto;
+  border:2px solid #ddd;
 }
-
 .container {
   max-width:768px;
 }
@@ -85,7 +86,7 @@ h4 {
     height:20px;
   }
   .btn-gh {
-    width:95px;
+    width:105px;
   }
   .btn-tw {
     width:99px;
@@ -105,10 +106,20 @@ h4 {
 //===========================================
 .header {
   margin-bottom: 0;
+  background-color:transparent !important;
+  position:absolute;
+  width:100%;
+  border:none;
   .navbar-nav > li > a,
   .header-brand { 
+    color:#fff;
+    opacity:.8;
     &:hover {
+      color:#fff;
       opacity:.6;
+    }
+    .site-home & {
+      display:none;  
     }
   }
 }
@@ -124,7 +135,7 @@ h4 {
 .masthead {
   position:relative;
   padding:15px;
-  padding-top: 20px;
+  padding-top: 60px;
   background-color: @main-color-dark;
   background-image: linear-gradient(
     45deg, 
@@ -152,7 +163,7 @@ h4 {
   .site-home & {
     text-align: center;
     @media (min-width: 768px) {
-      padding-top:60px;
+      padding-top:80px;
       padding-bottom:60px;
       h1 {
         font-size:70px;
@@ -266,12 +277,19 @@ h4 {
   padding-top:40px;
   padding-bottom:40px;
   border-top:1px solid #fff;
-  background-color: #ddd;
+  background-color: lighten(@main-color-lighter,10);
   color:#777;
   hr {
-    border-color:#ccc;
+    width:60px;
+    margin-left:0;
+    border:2px solid @main-color-light;
   }
   .site-home & {
     text-align: center;
+    hr {
+      width:60px;
+      margin:40px auto;
+      border:2px solid @main-color-light;
+    }
   }
 }

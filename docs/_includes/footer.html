@@ -1,27 +1,25 @@
 <footer class="footer">
   <div class="container">
-    {% if page.layout == 'base' %}
+    
+    <h1>{{ site.title }}</h1>
+    <ul class="list-inline">
+      <li><img src="http://img.shields.io/travis/blivesta/{{ site.repo }}.svg" alt="travis" /></li>
+      <li>·</li>
+      <li><img src="http://img.shields.io/bower/v/{{ site.repo }}.svg" alt="bower" /></li>
+    </ul>
+    {% if page.layout == 'home' %}
       {% include social-link.html %}
     {% endif %}
-    {% include social-follow.html %}
-    
+
+    <ul class="list-inline">
+      <li>Code licensed under the MIT.</li>
+    </ul>
+
     <hr>
     
+    <h3>Other projects</h3>
     <ul class="list-inline">
-      <li>Currently v{{ site.current_version }}</li>
-      <li>·</li>
-      <li>Code licensed under the MIT.</li>
-      <li>·</li>
-      <li>
-        Author&nbsp;<span class="icon-blivesta icon-sm icon-circle"></span>&nbsp;
-        <a href="{{ site.author_url }}">{{ site.author }}</a>
-      </li>
-    </ul>
-    
-    <ul class="list-inline">
-      <li>Other projects</li>
-      <li>·</li>
-      <li><a href="/animsition">Animsition</a></li>
+      <li><a href="/conv">Conv</a></li>
       <li>·</li>
       <li><a href="/drawer">Drawer</a></li>
       <li>·</li>
@@ -31,5 +29,15 @@
       <li>·</li>
       <li><a href="/chaffle">Chaffle</a></li>
     </ul>
+    <hr>
+    <ul class="list-inline">
+      <li>
+        Author&nbsp;<span class="icon-blivesta icon-sm icon-circle"></span>&nbsp;
+        <a href="{{ site.author_url }}">{{ site.author }}</a>
+      </li>
+    </ul>
+    
+    {% include social-follow.html %}
+    
   </div>
 </footer>
