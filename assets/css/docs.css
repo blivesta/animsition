@@ -288,13 +288,13 @@
 /* Literal.Number.Integer.Long */
 body,
 html {
-  height: 100%;
-  min-height: 100%;
   font-family: 'Roboto', sans-serif;
   background: #eee;
 }
 hr {
-  border-color: #ddd;
+  width: 60px;
+  margin: 40px auto;
+  border: 2px solid #ddd;
 }
 .container {
   max-width: 768px;
@@ -364,7 +364,7 @@ h4 {
   overflow: hidden;
 }
 .social .btn-gh {
-  width: 95px;
+  width: 105px;
 }
 .social .btn-tw {
   width: 99px;
@@ -379,11 +379,25 @@ h4 {
   overflow: hidden;
 }
 .header {
+  position: absolute;
+  width: 100%;
   margin-bottom: 0;
+  background-color: transparent !important;
+  border: none;
+}
+.header .navbar-nav > li > a,
+.header .header-brand {
+  color: #fff;
+  opacity: .8;
 }
 .header .navbar-nav > li > a:hover,
 .header .header-brand:hover {
+  color: #fff;
   opacity: .6;
+}
+.site-home .header .navbar-nav > li > a,
+.site-home .header .header-brand {
+  display: none;
 }
 .navbar-header {
   float: left;
@@ -394,7 +408,7 @@ h4 {
 .masthead {
   position: relative;
   padding: 15px;
-  padding-top: 20px;
+  padding-top: 60px;
   color: #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
   background-color: #242d35;
@@ -423,7 +437,7 @@ h4 {
 }
 @media (min-width: 768px) {
   .site-home .masthead {
-    padding-top: 60px;
+    padding-top: 80px;
     padding-bottom: 60px;
   }
   .site-home .masthead h1 {
@@ -518,13 +532,20 @@ h4 {
   padding-top: 40px;
   padding-bottom: 40px;
   color: #777;
-  background-color: #ddd;
+  background-color: #ebeef2;
   border-top: 1px solid #fff;
 }
 .footer hr {
-  border-color: #ccc;
+  width: 60px;
+  margin-left: 0;
+  border: 2px solid #85a1bb;
 }
 .site-home .footer {
   text-align: center;
+}
+.site-home .footer hr {
+  width: 60px;
+  margin: 40px auto;
+  border: 2px solid #85a1bb;
 }
 /*# sourceMappingURL=docs.css.map */
