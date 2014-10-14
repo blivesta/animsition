@@ -5,7 +5,7 @@
 
 A simple and easy jQuery plugin for CSS animated page transitions. 
 
-##Example & Installation
+##Demo & Installation
 http://blivesta.github.io/animsition
 
 ##License
