@@ -129,8 +129,6 @@
         data = data;
       } else if(stateClass && stateIn) {
         data = options.inClass;
-      } else if(stateClass && stateIn) {
-        data = options.inClass;
       } else if(!stateClass && stateIn) {
         data = options.inDuration;
       } else if(stateClass && !stateIn) {
