@@ -1,5 +1,5 @@
 /*!
- * animsition v3.3.3
+ * animsition v3.4.0
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
