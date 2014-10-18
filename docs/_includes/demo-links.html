@@ -11,77 +11,104 @@
 {% if page.layout == 'base' %}
 <h3>Fade</h3>
  <ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade" data-animsition-out="fade-out">Fade</a></li>
-</ul>
-<h3>Fade down</h3>
- <ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-down-sm" data-animsition-out="fade-out-down-sm">Fade down small</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-down" data-animsition-out="fade-out-down">Fade down</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-down-lg" data-animsition-out="fade-out-down-lg">Fade down large</a></li>
-</ul>
-<h3>Fade up</h3>
-<ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-up-sm" data-animsition-out="fade-out-up-sm">Fade up small</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-up" data-animsition-out="fade-out-up">Fade up</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-up-lg" data-animsition-out="fade-out-up-lg">Fade up large</a></li>
-</ul>
-<h3>Fade left</h3>
-<ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-left-sm" data-animsition-out="fade-out-left-sm">Fade left small</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-left" data-animsition-out="fade-out-left">Fade left</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-left-lg" data-animsition-out="fade-out-left-lg">Fade left large</a></li>
-</ul>
-<h3>Fade right</h3>
-<ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-right-sm" data-animsition-out="fade-out-right-sm">Fade right small</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-right" data-animsition-out="fade-out-right">Fade right</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}fade-right-lg" data-animsition-out="fade-out-right-lg">Fade right large</a></li>
-</ul>
-<h3>Rotate</h3>
-<ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}rotate-sm" data-animsition-out="rotate-out-sm">Rotate small</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}rotate" data-animsition-out="rotate-out">Rotate</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}rotate-lg" data-animsition-out="rotate-out-lg">Rotate large</a></li>
-</ul>
-<h3>Flip X</h3>
-<ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}flip-x-fr" data-animsition-out="flip-out-x-fr">Flip X far</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}flip-x" data-animsition-out="flip-out-x">Flip X</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}flip-x-nr" data-animsition-out="flip-out-x-nr">Flip X near</a></li>
-</ul>
-<h3>Flip Y</h3>
-<ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}flip-y-fr" data-animsition-out="flip-out-y-fr">Flip Y far</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}flip-y" data-animsition-out="flip-out-y">Flip Y</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}flip-y-nr" data-animsition-out="flip-out-y-nr">Flip Y near</a></li>
-</ul>
-<h3>Zoom</h3>
-<ul class="list-inline example-nav">
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}zoom-sm" data-animsition-out="zoom-out-sm">Zoom small</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}zoom" data-animsition-out="zoom-out">Zoom</a></li>
-  <li><a class="animsition-link button button-border" href="{{ page.base_url }}zoom-lg" data-animsition-out="zoom-out-lg">Zoom large</a></li>
+  <li><a class="animsition-link" href="{{ page.base_url }}fade" data-animsition-out="fade-out">Fade</a></li>
 </ul>
 
+<div class="row">
+  <div class="col col-6">
+    <h3>Fade down</h3>
+    <ul class="list-inline example-nav">
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-down-sm" data-animsition-out="fade-out-down-sm">Fade down small</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-down" data-animsition-out="fade-out-down">Fade down</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-down-lg" data-animsition-out="fade-out-down-lg">Fade down large</a></li>
+    </ul>
+  </div>
+  <div class="col col-6">
+    <h3>Fade up</h3>
+    <ul class="list-inline example-nav">
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-up-sm" data-animsition-out="fade-out-up-sm">Fade up small</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-up" data-animsition-out="fade-out-up">Fade up</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-up-lg" data-animsition-out="fade-out-up-lg">Fade up large</a></li>
+    </ul>    
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col col-6">
+    <h3>Fade left</h3>
+    <ul class="list-inline example-nav">
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-left-sm" data-animsition-out="fade-out-left-sm">Fade left small</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-left" data-animsition-out="fade-out-left">Fade left</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-left-lg" data-animsition-out="fade-out-left-lg">Fade left large</a></li>
+    </ul>
+  </div>
+  <div class="col col-6">
+    <h3>Fade right</h3>
+    <ul class="list-inline example-nav">
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-right-sm" data-animsition-out="fade-out-right-sm">Fade right small</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-right" data-animsition-out="fade-out-right">Fade right</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}fade-right-lg" data-animsition-out="fade-out-right-lg">Fade right large</a></li>
+    </ul>
+  </div>
+</div>
+
+<h3>Rotate</h3>
+<ul class="list-inline example-nav">
+  <li><a class="animsition-link" href="{{ page.base_url }}rotate-sm" data-animsition-out="rotate-out-sm">Rotate small</a></li>
+  <li><a class="animsition-link" href="{{ page.base_url }}rotate" data-animsition-out="rotate-out">Rotate</a></li>
+  <li><a class="animsition-link" href="{{ page.base_url }}rotate-lg" data-animsition-out="rotate-out-lg">Rotate large</a></li>
+</ul>
+
+
+<div class="row">
+  <div class="col col-6">
+    <h3>Flip X</h3>
+    <ul class="list-inline example-nav">
+      <li><a class="animsition-link" href="{{ page.base_url }}flip-x-fr" data-animsition-out="flip-out-x-fr">Flip X far</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}flip-x" data-animsition-out="flip-out-x">Flip X</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}flip-x-nr" data-animsition-out="flip-out-x-nr">Flip X near</a></li>
+    </ul>
+  </div>
+  <div class="col col-6">
+    <h3>Flip Y</h3>
+    <ul class="list-inline example-nav">
+      <li><a class="animsition-link" href="{{ page.base_url }}flip-y-fr" data-animsition-out="flip-out-y-fr">Flip Y far</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}flip-y" data-animsition-out="flip-out-y">Flip Y</a></li>
+      <li><a class="animsition-link" href="{{ page.base_url }}flip-y-nr" data-animsition-out="flip-out-y-nr">Flip Y near</a></li>
+    </ul>
+  </div>
+</div>
+
+
+<h3>Zoom</h3>
+<ul class="list-inline example-nav">
+  <li><a class="animsition-link" href="{{ page.base_url }}zoom-sm" data-animsition-out="zoom-out-sm">Zoom small</a></li>
+  <li><a class="animsition-link" href="{{ page.base_url }}zoom" data-animsition-out="zoom-out">Zoom</a></li>
+  <li><a class="animsition-link" href="{{ page.base_url }}zoom-lg" data-animsition-out="zoom-out-lg">Zoom large</a></li>
+</ul>
+<p>&nbsp;</p>
 <p><a class="button button-flat-success" href="{{ page.base_url }}slide-top">
 <span class="oi oi-transfer"></span>&nbsp;Overlay Mode</a></p>
 
 
 {% else if page.layout == 'overlay' %}
+<h3>Overlay Slide</h3>
  <ul class="list-inline example-nav">
   <li>
-    <a class="animsition-link button button-border" href="{{ page.base_url }}slide-top" data-animsition-out="overlay-slide-out-top">slide top</a>
+    <a class="animsition-link" href="{{ page.base_url }}slide-top" data-animsition-out="overlay-slide-out-top">slide top</a>
   </li>
   <li>
-    <a class="animsition-link button button-border" href="{{ page.base_url }}slide-bottom" data-animsition-out="overlay-slide-out-bottom">slide bottom</a>
+    <a class="animsition-link" href="{{ page.base_url }}slide-bottom" data-animsition-out="overlay-slide-out-bottom">slide bottom</a>
   </li>
   <li>
-    <a class="animsition-link button button-border" href="{{ page.base_url }}slide-left" data-animsition-out="overlay-slide-out-left">slide left</a>
+    <a class="animsition-link" href="{{ page.base_url }}slide-left" data-animsition-out="overlay-slide-out-left">slide left</a>
   </li>
   <li>
-    <a class="animsition-link button button-border" href="{{ page.base_url }}slide-right" data-animsition-out="overlay-slide-out-right">slide right</a>
+    <a class="animsition-link" href="{{ page.base_url }}slide-right" data-animsition-out="overlay-slide-out-right">slide right</a>
   </li>
 </ul>
-
+<p>&nbsp;</p>
 <p><a class="button button-flat-success" href="{{ page.base_url }}fade">
 <span class="oi oi-transfer"></span>&nbsp;Basic Mode</a></p>
 
