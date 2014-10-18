@@ -13,7 +13,6 @@
   ],
   "homepage": "http://git.blivesta.com/animsition",
   "main": [
-    "dist/less/**",
     "dist/css/animsition.css",
     "dist/css/animsition.min.css",
     "dist/js/animsition.js",
@@ -21,7 +20,8 @@
   ],
   "ignore": [
     ".*",
-    "src",
+    "src/js",
+    "docs",
     "*.yml",
     "*.html",
     "*.json",
@@ -29,14 +29,5 @@
   ],
   "dependencies": {
     "jquery": ">= 1.11.0"
-  },
-  "devDependencies": {
-    "cooker": "~0.4.8"
-  },
-  "exportsOverride": {
-    "cooker": {
-      "css": "dist/css/",
-      "less": "dist/less/"
-    }
   }
 }
