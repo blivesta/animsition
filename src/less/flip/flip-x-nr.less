@@ -1,0 +1,30 @@
+@keyframes flip-in-x-nr {
+  0% {
+    opacity: 0;
+    transform: perspective(100px) rotateX(90deg);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(100px) rotateX(0deg);
+  }
+}
+.flip-in-x-nr {
+  animation-name: flip-in-x-nr;
+  backface-visibility: visible !important;
+}
+
+@keyframes flip-out-x-nr {
+  0% {
+    opacity: 1;
+    transform: perspective(100px) rotateX(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    transform: perspective(100px) rotateX(90deg);
+  }
+}
+.flip-out-x-nr {
+  animation-name: flip-out-x-nr;
+  backface-visibility: visible !important;
+}
