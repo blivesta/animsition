@@ -1,5 +1,5 @@
 /*!
- * animsition v3.3.3
+ * animsition v3.4.0
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
@@ -35,7 +35,7 @@
         console.log("Animsition does not support this browser.");
         return methods.destroy.call(this);
       }
-      var overlayMode = methods.state.call(this, options);
+      var overlayMode = methods.optionCheck.call(this, options);
       if (overlayMode === true) {
         methods.addOverlay.call(this, options);
       }
@@ -64,6 +64,18 @@
         }
       });
     },
+    addOverlay: function(options) {
+      $(options.overlayParentElement).prepend('<div class="' + options.overlayClass + '"></div>');
+    },
+    addLoading: function(options) {
+      $(options.loadingParentElement).append('<div class="' + options.loadingClass + '"></div>');
+    },
+    removeLoading: function() {
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+      var $loading = $(options.loadingParentElement).children("." + options.loadingClass);
+      $loading.fadeOut().remove();
+    },
     supportCheck: function(options) {
       var $this = $(this);
       var props = options.unSupportCss;
@@ -80,63 +92,48 @@
       }
       return support;
     },
-    state: function(options) {
+    optionCheck: function(options) {
       var $this = $(this);
       var overlayMode;
-      if (options.overlay === true || $this.data("animsition-overlay") === true) {
+      if (options.overlay || $this.data("animsition-overlay")) {
         overlayMode = true;
       } else {
         overlayMode = false;
       }
       return overlayMode;
     },
-    addOverlay: function(options) {
-      $(options.overlayParentElement).prepend('<div class="' + options.overlayClass + '"></div>');
-    },
-    addLoading: function(options) {
-      $(options.loadingParentElement).append('<div class="' + options.loadingClass + '"></div>');
-    },
-    removeLoading: function() {
+    animationCheck: function(data, stateClass, stateIn) {
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var $loading = $(options.loadingParentElement).children("." + options.loadingClass);
-      $loading.fadeOut().remove();
-    },
-    pageInClass: function() {
-      var $this = $(this);
-      var options = $this.data(namespace).options;
-      var thisInClass = $this.data("animsition-in");
-      var inClass;
-      if (typeof thisInClass === "string") {
-        inClass = thisInClass;
-      } else {
-        inClass = options.inClass;
+      var dataType = typeof data;
+      var dataDuration = !stateClass && dataType === "number";
+      var dataClass = stateClass && dataType === "string" && data.length > 0;
+      if (dataDuration || dataClass) {
+        data = data;
+      } else if (stateClass && stateIn) {
+        data = options.inClass;
+      } else if (!stateClass && stateIn) {
+        data = options.inDuration;
+      } else if (stateClass && !stateIn) {
+        data = options.outClass;
+      } else if (!stateClass && !stateIn) {
+        data = options.outDuration;
       }
-      return inClass;
-    },
-    pageInDuration: function() {
-      var $this = $(this);
-      var options = $this.data(namespace).options;
-      var thisInDuration = $this.data("animsition-in-duration");
-      var inDuration;
-      if (typeof thisInDuration === "number") {
-        inDuration = thisInDuration;
-      } else {
-        inDuration = options.inDuration;
-      }
-      return inDuration;
+      return data;
     },
     pageIn: function() {
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var inClass = methods.pageInClass.call(_this);
-      var inDuration = methods.pageInDuration.call(_this);
-      var overlayMode = methods.state.call(_this, options);
-      if (options.loading === true) {
+      var thisInDuration = $this.data("animsition-in-duration");
+      var thisInClass = $this.data("animsition-in");
+      var inDuration = methods.animationCheck.call(_this, thisInDuration, false, true);
+      var inClass = methods.animationCheck.call(_this, thisInClass, true, true);
+      var overlayMode = methods.optionCheck.call(_this, options);
+      if (options.loading) {
         methods.removeLoading.call(_this);
       }
-      if (overlayMode === true) {
+      if (overlayMode) {
         methods.pageInOverlay.call(_this, inClass, inDuration);
       } else {
         methods.pageInBasic.call(_this, inClass, inDuration);
@@ -162,45 +159,21 @@
         "animation-duration": inDuration / 1e3 + "s"
       }).addClass(inClass);
     },
-    pageOutClass: function($self) {
-      var $this = $(this);
-      var options = $this.data(namespace).options;
-      var selfOutClass = $self.data("animsition-out");
-      var thisOutClass = $this.data("animsition-out");
-      var outClass;
-      if (typeof selfOutClass === "string") {
-        outClass = selfOutClass;
-      } else if (typeof thisOutClass === "string") {
-        outClass = thisOutClass;
-      } else {
-        outClass = options.outClass;
-      }
-      return outClass;
-    },
-    pageOutDuration: function($self) {
-      var $this = $(this);
-      var options = $this.data(namespace).options;
-      var selfOutDuration = $self.data("animsition-out-duration");
-      var thisOutDuration = $this.data("animsition-out-duration");
-      var outDuration;
-      if (typeof selfOutDuration === "number") {
-        outDuration = selfOutDuration;
-      } else if (typeof thisOutDuration === "number") {
-        outDuration = thisOutDuration;
-      } else {
-        outDuration = options.outDuration;
-      }
-      return outDuration;
-    },
     pageOut: function($self) {
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var outClass = methods.pageOutClass.call(_this, $self);
-      var outDuration = methods.pageOutDuration.call(_this, $self);
-      var overlayMode = methods.state.call(_this, options);
+      var selfOutClass = $self.data("animsition-out");
+      var thisOutClass = $this.data("animsition-out");
+      var selfOutDuration = $self.data("animsition-out-duration");
+      var thisOutDuration = $this.data("animsition-out-duration");
+      var isOutClass = selfOutClass ? selfOutClass : thisOutClass;
+      var isOutDuration = selfOutDuration ? selfOutDuration : thisOutDuration;
+      var outClass = methods.animationCheck.call(_this, isOutClass, true, false);
+      var outDuration = methods.animationCheck.call(_this, isOutDuration, false, false);
+      var overlayMode = methods.optionCheck.call(_this, options);
       var url = $self.attr("href");
-      if (overlayMode === true) {
+      if (overlayMode) {
         methods.pageOutOverlay.call(_this, outClass, outDuration, url);
       } else {
         methods.pageOutBasic.call(_this, outClass, outDuration, url);
@@ -218,7 +191,8 @@
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var inClass = methods.pageInClass.call(_this);
+      var thisInClass = $this.data("animsition-in");
+      var inClass = methods.animationCheck.call(_this, thisInClass, true, true);
       $(options.overlayParentElement).children("." + options.overlayClass).css({
         "animation-duration": outDuration / 1e3 + "s"
       }).removeClass(inClass).addClass(outClass).animateCallback(function() {
