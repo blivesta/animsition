@@ -192,25 +192,6 @@
     },
 
     // ====================================================
-    validation: {
-      options: {
-        charset: 'utf-8',
-        doctype: 'HTML5',
-        failHard: true,
-        reset: true,
-        relaxerror: [
-          'Bad value X-UA-Compatible for attribute http-equiv on element meta.',
-          'Element img is missing required attribute src.'
-        ]
-      },
-      files: {
-        src: [
-          '<%= pkg.public %>/index.html',
-          '<%= pkg.public %>/**/*.html'
-        ]
-      }
-    },
-    // ====================================================
     copy: {
       dist: {
         expand: true,
