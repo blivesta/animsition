@@ -26,25 +26,6 @@
 
   <!-- animsition css -->
   <link rel="stylesheet" href="../css/animsition.css">
-
-  <!-- Google analytics -->
-  <script src="//git.blivesta.com/js/ga.js"></script>
-
-  <!-- Vendor js -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-
-  <!-- animsition js -->
-  <script src="../js/jquery.animsition.js"></script>
-
-  <script type="text/javascript">
-  $(document).ready(function() {
-    
-      $(".animsition").animsition();
-    
-      
-  }); 
-
-  </script>
   
 </head>
 <body class=" site-base">
@@ -185,18 +166,17 @@
   <p class="lead"></p>
   <div class="section-body">
     <p class="lead">Step 1: Link required files</p>
-<div class="highlight"><pre><code class="html"><span class="c">&lt;!-- animsition CSS --&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="c">&lt;!-- animsition CSS --&gt;</span>
 <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;../css/animsition.min.css&quot;</span><span class="nt">&gt;</span>
 
 <span class="c">&lt;!-- vendor js --&gt;</span>
 <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
 
 <span class="c">&lt;!-- animsition js --&gt;</span>
-<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../dist/js/jquery.animsition.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;../dist/js/jquery.animsition.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span></code></pre></div>
 
 <p class="lead">Step 2: HTML markup</p>
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;body&gt;</span>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;body&gt;</span>
 
   <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;animsition&quot;</span><span class="nt">&gt;</span>
 
@@ -207,12 +187,10 @@
 
   <span class="nt">&lt;/div&gt;</span>
 
-<span class="nt">&lt;/body&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/body&gt;</span></code></pre></div>
 
 <h4>If you want each "linkElement" to use a different animation. </h4>
-<div class="highlight"><pre><code class="html">  
-  <span class="nt">&lt;a</span> 
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> 
     <span class="na">href=</span><span class="s">&quot;./page1&quot;</span> 
     <span class="na">class=</span><span class="s">&quot;animsition-link&quot;</span> 
     <span class="na">data-animsition-out=</span><span class="s">&quot;fade-out-right&quot;</span>
@@ -228,12 +206,10 @@
     <span class="na">data-animsition-out-duration=</span><span class="s">&quot;500&quot;</span>
   <span class="nt">&gt;</span>
     animsition link 2
-  <span class="nt">&lt;/a&gt;</span>
-  
-</code></pre></div>
+  <span class="nt">&lt;/a&gt;</span></code></pre></div>
 
 <h4>If you want to each page to use a different animation.</h4>  
-<div class="highlight"><pre><code class="html"><span class="nt">&lt;div</span> 
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> 
   <span class="na">class=</span><span class="s">&quot;animsition&quot;</span> 
   <span class="na">data-animsition-in-class=</span><span class="s">&quot;fade-in-right&quot;</span>
   <span class="na">data-animsition-in-duration=</span><span class="s">&quot;1000&quot;</span>
@@ -241,12 +217,11 @@
   <span class="na">data-animsition-out-duration=</span><span class="s">&quot;800&quot;</span>
 <span class="nt">&gt;</span>
   ...
-<span class="nt">&lt;/div&gt;</span>
-</code></pre></div>
+<span class="nt">&lt;/div&gt;</span></code></pre></div>
 
 
 <p class="lead">Step 3: Call the animsition</p>
-<div class="highlight"><pre><code class="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
   
   <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.animsition&quot;</span><span class="p">).</span><span class="nx">animsition</span><span class="p">({</span>
   
@@ -271,8 +246,7 @@
     <span class="nx">overlayClass</span>          <span class="o">:</span>   <span class="s1">&#39;animsition-overlay-slide&#39;</span><span class="p">,</span>
     <span class="nx">overlayParentElement</span>  <span class="o">:</span>   <span class="s1">&#39;body&#39;</span>
   <span class="p">});</span>
-<span class="p">});</span> 
-</code></pre></div>
+<span class="p">});</span></code></pre></div>
 
 
   </div>
@@ -333,6 +307,26 @@
     
   </div>
 </footer>
+
+
+  <!-- Google analytics -->
+  <script src="//git.blivesta.com/js/ga.js"></script>
+
+  <!-- Vendor js -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+  <!-- animsition js -->
+  <script src="../js/jquery.animsition.min.js"></script>
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+    
+      $(".animsition").animsition();
+    
+      
+  }); 
+
+  </script>
 
   </div><!-- /.site-wrapper -->
 </body>
