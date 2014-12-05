@@ -24,7 +24,7 @@
       // Remove the "Animsition" in a browser 
       // that does not support the "animaition-duration".       
       var support = methods.supportCheck.call(this, options);
-      if(support === false){
+      if(!support){
         // If do not have a console object to object window
         if (!('console' in window)) {
           window.console = {};
@@ -35,11 +35,11 @@
       }
 
       var overlayMode = methods.optionCheck.call(this, options); 
-      if(overlayMode === true) { 
+      if(overlayMode) { 
         methods.addOverlay.call(this, options); 
       }
 
-      if(options.loading === true) { 
+      if(options.loading) { 
         methods.addLoading.call(this, options); 
       }
 
