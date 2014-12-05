@@ -1,5 +1,5 @@
 /*!
- * animsition v3.4.0
+ * animsition v3.4.1
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
@@ -1491,26 +1491,22 @@
 @-o-keyframes flip-in-x {
   0% {
     opacity: 0;
-    -o-transform: perspective(550px) rotateX(90deg);
-       transform: perspective(550px) rotateX(90deg);
+    transform: perspective(550px) rotateX(90deg);
   }
   100% {
     opacity: 1;
-    -o-transform: perspective(550px) rotateX(0deg);
-       transform: perspective(550px) rotateX(0deg);
+    transform: perspective(550px) rotateX(0deg);
   }
 }
 @keyframes flip-in-x {
   0% {
     opacity: 0;
     -webkit-transform: perspective(550px) rotateX(90deg);
-         -o-transform: perspective(550px) rotateX(90deg);
             transform: perspective(550px) rotateX(90deg);
   }
   100% {
     opacity: 1;
     -webkit-transform: perspective(550px) rotateX(0deg);
-         -o-transform: perspective(550px) rotateX(0deg);
             transform: perspective(550px) rotateX(0deg);
   }
 }
@@ -1537,26 +1533,22 @@
 @-o-keyframes flip-out-x {
   0% {
     opacity: 1;
-    -o-transform: perspective(550px) rotateX(0deg);
-       transform: perspective(550px) rotateX(0deg);
+    transform: perspective(550px) rotateX(0deg);
   }
   100% {
     opacity: 0;
-    -o-transform: perspective(550px) rotateX(90deg);
-       transform: perspective(550px) rotateX(90deg);
+    transform: perspective(550px) rotateX(90deg);
   }
 }
 @keyframes flip-out-x {
   0% {
     opacity: 1;
     -webkit-transform: perspective(550px) rotateX(0deg);
-         -o-transform: perspective(550px) rotateX(0deg);
             transform: perspective(550px) rotateX(0deg);
   }
   100% {
     opacity: 0;
     -webkit-transform: perspective(550px) rotateX(90deg);
-         -o-transform: perspective(550px) rotateX(90deg);
             transform: perspective(550px) rotateX(90deg);
   }
 }
@@ -1583,26 +1575,22 @@
 @-o-keyframes flip-in-x-nr {
   0% {
     opacity: 0;
-    -o-transform: perspective(100px) rotateX(90deg);
-       transform: perspective(100px) rotateX(90deg);
+    transform: perspective(100px) rotateX(90deg);
   }
   100% {
     opacity: 1;
-    -o-transform: perspective(100px) rotateX(0deg);
-       transform: perspective(100px) rotateX(0deg);
+    transform: perspective(100px) rotateX(0deg);
   }
 }
 @keyframes flip-in-x-nr {
   0% {
     opacity: 0;
     -webkit-transform: perspective(100px) rotateX(90deg);
-         -o-transform: perspective(100px) rotateX(90deg);
             transform: perspective(100px) rotateX(90deg);
   }
   100% {
     opacity: 1;
     -webkit-transform: perspective(100px) rotateX(0deg);
-         -o-transform: perspective(100px) rotateX(0deg);
             transform: perspective(100px) rotateX(0deg);
   }
 }
@@ -1629,26 +1617,22 @@
 @-o-keyframes flip-out-x-nr {
   0% {
     opacity: 1;
-    -o-transform: perspective(100px) rotateX(0deg);
-       transform: perspective(100px) rotateX(0deg);
+    transform: perspective(100px) rotateX(0deg);
   }
   100% {
     opacity: 0;
-    -o-transform: perspective(100px) rotateX(90deg);
-       transform: perspective(100px) rotateX(90deg);
+    transform: perspective(100px) rotateX(90deg);
   }
 }
 @keyframes flip-out-x-nr {
   0% {
     opacity: 1;
     -webkit-transform: perspective(100px) rotateX(0deg);
-         -o-transform: perspective(100px) rotateX(0deg);
             transform: perspective(100px) rotateX(0deg);
   }
   100% {
     opacity: 0;
     -webkit-transform: perspective(100px) rotateX(90deg);
-         -o-transform: perspective(100px) rotateX(90deg);
             transform: perspective(100px) rotateX(90deg);
   }
 }
@@ -1675,26 +1659,22 @@
 @-o-keyframes flip-in-x-fr {
   0% {
     opacity: 0;
-    -o-transform: perspective(1000px) rotateX(90deg);
-       transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
   }
   100% {
     opacity: 1;
-    -o-transform: perspective(1000px) rotateX(0deg);
-       transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
   }
 }
 @keyframes flip-in-x-fr {
   0% {
     opacity: 0;
     -webkit-transform: perspective(1000px) rotateX(90deg);
-         -o-transform: perspective(1000px) rotateX(90deg);
             transform: perspective(1000px) rotateX(90deg);
   }
   100% {
     opacity: 1;
     -webkit-transform: perspective(1000px) rotateX(0deg);
-         -o-transform: perspective(1000px) rotateX(0deg);
             transform: perspective(1000px) rotateX(0deg);
   }
 }
@@ -1721,26 +1701,22 @@
 @-o-keyframes flip-out-x-fr {
   0% {
     opacity: 1;
-    -o-transform: perspective(1000px) rotateX(0deg);
-       transform: perspective(1000px) rotateX(0deg);
+    transform: perspective(1000px) rotateX(0deg);
   }
   100% {
     opacity: 0;
-    -o-transform: perspective(1000px) rotateX(90deg);
-       transform: perspective(1000px) rotateX(90deg);
+    transform: perspective(1000px) rotateX(90deg);
   }
 }
 @keyframes flip-out-x-fr {
   0% {
     opacity: 1;
     -webkit-transform: perspective(1000px) rotateX(0deg);
-         -o-transform: perspective(1000px) rotateX(0deg);
             transform: perspective(1000px) rotateX(0deg);
   }
   100% {
     opacity: 0;
     -webkit-transform: perspective(1000px) rotateX(90deg);
-         -o-transform: perspective(1000px) rotateX(90deg);
             transform: perspective(1000px) rotateX(90deg);
   }
 }
@@ -1767,26 +1743,22 @@
 @-o-keyframes flip-in-y {
   0% {
     opacity: 0;
-    -o-transform: perspective(550px) rotateY(90deg);
-       transform: perspective(550px) rotateY(90deg);
+    transform: perspective(550px) rotateY(90deg);
   }
   100% {
     opacity: 1;
-    -o-transform: perspective(550px) rotateY(0deg);
-       transform: perspective(550px) rotateY(0deg);
+    transform: perspective(550px) rotateY(0deg);
   }
 }
 @keyframes flip-in-y {
   0% {
     opacity: 0;
     -webkit-transform: perspective(550px) rotateY(90deg);
-         -o-transform: perspective(550px) rotateY(90deg);
             transform: perspective(550px) rotateY(90deg);
   }
   100% {
     opacity: 1;
     -webkit-transform: perspective(550px) rotateY(0deg);
-         -o-transform: perspective(550px) rotateY(0deg);
             transform: perspective(550px) rotateY(0deg);
   }
 }
@@ -1813,26 +1785,22 @@
 @-o-keyframes flip-out-y {
   0% {
     opacity: 1;
-    -o-transform: perspective(550px) rotateY(0deg);
-       transform: perspective(550px) rotateY(0deg);
+    transform: perspective(550px) rotateY(0deg);
   }
   100% {
     opacity: 0;
-    -o-transform: perspective(550px) rotateY(90deg);
-       transform: perspective(550px) rotateY(90deg);
+    transform: perspective(550px) rotateY(90deg);
   }
 }
 @keyframes flip-out-y {
   0% {
     opacity: 1;
     -webkit-transform: perspective(550px) rotateY(0deg);
-         -o-transform: perspective(550px) rotateY(0deg);
             transform: perspective(550px) rotateY(0deg);
   }
   100% {
     opacity: 0;
     -webkit-transform: perspective(550px) rotateY(90deg);
-         -o-transform: perspective(550px) rotateY(90deg);
             transform: perspective(550px) rotateY(90deg);
   }
 }
@@ -1859,26 +1827,22 @@
 @-o-keyframes flip-in-y-nr {
   0% {
     opacity: 0;
-    -o-transform: perspective(100px) rotateY(90deg);
-       transform: perspective(100px) rotateY(90deg);
+    transform: perspective(100px) rotateY(90deg);
   }
   100% {
     opacity: 1;
-    -o-transform: perspective(100px) rotateY(0deg);
-       transform: perspective(100px) rotateY(0deg);
+    transform: perspective(100px) rotateY(0deg);
   }
 }
 @keyframes flip-in-y-nr {
   0% {
     opacity: 0;
     -webkit-transform: perspective(100px) rotateY(90deg);
-         -o-transform: perspective(100px) rotateY(90deg);
             transform: perspective(100px) rotateY(90deg);
   }
   100% {
     opacity: 1;
     -webkit-transform: perspective(100px) rotateY(0deg);
-         -o-transform: perspective(100px) rotateY(0deg);
             transform: perspective(100px) rotateY(0deg);
   }
 }
@@ -1905,26 +1869,22 @@
 @-o-keyframes flip-out-y-nr {
   0% {
     opacity: 1;
-    -o-transform: perspective(100px) rotateY(0deg);
-       transform: perspective(100px) rotateY(0deg);
+    transform: perspective(100px) rotateY(0deg);
   }
   100% {
     opacity: 0;
-    -o-transform: perspective(100px) rotateY(90deg);
-       transform: perspective(100px) rotateY(90deg);
+    transform: perspective(100px) rotateY(90deg);
   }
 }
 @keyframes flip-out-y-nr {
   0% {
     opacity: 1;
     -webkit-transform: perspective(100px) rotateY(0deg);
-         -o-transform: perspective(100px) rotateY(0deg);
             transform: perspective(100px) rotateY(0deg);
   }
   100% {
     opacity: 0;
     -webkit-transform: perspective(100px) rotateY(90deg);
-         -o-transform: perspective(100px) rotateY(90deg);
             transform: perspective(100px) rotateY(90deg);
   }
 }
@@ -1951,26 +1911,22 @@
 @-o-keyframes flip-in-y-fr {
   0% {
     opacity: 0;
-    -o-transform: perspective(1000px) rotateY(90deg);
-       transform: perspective(1000px) rotateY(90deg);
+    transform: perspective(1000px) rotateY(90deg);
   }
   100% {
     opacity: 1;
-    -o-transform: perspective(1000px) rotateY(0deg);
-       transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
   }
 }
 @keyframes flip-in-y-fr {
   0% {
     opacity: 0;
     -webkit-transform: perspective(1000px) rotateY(90deg);
-         -o-transform: perspective(1000px) rotateY(90deg);
             transform: perspective(1000px) rotateY(90deg);
   }
   100% {
     opacity: 1;
     -webkit-transform: perspective(1000px) rotateY(0deg);
-         -o-transform: perspective(1000px) rotateY(0deg);
             transform: perspective(1000px) rotateY(0deg);
   }
 }
@@ -1997,26 +1953,22 @@
 @-o-keyframes flip-out-y-fr {
   0% {
     opacity: 1;
-    -o-transform: perspective(1000px) rotateY(0deg);
-       transform: perspective(1000px) rotateY(0deg);
+    transform: perspective(1000px) rotateY(0deg);
   }
   100% {
     opacity: 0;
-    -o-transform: perspective(1000px) rotateY(90deg);
-       transform: perspective(1000px) rotateY(90deg);
+    transform: perspective(1000px) rotateY(90deg);
   }
 }
 @keyframes flip-out-y-fr {
   0% {
     opacity: 1;
     -webkit-transform: perspective(1000px) rotateY(0deg);
-         -o-transform: perspective(1000px) rotateY(0deg);
             transform: perspective(1000px) rotateY(0deg);
   }
   100% {
     opacity: 0;
     -webkit-transform: perspective(1000px) rotateY(90deg);
-         -o-transform: perspective(1000px) rotateY(90deg);
             transform: perspective(1000px) rotateY(90deg);
   }
 }

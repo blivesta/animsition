@@ -1,5 +1,5 @@
 /*!
- * animsition v3.4.0
+ * animsition v3.4.1
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
@@ -25,7 +25,7 @@
         overlayParentElement: "body"
       }, options);
       var support = methods.supportCheck.call(this, options);
-      if (support === false) {
+      if (!support) {
         if (!("console" in window)) {
           window.console = {};
           window.console.log = function(str) {
@@ -36,10 +36,10 @@
         return methods.destroy.call(this);
       }
       var overlayMode = methods.optionCheck.call(this, options);
-      if (overlayMode === true) {
+      if (overlayMode) {
         methods.addOverlay.call(this, options);
       }
-      if (options.loading === true) {
+      if (options.loading) {
         methods.addLoading.call(this, options);
       }
       return this.each(function() {
