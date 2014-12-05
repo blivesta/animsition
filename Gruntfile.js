@@ -147,13 +147,13 @@
       options: {
         banner: '<%= banner %>',
         report: 'min',
-        mangle: false,
-        compress:false,
       },
       source:{
         options: {
           indentLevel: 2,
-          beautify: true
+          beautify: true,
+          mangle: false,
+          compress:false
         },
         files :  { 
           '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js' : [
@@ -179,8 +179,7 @@
       },
       source: {
         src: [
-          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js',
-          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.min.js'
+          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js'
         ]
       },
       all: {
