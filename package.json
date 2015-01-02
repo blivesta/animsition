@@ -1,7 +1,17 @@
 {
   "name": "animsition",
-  "author": "blivesta",
   "version": "3.4.1",
+  "author": "blivesta",
+  "description": "A simple and easy jQuery plugin for CSS animated page transitions.",
+  "keywords": [
+    "css3",
+    "js",
+    "less",
+    "animation",
+    "page transition",
+    "jquery",
+    "pligin"
+  ],
   "url": "http://blivesta.github.io/animsition/",
   "author_url": "http://blivesta.com/",
   "licenses": "MIT",
