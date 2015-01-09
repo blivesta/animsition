@@ -190,30 +190,30 @@
 <span class="nt">&lt;/body&gt;</span></code></pre></div>
 
 <h4>If you want each "linkElement" to use a different animation. </h4>
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span> 
-    <span class="na">href=</span><span class="s">&quot;./page1&quot;</span> 
-    <span class="na">class=</span><span class="s">&quot;animsition-link&quot;</span> 
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;a</span>
+    <span class="na">href=</span><span class="s">&quot;./page1&quot;</span>
+    <span class="na">class=</span><span class="s">&quot;animsition-link&quot;</span>
     <span class="na">data-animsition-out=</span><span class="s">&quot;fade-out-right&quot;</span>
     <span class="na">data-animsition-out-duration=</span><span class="s">&quot;2000&quot;</span>
   <span class="nt">&gt;</span>
     animsition link 1
   <span class="nt">&lt;/a&gt;</span>
 
-  <span class="nt">&lt;a</span> 
-    <span class="na">href=</span><span class="s">&quot;./page2&quot;</span> 
-    <span class="na">class=</span><span class="s">&quot;animsition-link&quot;</span> 
+  <span class="nt">&lt;a</span>
+    <span class="na">href=</span><span class="s">&quot;./page2&quot;</span>
+    <span class="na">class=</span><span class="s">&quot;animsition-link&quot;</span>
     <span class="na">data-animsition-out=</span><span class="s">&quot;rotate-out&quot;</span>
     <span class="na">data-animsition-out-duration=</span><span class="s">&quot;500&quot;</span>
   <span class="nt">&gt;</span>
     animsition link 2
   <span class="nt">&lt;/a&gt;</span></code></pre></div>
 
-<h4>If you want to each page to use a different animation.</h4>  
-<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> 
-  <span class="na">class=</span><span class="s">&quot;animsition&quot;</span> 
-  <span class="na">data-animsition-in-class=</span><span class="s">&quot;fade-in-right-sm&quot;</span>
+<h4>If you want to each page to use a different animation.</h4>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span>
+  <span class="na">class=</span><span class="s">&quot;animsition&quot;</span>
+  <span class="na">data-animsition-in=</span><span class="s">&quot;fade-in-right-sm&quot;</span>
   <span class="na">data-animsition-in-duration=</span><span class="s">&quot;1000&quot;</span>
-  <span class="na">data-animsition-out-class=</span><span class="s">&quot;fade-out-right-sm&quot;</span>
+  <span class="na">data-animsition-out=</span><span class="s">&quot;fade-out-right-sm&quot;</span>
   <span class="na">data-animsition-out-duration=</span><span class="s">&quot;800&quot;</span>
 <span class="nt">&gt;</span>
   ...
@@ -229,7 +229,7 @@
     <span class="nx">outClass</span>              <span class="o">:</span>   <span class="s1">&#39;fade-out-right-sm&#39;</span><span class="p">,</span>
     <span class="nx">inDuration</span>            <span class="o">:</span>    <span class="mi">1500</span><span class="p">,</span>
     <span class="nx">outDuration</span>           <span class="o">:</span>    <span class="mi">800</span><span class="p">,</span>
-    <span class="nx">linkElement</span>           <span class="o">:</span>   <span class="s1">&#39;.animsition-link&#39;</span><span class="p">,</span> 
+    <span class="nx">linkElement</span>           <span class="o">:</span>   <span class="s1">&#39;.animsition-link&#39;</span><span class="p">,</span>
     <span class="c1">// e.g. linkElement   :   &#39;a:not([target=&quot;_blank&quot;]):not([href^=#])&#39;</span>
     <span class="nx">loading</span>               <span class="o">:</span>    <span class="kc">true</span><span class="p">,</span>
     <span class="nx">loadingParentElement</span>  <span class="o">:</span>   <span class="s1">&#39;body&#39;</span><span class="p">,</span> <span class="c1">//animsition wrapper element</span>
@@ -238,7 +238,7 @@
                               <span class="s1">&#39;-webkit-animation-duration&#39;</span><span class="p">,</span>
                               <span class="s1">&#39;-o-animation-duration&#39;</span>
                             <span class="p">],</span>
-    <span class="c1">//&quot;unSupportCss&quot; option allows you to disable the &quot;animsition&quot; in case the css property in the array is not supported by your browser. </span>
+    <span class="c1">//&quot;unSupportCss&quot; option allows you to disable the &quot;animsition&quot; in case the css property in the array is not supported by your browser.</span>
     <span class="c1">//The default setting is to disable the &quot;animsition&quot; in a browser that does not support &quot;animation-duration&quot;.</span>
     
     <span class="nx">overlay</span>               <span class="o">:</span>   <span class="kc">false</span><span class="p">,</span>
@@ -247,7 +247,6 @@
     <span class="nx">overlayParentElement</span>  <span class="o">:</span>   <span class="s1">&#39;body&#39;</span>
   <span class="p">});</span>
 <span class="p">});</span></code></pre></div>
-
 
   </div>
 </div>
