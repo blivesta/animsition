@@ -8,8 +8,7 @@
     "less",
     "animation",
     "page transition",
-    "jquery",
-    "pligin"
+    "jquery"
   ],
   "homepage": "http://git.blivesta.com/animsition",
   "main": [
