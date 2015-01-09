@@ -33,36 +33,36 @@
 
   {% if page.layout == 'overlay' %}
 
-  <a 
-    href="./page1" 
-    class="animsition-link" 
+  <a
+    href="./page1"
+    class="animsition-link"
     data-animsition-out="overlay-slide-out-top"
     data-animsition-out-duration="2000"
   >
     animsition link 1
   </a>
 
-  <a 
-    href="./page2" 
-    class="animsition-link" 
+  <a
+    href="./page2"
+    class="animsition-link"
     data-animsition-out="overlay-slide-out-right"
     data-animsition-out-duration="500"
   >
     animsition link 2
   </a>
   {% else %}
-  <a 
-    href="./page1" 
-    class="animsition-link" 
+  <a
+    href="./page1"
+    class="animsition-link"
     data-animsition-out="fade-out-right"
     data-animsition-out-duration="2000"
   >
     animsition link 1
   </a>
 
-  <a 
-    href="./page2" 
-    class="animsition-link" 
+  <a
+    href="./page2"
+    class="animsition-link"
     data-animsition-out="rotate-out"
     data-animsition-out-duration="500"
   >
@@ -72,25 +72,25 @@
 
 {% endhighlight %}
 
-<h4>If you want to each page to use a different animation.</h4>  
+<h4>If you want to each page to use a different animation.</h4>
 {% highlight html %}
 {% if page.layout == 'overlay' %}
-<div 
-  class="animsition-overlay" 
+<div
+  class="animsition-overlay"
   data-animsition-overlay="true"
-  data-animsition-in-class="{{ page.inAnimateClass }}"
+  data-animsition-in="{{ page.inAnimateClass }}"
   data-animsition-in-duration="1000"
-  data-animsition-out-class="{{ page.outAnimateClass }}"
+  data-animsition-out="{{ page.outAnimateClass }}"
   data-animsition-out-duration="800"
 >
   ...
 </div>
 {% else %}
-<div 
-  class="animsition" 
-  data-animsition-in-class="{{ page.inAnimateClass }}"
+<div
+  class="animsition"
+  data-animsition-in="{{ page.inAnimateClass }}"
   data-animsition-in-duration="1000"
-  data-animsition-out-class="{{ page.outAnimateClass }}"
+  data-animsition-out="{{ page.outAnimateClass }}"
   data-animsition-out-duration="800"
 >
   ...
@@ -112,7 +112,7 @@ $(document).ready(function() {
     outClass              :   '{{ page.outAnimateClass }}',
     inDuration            :    1500,
     outDuration           :    800,
-    linkElement           :   '.animsition-link', 
+    linkElement           :   '.animsition-link',
     // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
     loading               :    true,
     loadingParentElement  :   'body', //animsition wrapper element
@@ -121,7 +121,7 @@ $(document).ready(function() {
                               '-webkit-animation-duration',
                               '-o-animation-duration'
                             ],
-    //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser. 
+    //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
     //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
     {% if page.layout == 'overlay' %}
     overlay               :   true,
@@ -131,6 +131,5 @@ $(document).ready(function() {
     overlayClass          :   'animsition-overlay-slide',
     overlayParentElement  :   'body'
   });
-}); 
+});
 {% endhighlight %}
-
