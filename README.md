@@ -18,16 +18,21 @@ $ git checkout -b patch-1
 $ npm install && grunt build && grunt
 ```
 
-#### Build
+Build
 ```bash
 $ grunt build
 ```
 
-#### Watch & Connect
+Watch & Connect
 ```bash
 $ grunt
 ```
 And finally, open http://0.0.0.0:9999 in your browser.
+
+## Contributing
+
+To contribute to animsition, clone this repo locally and commit your code.  
+Please check that everything works before opening a pull-request.
 
 
 ## Credit
@@ -39,7 +44,7 @@ And finally, open http://0.0.0.0:9999 in your browser.
 
 
 ## License
-Released under the MIT license.
+Released under the [MIT](https://github.com/blivesta/animsition/blob/master/LICENSE.md) license.
 
 
 ---
