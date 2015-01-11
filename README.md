@@ -2,8 +2,33 @@
 
 A simple and easy jQuery plugin for CSS animated page transitions.
 
+
 ## Demo & Installation
 http://blivesta.github.io/animsition
+
+
+## Development
+
+Install : `nodejs` `npm` `grunt` `jekyll` `ruby` `bower`
+
+```bash
+$ git clone https://github.com/blivesta/animsition.git
+$ cd animsition
+$ git checkout -b patch-1
+$ npm install && grunt build && grunt
+```
+
+#### Build
+```bash
+$ grunt build
+```
+
+#### Watch & Connect
+```bash
+$ grunt
+```
+And finally, open http://0.0.0.0:9999 in your browser.
+
 
 ## Credit
 - [@blivesta](https://github.com/blivesta)
@@ -12,10 +37,13 @@ http://blivesta.github.io/animsition
 - [@shgtkshruch](https://github.com/shgtkshruch) (contributor)
 - [@gauravpadia](https://github.com/gauravpadia)
 
+
 ## License
 Released under the MIT license.
 
+
 ---
+
 
 ## Wordpress plugin
 
