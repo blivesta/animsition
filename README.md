@@ -1,4 +1,11 @@
-# [Animsition](http://blivesta.github.io/animsition) [![Build Status](https://travis-ci.org/blivesta/animsition.svg?branch=master)](https://travis-ci.org/blivesta/animsition) [![Bower version](https://badge.fury.io/bo/animsition.svg)](http://badge.fury.io/bo/animsition)
+# [Animsition](http://blivesta.github.io/animsition)
+
+![Bower version](https://img.shields.io/bower/v/animsition.svg?style=flat)
+[![npm version](https://img.shields.io/npm/v/animsition.svg?style=flat)](https://www.npmjs.com/package/animsition)
+[![Build Status](https://img.shields.io/travis/blivesta/animsition/master.svg?style=flat)](https://travis-ci.org/blivesta/animsition)
+[![devDependency Status](https://img.shields.io/david/dev/blivesta/animsition.svg?style=flat)](https://david-dm.org/blivesta/animsition#info=devDependencies)
+[![Dependency Status](https://david-dm.org/blivesta/animsition.svg)](https://david-dm.org/blivesta/animsition)
+
 
 A simple and easy jQuery plugin for CSS animated page transitions.
 
