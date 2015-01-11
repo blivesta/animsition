@@ -1,15 +1,15 @@
  module.exports = function(grunt) {
- 
+
   "use strict";
 
   require('load-grunt-tasks')(grunt);
   require('time-grunt')(grunt);
 
   grunt.initConfig({
-    
+
     pkg: grunt.file.readJSON('package.json'),
-        
-    banner: 
+
+    banner:
       '/*!\n' +
       ' * <%= pkg.name %> v<%= pkg.version %>\n' +
       ' * <%= pkg.url %>\n' +
@@ -38,7 +38,7 @@
         },
         files: {
           '<%= pkg.docs %>/css/<%= pkg.name %>.css': '<%= pkg.source %>/less/<%= pkg.name %>.less'
-        } 
+        }
       },
       minify: {
         options: {
@@ -58,7 +58,7 @@
         },
         files: {
           '<%= pkg.assets %>/css/docs.css': '<%= pkg.assets %>/less/docs.less'
-        } 
+        }
       },
       docsMin: {
         options: {
@@ -114,7 +114,7 @@
         src: ['*.css', '!*.min.css'],
         dest: '<%= pkg.assets %>/css/'
       }
-    },    
+    },
     // ====================================================
     usebanner: {
       options: {
@@ -155,18 +155,18 @@
           mangle: false,
           compress:false
         },
-        files :  { 
+        files :  {
           '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js' : [
             '<%= pkg.source %>/js/<%= pkg.name %>.js'
           ]
-        } 
+        }
       },
       minify:{
-        files :  { 
+        files :  {
           '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.min.js' : [
-            '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js' 
+            '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js'
           ]
-        } 
+        }
       }
     },
     // ====================================================
@@ -184,7 +184,7 @@
       },
       all: {
         src:[
-          '<%= pkg.source %>/js/*.js', 
+          '<%= pkg.source %>/js/*.js',
           '<%= pkg.dist %>/js/*.js',
           '<%= jshint.grunt.src %>'
         ]
@@ -314,8 +314,8 @@
           branch: 'gh-pages'
         }
       }
-    }        
-     
+    }
+
   });
 
   // ====================================================
@@ -326,19 +326,19 @@
 
   // ====================================================
   grunt.registerTask('build-less', [
-    'less:source', 
-    'autoprefixer:source', 
-    'usebanner:source', 
-    'csscomb:source', 
+    'less:source',
+    'autoprefixer:source',
+    'usebanner:source',
+    'csscomb:source',
     'less:minify',
   ]);
 
   // ====================================================
   grunt.registerTask('build-docsLess', [
-    'less:docs', 
-    'autoprefixer:docs', 
-    'usebanner:docs', 
-    'csscomb:docs', 
+    'less:docs',
+    'autoprefixer:docs',
+    'usebanner:docs',
+    'csscomb:docs',
     'less:docsMin',
   ]);
 
@@ -346,7 +346,7 @@
   grunt.registerTask('build-js', [
     'uglify'
   ]);
-  
+
   // ====================================================
   grunt.registerTask('build-html', [
     'jekyll'
@@ -359,7 +359,7 @@
   ]);
 
   // ====================================================
-  grunt.registerTask('b', [
+  grunt.registerTask('build', [
     'clean',
     'build-less',
     'build-docsLess',
@@ -368,7 +368,7 @@
     'test',
     'copy'
   ]);
-  
+
   // ====================================================
   grunt.registerTask('default', function () {
     grunt.log.warn('`grunt` to start a watch.');
@@ -377,5 +377,5 @@
       'watch'
     ]);
   });
-    
+
 };
