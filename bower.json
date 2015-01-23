@@ -1,7 +1,7 @@
 {
   "name": "animsition",
   "description": "A simple and easy jQuery plugin for CSS animated page transitions.",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "keywords": [
     "css3",
     "js",
@@ -14,8 +14,8 @@
   "main": [
     "dist/css/animsition.css",
     "dist/css/animsition.min.css",
-    "dist/js/jquey.animsition.js",
-    "dist/js/jquey.animsition.min.js"
+    "dist/js/jquery.animsition.js",
+    "dist/js/jquery.animsition.min.js"
   ],
   "ignore": [
     ".*",
