@@ -3,7 +3,6 @@
 ![Bower version](https://img.shields.io/bower/v/animsition.svg?style=flat)
 [![npm version](https://img.shields.io/npm/v/animsition.svg?style=flat)](https://www.npmjs.com/package/animsition)
 [![Build Status](https://img.shields.io/travis/blivesta/animsition/master.svg?style=flat)](https://travis-ci.org/blivesta/animsition)
-[![devDependency Status](https://img.shields.io/david/dev/blivesta/animsition.svg?style=flat)](https://david-dm.org/blivesta/animsition#info=devDependencies)
 [![Dependency Status](https://david-dm.org/blivesta/animsition.svg)](https://david-dm.org/blivesta/animsition)
 
 
