@@ -2,13 +2,13 @@
   "use strict";
   var namespace = 'animsition';
   var methods = {
-    init: function(options){      
+    init: function(options){
       options = $.extend({
         inClass               :   'fade-in',
         outClass              :   'fade-out',
         inDuration            :    1500,
         outDuration           :    800,
-        linkElement           :   '.animsition-link', 
+        linkElement           :   '.animsition-link',
         // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
         loading               :    true,
         loadingParentElement  :   'body', //animsition wrapper element
@@ -21,8 +21,8 @@
         overlayParentElement  :   'body'
       }, options);
 
-      // Remove the "Animsition" in a browser 
-      // that does not support the "animaition-duration".       
+      // Remove the "Animsition" in a browser
+      // that does not support the "animaition-duration".
       var support = methods.supportCheck.call(this, options);
       if(!support){
         // If do not have a console object to object window
@@ -34,13 +34,13 @@
         return methods.destroy.call( this );
       }
 
-      var overlayMode = methods.optionCheck.call(this, options); 
-      if(overlayMode) { 
-        methods.addOverlay.call(this, options); 
+      var overlayMode = methods.optionCheck.call(this, options);
+      if(overlayMode) {
+        methods.addOverlay.call(this, options);
       }
 
-      if(options.loading) { 
-        methods.addLoading.call(this, options); 
+      if(options.loading) {
+        methods.addLoading.call(this, options);
       }
 
       return this.each(function(){
@@ -49,14 +49,14 @@
         var $window = $(window);
         var data = $this.data(namespace);
 
-        if (!data) { 
+        if (!data) {
           options = $.extend({}, options);
 
           $this.data(namespace, {
             options: options
           });
 
-          $window.on("load." + namespace + " pageshow." + namespace, function() {  
+          $window.on("load." + namespace + " pageshow." + namespace, function() {
             methods.pageIn.call( _this );
           });
 
@@ -147,13 +147,13 @@
       var thisInClass = $this.data('animsition-in');
       var inDuration = methods.animationCheck.call(_this,thisInDuration,false,true);
       var inClass = methods.animationCheck.call(_this,thisInClass,true,true);
-      var overlayMode = methods.optionCheck.call(_this, options); 
+      var overlayMode = methods.optionCheck.call(_this, options);
 
       if(options.loading) {
         methods.removeLoading.call(_this);
-      } 
+      }
 
-      if(overlayMode) { 
+      if(overlayMode) {
         methods.pageInOverlay.call(_this,inClass,inDuration);
       } else {
         methods.pageInBasic.call(_this,inClass,inDuration);
@@ -181,7 +181,7 @@
         .css({ "opacity" : 1 });
       $(options.overlayParentElement).children('.' + options.overlayClass)
         .css({ "animation-duration" : (inDuration / 1000) + "s" })
-        .addClass(inClass); 
+        .addClass(inClass);
     },
 
     pageOut: function($self){
@@ -196,10 +196,10 @@
       var isOutDuration = selfOutDuration ? selfOutDuration : thisOutDuration;
       var outClass = methods.animationCheck.call(_this,isOutClass,true,false);
       var outDuration = methods.animationCheck.call(_this, isOutDuration,false,false);
-      var overlayMode = methods.optionCheck.call(_this, options); 
+      var overlayMode = methods.optionCheck.call(_this, options);
       var url = $self.attr('href');
 
-      if(overlayMode) { 
+      if(overlayMode) {
         methods.pageOutOverlay.call(_this,outClass,outDuration,url);
       } else {
         methods.pageOutBasic.call(_this,outClass,outDuration,url);
@@ -208,13 +208,13 @@
 
     pageOutBasic: function(outClass,outDuration,url){
       var $this = $(this);
-      
+
       $this
         .css({ "animation-duration" : (outDuration / 1000) + "s" })
         .addClass(outClass)
         .animateCallback(function(){
-          location.href = url 
-        });      
+          location.href = url
+        });
     },
 
     pageOutOverlay: function(outClass,outDuration,url){
@@ -230,10 +230,10 @@
         .addClass(outClass)
         .animateCallback(function(){
           $this.css({"opacity":0});
-          location.href = url 
-        });  
+          location.href = url
+        });
     },
-    
+
     destroy: function(){
       return this.each(function(){
         var $this = $(this);
@@ -241,9 +241,9 @@
         $this
           .css({'opacity':1})
           .removeData(namespace);
-      });      
+      });
     }
-    
+
   };
 
   $.fn.animateCallback = function(callback){
