@@ -14,8 +14,8 @@
   "main": [
     "dist/css/animsition.css",
     "dist/css/animsition.min.css",
-    "dist/js/animsition.js",
-    "dist/js/animsition.min.js"
+    "dist/js/jquey.animsition.js",
+    "dist/js/jquey.animsition.min.js"
   ],
   "ignore": [
     ".*",
