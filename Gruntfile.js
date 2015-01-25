@@ -20,7 +20,7 @@
     // ====================================================
     clean: {
       files: [
-        '<%= pkg.dist %>',
+        '<%= pkg.distribution %>',
         '<%= pkg.docs %>/js/*.js',
         '<%= pkg.docs %>/css/*.css',
         '<%= pkg.public %>'
@@ -138,8 +138,8 @@
         '<%= pkg.assets %>/css/docs.css'
       ],
       dist: [
-        '<%= pkg.dist %>/css/<%= pkg.name %>.css',
-        '<%= pkg.dist %>/css/<%= pkg.name %>.min.css'
+        '<%= pkg.distribution %>/css/<%= pkg.name %>.css',
+        '<%= pkg.distribution %>/css/<%= pkg.name %>.min.css'
       ]
     },
     // ====================================================
@@ -185,7 +185,7 @@
       all: {
         src:[
           '<%= pkg.source %>/js/*.js',
-          '<%= pkg.dist %>/js/*.js',
+          '<%= pkg.distribution %>/js/*.js',
           '<%= jshint.grunt.src %>'
         ]
       }
@@ -202,7 +202,7 @@
           'css/*.css',
           'css/*.map'
         ],
-        dest: './<%= pkg.dist %>'
+        dest: './<%= pkg.distribution %>'
       }
     },
     // ====================================================

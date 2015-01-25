@@ -16,7 +16,7 @@
   "licenses": "MIT",
   "source": "./src",
   "docs": "./docs",
-  "dist": "./dist",
+  "distribution": "./dist",
   "public": "./_gh_pages",
   "assets": "./docs/assets",
   "repository": {
