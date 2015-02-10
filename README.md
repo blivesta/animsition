@@ -35,6 +35,15 @@ $ grunt
 ```
 And finally, open http://0.0.0.0:9999 in your browser.
 
+## CDN
+[cdnjs](https://cdnjs.com/libraries/animsition)
+
+- css/animsition.css
+- css/animsition.css.map
+- css/animsition.min.css
+- js/jquery.animsition.js
+- js/jquery.animsition.min.js
+
 ## Contributing
 
 To contribute to animsition, clone this repo locally and commit your code.  
