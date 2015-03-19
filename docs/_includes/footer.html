@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="container">
-    
+
     <h1>{{ site.title }}</h1>
     <ul class="list-inline">
       <li><img src="http://img.shields.io/travis/blivesta/{{ site.repo }}.svg" alt="travis" /></li>
@@ -16,10 +16,12 @@
     </ul>
 
     <hr>
-    
+
     <h3>Other projects</h3>
     <ul class="list-inline">
-      <li><a href="/conv">Conv</a></li>
+      <li><a href="http://sircus.blivesta.com">Suircus(WIP)</a></li>
+      <li>·</li>
+      <li><a href="https://github.com/blivesta/gulptasks" target="_black">Gulptasks</a></li>
       <li>·</li>
       <li><a href="/drawer">Drawer</a></li>
       <li>·</li>
@@ -28,17 +30,22 @@
       <li><a href="/oblurlay">Oblurlay</a></li>
       <li>·</li>
       <li><a href="/chaffle">Chaffle</a></li>
+      <li>·</li>
+      <li><a href="https://github.com/blivesta/csscallbacks">csscallbacks</a></li>
+
+      <li>·</li>
+      <li><a href="/conv">Conv</a></li>
     </ul>
-    <hr>
+
     <ul class="list-inline">
       <li>
         Author&nbsp;<span class="icon-blivesta icon-sm icon-circle"></span>&nbsp;
         <a href="{{ site.author_url }}">{{ site.author }}</a>
       </li>
     </ul>
-    
+
     {% include social-follow.html %}
-    
+
   </div>
 </footer>
 
@@ -61,7 +68,7 @@
     {% else %}
       $(".animsition").animsition();
     {% endif %}
-      
-  }); 
+
+  });
 
   </script>
