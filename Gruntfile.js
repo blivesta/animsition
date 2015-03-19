@@ -310,7 +310,7 @@
       },
       pages: {
         options: {
-          remote: 'git@github.com:<%= pkg.repository.user %>/<%= pkg.name %>.git',
+          remote: 'git@github.com:blivesta/<%= pkg.name %>.git',
           branch: 'gh-pages'
         }
       }
