@@ -50,12 +50,13 @@ To contribute to animsition, clone this repo locally and commit your code.
 Please check that everything works before opening a pull-request.
 
 
-## Credit
+## Contributors
 - [@blivesta](https://github.com/blivesta)
-- [@munsonbh](https://github.com/munsonbh) (contributor)
-- [@triq6](https://github.com/triq6) (contributor)
-- [@shgtkshruch](https://github.com/shgtkshruch) (contributor)
+- [@munsonbh](https://github.com/munsonbh)
+- [@triq6](https://github.com/triq6)
+- [@shgtkshruch](https://github.com/shgtkshruch)
 - [@gauravpadia](https://github.com/gauravpadia)
+- [@ungki](https://github.com/ungki)
 
 
 ## License
