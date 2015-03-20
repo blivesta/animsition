@@ -1,0 +1,36 @@
+.animsition,
+.animsition-overlay {
+  position:relative;
+  opacity:0;
+  animation-fill-mode: both;
+}
+
+// loading option
+.animsition-loading {
+  position:fixed;
+  animation-fill-mode: both;
+  top:0;
+  width:100%;
+  height:100%;
+  z-index: 100;
+  background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%20width%3D%2232%22%20height%3D%2232%22%20fill%3D%22%23ccc%22%3E%0A%20%20%3Cpath%20opacity%3D%22.25%22%20d%3D%22M16%200%20A16%2016%200%200%200%2016%2032%20A16%2016%200%200%200%2016%200%20M16%204%20A12%2012%200%200%201%2016%2028%20A12%2012%200%200%201%2016%204%22/%3E%0A%20%20%3Cpath%20d%3D%22M16%200%20A16%2016%200%200%201%2032%2016%20L28%2016%20A12%2012%200%200%200%2016%204z%22%3E%0A%20%20%20%20%3CanimateTransform%20attributeName%3D%22transform%22%20type%3D%22rotate%22%20from%3D%220%2016%2016%22%20to%3D%22360%2016%2016%22%20dur%3D%220.8s%22%20repeatCount%3D%22indefinite%22%20/%3E%0A%20%20%3C/path%3E%0A%3C/svg%3E%0A%0A) center center no-repeat;
+  &:after {
+    content:"Loading";
+    color: #aaa;
+    font-size: 16px;
+    top:50%;
+    position:fixed;
+    text-align: center;
+    width:100%;
+    margin-top:20px;
+  }
+}
+
+// overlay option
+.animsition-overlay-slide {
+  position:fixed;
+  height:100%;
+  width:100%;
+  z-index:1;
+  background-color: #ddd;
+}

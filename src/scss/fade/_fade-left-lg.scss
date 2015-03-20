@@ -1,0 +1,31 @@
+@keyframes fade-in-left-lg {
+  0% {
+    opacity: 0;
+    transform: translateX(-1500px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-left-lg {
+  animation-name: fade-in-left-lg;
+}
+
+@keyframes fade-out-left-lg {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(-1500px);
+  }
+}
+
+.fade-out-left-lg {
+  animation-name: fade-out-left-lg;
+}

@@ -1,0 +1,35 @@
+@keyframes rotate-in {
+  0% {
+    opacity: 0;
+    transform: rotate(-90deg);
+    transform-origin: center center;
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0);
+    transform-origin: center center;
+  }
+}
+
+.rotate-in {
+  animation-name: rotate-in;
+}
+
+@keyframes rotate-out {
+  0% {
+    opacity: 1;
+    transform: rotate(0);
+    transform-origin: center center;
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(90deg);
+    transform-origin: center center;
+  }
+}
+
+.rotate-out {
+  animation-name: rotate-out;
+}

@@ -1,0 +1,31 @@
+@keyframes fade-in-right-lg {
+  0% {
+    opacity: 0;
+    transform: translateX(1500px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in-right-lg {
+  animation-name: fade-in-right-lg;
+}
+
+@keyframes fade-out-right-lg {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateX(1500px);
+  }
+}
+
+.fade-out-right-lg {
+  animation-name: fade-out-right-lg;
+}

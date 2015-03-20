@@ -1,0 +1,29 @@
+@keyframes zoom-in {
+  0% {
+    opacity: 0;
+    transform: scale(.7);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.zoom-in {
+  animation-name: zoom-in;
+}
+
+@keyframes zoom-out {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale(.7);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.zoom-out {
+  animation-name: zoom-out;
+}
