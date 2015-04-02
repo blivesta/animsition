@@ -56,6 +56,7 @@ Please check that everything works before opening a pull-request.
 - [@shgtkshruch](https://github.com/shgtkshruch)
 - [@gauravpadia](https://github.com/gauravpadia)
 - [@ungki](https://github.com/ungki)
+- [@vburlak](https://github.com/vburlak)
 
 
 ## License
