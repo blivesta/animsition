@@ -10,7 +10,7 @@ A simple and easy jQuery plugin for CSS animated page transitions.
 
 
 ## Demo & Installation
-http://blivesta.github.io/animsition
+http://git.blivesta.com/animsition/
 
 
 ## Development
@@ -33,7 +33,6 @@ Watch & Connect
 ```bash
 $ grunt
 ```
-And finally, open http://0.0.0.0:9999 in your browser.
 
 ## CDN
 [cdnjs](https://cdnjs.com/libraries/animsition)
