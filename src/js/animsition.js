@@ -65,13 +65,12 @@
 
           $(options.linkElement).on("click." + namespace, function(event) {
             event.preventDefault();
-            var $self = $(this),
-            	$href = $self.attr('href');
-			if (event.which === 2 || event.metaKey || event.shiftKey || navigator.platform.toUpperCase().indexOf("WIN") !== -1 && event.ctrlKey) {
-		        window.open($href,'_blank');
-		    }else{
-			    methods.pageOut.call(_this, $self);  
-		    }
+            var $self = $(this), $href = $self.attr("href");
+            if (event.which === 2 || event.metaKey || event.shiftKey || navigator.platform.toUpperCase().indexOf("WIN") !== -1 && event.ctrlKey) {
+              window.open($href, "_blank");
+            } else {
+              methods.pageOut.call(_this, $self);
+            }
           });
         }
       }); // end each
