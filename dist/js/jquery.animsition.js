@@ -58,11 +58,12 @@
           $window.on("unload." + namespace, function() {});
           $(options.linkElement).on("click." + namespace, function(event) {
             event.preventDefault();
-            var $self = $(this), $href = $self.attr("href");
+            var $self = $(this);
+            var url = $self.attr("href");
             if (event.which === 2 || event.metaKey || event.shiftKey || navigator.platform.toUpperCase().indexOf("WIN") !== -1 && event.ctrlKey) {
-              window.open($href, "_blank");
+              window.open(url, "_blank");
             } else {
-              methods.pageOut.call(_this, $self);
+              methods.pageOut.call(_this, $self, url);
             }
           });
         }
@@ -163,7 +164,7 @@
         "animation-duration": inDuration / 1e3 + "s"
       }).addClass(inClass);
     },
-    pageOut: function($self) {
+    pageOut: function($self, url) {
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
@@ -176,7 +177,6 @@
       var outClass = methods.animationCheck.call(_this, isOutClass, true, false);
       var outDuration = methods.animationCheck.call(_this, isOutDuration, false, false);
       var overlayMode = methods.optionCheck.call(_this, options);
-      var url = $self.attr("href");
       if (overlayMode) {
         methods.pageOutOverlay.call(_this, outClass, outDuration, url);
       } else {
