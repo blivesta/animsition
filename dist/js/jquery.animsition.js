@@ -201,7 +201,7 @@
         "animation-duration": outDuration / 1e3 + "s"
       }).removeClass(inClass).addClass(outClass).animateCallback(function() {
         $this.css({
-          opacity: 0
+          opacity: 1
         });
         location.href = url;
       });
