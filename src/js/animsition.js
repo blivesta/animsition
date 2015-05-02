@@ -82,8 +82,7 @@
     },
 
     addOverlay: function(options){
-      $(options.overlayParentElement)
-        .prepend('<div class="'+options.overlayClass+'"></div>');
+      $(options.overlayParentElement).prepend('<div class="'+options.overlayClass+'"></div>');
     },
 
     addLoading: function(options){
@@ -95,6 +94,7 @@
       var options   = $this.data(namespace).options;
       var $loading  = $(options.loadingParentElement).children("."+options.loadingClass);
       $loading.fadeOut().remove();
+      $this.trigger('animsition.start');
     },
 
     supportCheck: function(options){
@@ -177,7 +177,8 @@
         .animateCallback(function(){
           $this
             .removeClass(inClass)
-            .css({ "opacity" : 1 });
+            .css({ "opacity" : 1 })
+            .trigger('animsition.end');
         });
     },
 
@@ -187,9 +188,13 @@
 
       $this
         .css({ "opacity" : 1 });
-      $(options.overlayParentElement).children('.' + options.overlayClass)
+      $(options.overlayParentElement)
+        .children('.' + options.overlayClass)
         .css({ "animation-duration" : (inDuration / 1000) + "s" })
-        .addClass(inClass);
+        .addClass(inClass)
+        .animateCallback(function(){
+          $this.trigger('animsition.end');
+        });
     },
 
     pageOut: function($self,url){
