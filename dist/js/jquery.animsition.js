@@ -80,6 +80,7 @@
       var options = $this.data(namespace).options;
       var $loading = $(options.loadingParentElement).children("." + options.loadingClass);
       $loading.fadeOut().remove();
+      $this.trigger("animsition.start");
     },
     supportCheck: function(options) {
       var $this = $(this);
@@ -151,7 +152,7 @@
       }).addClass(inClass).animateCallback(function() {
         $this.removeClass(inClass).css({
           opacity: 1
-        });
+        }).trigger("animsition.end");
       });
     },
     pageInOverlay: function(inClass, inDuration) {
@@ -162,7 +163,9 @@
       });
       $(options.overlayParentElement).children("." + options.overlayClass).css({
         "animation-duration": inDuration / 1e3 + "s"
-      }).addClass(inClass);
+      }).addClass(inClass).animateCallback(function() {
+        $this.trigger("animsition.end");
+      });
     },
     pageOut: function($self, url) {
       var _this = this;
