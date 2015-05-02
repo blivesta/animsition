@@ -1,5 +1,5 @@
 /*!
- * animsition v3.5.0
+ * animsition v3.5.1
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
@@ -80,7 +80,6 @@
       var options = $this.data(namespace).options;
       var $loading = $(options.loadingParentElement).children("." + options.loadingClass);
       $loading.fadeOut().remove();
-      $this.trigger("animsition.start");
     },
     supportCheck: function(options) {
       var $this = $(this);
@@ -147,7 +146,7 @@
     },
     pageInBasic: function(inClass, inDuration) {
       var $this = $(this);
-      $this.css({
+      $this.trigger("animsition.start").css({
         "animation-duration": inDuration / 1e3 + "s"
       }).addClass(inClass).animateCallback(function() {
         $this.removeClass(inClass).css({
@@ -158,7 +157,7 @@
     pageInOverlay: function(inClass, inDuration) {
       var $this = $(this);
       var options = $this.data(namespace).options;
-      $this.css({
+      $this.trigger("animsition.start").css({
         opacity: 1
       });
       $(options.overlayParentElement).children("." + options.overlayClass).css({
