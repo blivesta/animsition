@@ -246,6 +246,22 @@
   <span class="p">});</span>
 <span class="p">});</span></code></pre></div>
 
+
+<h2 class="section-title">Events</h2>
+<h3 class="lead">Start</h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.animsition&quot;</span><span class="p">).</span><span class="nx">animsition</span><span class="p">({</span>
+  <span class="c1">// options</span>
+<span class="p">}).</span><span class="nx">one</span><span class="p">(</span><span class="s1">&#39;animsition.start&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="p">...</span>
+<span class="p">})</span></code></pre></div>
+
+<h3 class="lead">End</h3>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.animsition&quot;</span><span class="p">).</span><span class="nx">animsition</span><span class="p">({</span>
+  <span class="c1">// options</span>
+<span class="p">}).</span><span class="nx">one</span><span class="p">(</span><span class="s1">&#39;animsition.end&#39;</span><span class="p">,</span><span class="kd">function</span><span class="p">(){</span>
+  <span class="p">...</span>
+<span class="p">})</span></code></pre></div>
+
   </div>
 </div>
 
@@ -325,7 +341,14 @@
   <script type="text/javascript">
   $(document).ready(function() {
     
-      $(".animsition").animsition();
+    $(".animsition")
+      .animsition()
+      .one('animsition.start',function(){
+        console.log('animsition.start');
+      }).one('animsition.end',function(){
+        console.log('animsition.end');
+      })
+
     
 
   });

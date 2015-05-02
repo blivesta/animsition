@@ -59,7 +59,12 @@
           $(options.linkElement).on("click." + namespace, function(event) {
             event.preventDefault();
             var $self = $(this);
-            methods.pageOut.call(_this, $self);
+            var url = $self.attr("href");
+            if (event.which === 2 || event.metaKey || event.shiftKey || navigator.platform.toUpperCase().indexOf("WIN") !== -1 && event.ctrlKey) {
+              window.open(url, "_blank");
+            } else {
+              methods.pageOut.call(_this, $self, url);
+            }
           });
         }
       });
@@ -75,6 +80,7 @@
       var options = $this.data(namespace).options;
       var $loading = $(options.loadingParentElement).children("." + options.loadingClass);
       $loading.fadeOut().remove();
+      $this.trigger("animsition.start");
     },
     supportCheck: function(options) {
       var $this = $(this);
@@ -146,7 +152,7 @@
       }).addClass(inClass).animateCallback(function() {
         $this.removeClass(inClass).css({
           opacity: 1
-        });
+        }).trigger("animsition.end");
       });
     },
     pageInOverlay: function(inClass, inDuration) {
@@ -157,9 +163,11 @@
       });
       $(options.overlayParentElement).children("." + options.overlayClass).css({
         "animation-duration": inDuration / 1e3 + "s"
-      }).addClass(inClass);
+      }).addClass(inClass).animateCallback(function() {
+        $this.trigger("animsition.end");
+      });
     },
-    pageOut: function($self) {
+    pageOut: function($self, url) {
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
@@ -172,7 +180,6 @@
       var outClass = methods.animationCheck.call(_this, isOutClass, true, false);
       var outDuration = methods.animationCheck.call(_this, isOutDuration, false, false);
       var overlayMode = methods.optionCheck.call(_this, options);
-      var url = $self.attr("href");
       if (overlayMode) {
         methods.pageOutOverlay.call(_this, outClass, outDuration, url);
       } else {
