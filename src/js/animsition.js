@@ -94,7 +94,6 @@
       var options   = $this.data(namespace).options;
       var $loading  = $(options.loadingParentElement).children("."+options.loadingClass);
       $loading.fadeOut().remove();
-      $this.trigger('animsition.start');
     },
 
     supportCheck: function(options){
@@ -172,6 +171,7 @@
       var $this = $(this);
 
       $this
+        .trigger('animsition.start')
         .css({ "animation-duration" : (inDuration / 1000) + "s" })
         .addClass(inClass)
         .animateCallback(function(){
@@ -187,7 +187,9 @@
       var options = $this.data(namespace).options;
 
       $this
+        .trigger('animsition.start')
         .css({ "opacity" : 1 });
+
       $(options.overlayParentElement)
         .children('.' + options.overlayClass)
         .css({ "animation-duration" : (inDuration / 1000) + "s" })
