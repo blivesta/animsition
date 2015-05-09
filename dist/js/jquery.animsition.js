@@ -202,9 +202,6 @@
       $(options.overlayParentElement).children("." + options.overlayClass).css({
         "animation-duration": outDuration / 1e3 + "s"
       }).removeClass(inClass).addClass(outClass).animateCallback(function() {
-        $this.css({
-          opacity: 1
-        });
         location.href = url;
       });
     },
