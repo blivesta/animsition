@@ -243,7 +243,6 @@
         .removeClass(inClass)
         .addClass(outClass)
         .animateCallback(function(){
-          $this.css({"opacity":0});
           location.href = url
         });
     },
