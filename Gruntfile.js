@@ -29,10 +29,7 @@
       source: {
         options: {
           strictMath: true,
-          sourceMap: true,
-          outputSourceFiles: true,
-          sourceMapURL: ['<%= pkg.name %>.css.map'],
-          sourceMapFilename: '<%= pkg.buildPath %>/css/<%= pkg.name %>.css.map'
+          sourceMap: false,
         },
         files: {
           '<%= pkg.buildPath %>/css/<%= pkg.name %>.css': '<%= pkg.sourcePath %>/less/<%= pkg.name %>.less'
@@ -64,7 +61,7 @@
       },
       source: {
         options: {
-          map: true
+          map: false
         },
         src: '<%= pkg.buildPath %>/css/<%= pkg.name %>.css'
       }
