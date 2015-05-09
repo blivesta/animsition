@@ -15,7 +15,7 @@ http://git.blivesta.com/animsition/
 
 ## Development
 
-Install : `nodejs` `npm` `grunt` `jekyll` `ruby` `bower`
+Install : `nodejs` `npm` `grunt`
 
 ```bash
 $ git clone https://github.com/blivesta/animsition.git

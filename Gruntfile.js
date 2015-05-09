@@ -20,10 +20,8 @@
     // ====================================================
     clean: {
       files: [
-        '<%= pkg.distribution %>',
-        '<%= pkg.docs %>/js/*.js',
-        '<%= pkg.docs %>/css/*.css',
-        '<%= pkg.public %>'
+        '<%= pkg.distPath %>',
+        '<%= pkg.buildPath %>'
       ]
     },
     // ====================================================
@@ -34,10 +32,10 @@
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: ['<%= pkg.name %>.css.map'],
-          sourceMapFilename: '<%= pkg.docs %>/css/<%= pkg.name %>.css.map'
+          sourceMapFilename: '<%= pkg.buildPath %>/css/<%= pkg.name %>.css.map'
         },
         files: {
-          '<%= pkg.docs %>/css/<%= pkg.name %>.css': '<%= pkg.source %>/less/<%= pkg.name %>.less'
+          '<%= pkg.buildPath %>/css/<%= pkg.name %>.css': '<%= pkg.sourcePath %>/less/<%= pkg.name %>.less'
         }
       },
       minify: {
@@ -45,29 +43,9 @@
           cleancss: true
         },
         files: {
-          '<%= pkg.docs %>/css/<%= pkg.name %>.min.css': '<%= pkg.docs %>/css/<%= pkg.name %>.css'
+          '<%= pkg.buildPath %>/css/<%= pkg.name %>.min.css': '<%= pkg.buildPath %>/css/<%= pkg.name %>.css'
         }
       },
-      docs: {
-        options: {
-          strictMath: true,
-          sourceMap: true,
-          outputSourceFiles: true,
-          sourceMapURL: ['<%= pkg.name %>.css.map'],
-          sourceMapFilename: '<%= pkg.assets %>/css/docs.css.map'
-        },
-        files: {
-          '<%= pkg.assets %>/css/docs.css': '<%= pkg.assets %>/less/docs.less'
-        }
-      },
-      docsMin: {
-        options: {
-          cleancss: true
-        },
-        files: {
-          '<%= pkg.assets %>/css/docs.min.css': '<%= pkg.assets %>/css/docs.css'
-        }
-      }
 
     },
     // ====================================================
@@ -88,32 +66,20 @@
         options: {
           map: true
         },
-        src: '<%= pkg.docs %>/css/<%= pkg.name %>.css'
-      },
-      docs: {
-        options: {
-          map: true
-        },
-        src: '<%= pkg.assets %>/css/docs.css'
+        src: '<%= pkg.buildPath %>/css/<%= pkg.name %>.css'
       }
     },
     // ====================================================
     csscomb: {
       options: {
-        config: '<%= pkg.source %>/less/.csscomb.json'
+        config: '<%= pkg.sourcePath %>/less/.csscomb.json'
       },
       source: {
         expand: true,
-        cwd: '<%= pkg.docs %>/css/',
+        cwd: '<%= pkg.buildPath %>/css/',
         src: ['*.css', '!*.min.css'],
-        dest: '<%= pkg.docs %>/css/'
+        dest: '<%= pkg.buildPath %>/css/'
       },
-      docs: {
-        expand: true,
-        cwd: '<%= pkg.assets %>/css/',
-        src: ['*.css', '!*.min.css'],
-        dest: '<%= pkg.assets %>/css/'
-      }
     },
     // ====================================================
     usebanner: {
@@ -122,24 +88,17 @@
         banner: '<%= banner %>'
       },
       source: {
-        src: '<%= pkg.docs %>/css/*.css'
-      },
-      docs: {
-        src: '<%= pkg.assets %>/css/*.css'
+        src: '<%= pkg.buildPath %>/css/*.css'
       }
     },
     // ====================================================
     csslint: {
       options: {
-        csslintrc: '<%= pkg.source %>/less/.csslintrc'
+        csslintrc: '<%= pkg.sourcePath %>/less/.csslintrc'
       },
-      source: [
-        '<%= pkg.docs %>/css/<%= pkg.name %>.css',
-        '<%= pkg.assets %>/css/docs.css'
-      ],
       dist: [
-        '<%= pkg.distribution %>/css/<%= pkg.name %>.css',
-        '<%= pkg.distribution %>/css/<%= pkg.name %>.min.css'
+        '<%= pkg.distPath %>/css/<%= pkg.name %>.css',
+        '<%= pkg.distPath %>/css/<%= pkg.name %>.min.css'
       ]
     },
     // ====================================================
@@ -156,15 +115,15 @@
           compress:false
         },
         files :  {
-          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js' : [
-            '<%= pkg.source %>/js/<%= pkg.name %>.js'
+          '<%= pkg.buildPath %>/js/jquery.<%= pkg.name %>.js' : [
+            '<%= pkg.sourcePath %>/js/<%= pkg.name %>.js'
           ]
         }
       },
       minify:{
         files :  {
-          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.min.js' : [
-            '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js'
+          '<%= pkg.buildPath %>/js/jquery.<%= pkg.name %>.min.js' : [
+            '<%= pkg.buildPath %>/js/jquery.<%= pkg.name %>.js'
           ]
         }
       }
@@ -172,21 +131,11 @@
     // ====================================================
     jshint: {
       options: {
-        jshintrc: '<%= pkg.source %>/js/.jshintrc',
+        jshintrc: '<%= pkg.sourcePath %>/js/.jshintrc',
       },
-      grunt: {
-        src: 'Gruntfile.js'
-      },
-      source: {
-        src: [
-          '<%= pkg.docs %>/js/jquery.<%= pkg.name %>.js'
-        ]
-      },
-      all: {
+      dist: {
         src:[
-          '<%= pkg.source %>/js/*.js',
-          '<%= pkg.distribution %>/js/*.js',
-          '<%= jshint.grunt.src %>'
+          '<%= pkg.distPath %>/js/*.js'
         ]
       }
     },
@@ -195,176 +144,56 @@
     copy: {
       dist: {
         expand: true,
-        cwd: './<%= pkg.docs %>',
+        cwd: './<%= pkg.buildPath %>',
         src: [
           'js/jquery.<%= pkg.name %>.js',
           'js/jquery.<%= pkg.name %>.min.js',
           'css/*.css'
         ],
-        dest: './<%= pkg.distribution %>'
+        dest: './<%= pkg.distPath %>'
       }
     },
-    // ====================================================
-    connect: {
-      server: {
-        options: {
-          port: 9999,
-          hostname: '0.0.0.0',
-          base: '<%= pkg.public %>/',
-          open: {
-            server: {
-              path: 'http://<%= connect.server.options.hostname %>:<%= connect.server.options.port %>'
-            }
-          }
-        }
-      }
-    },
-    // ====================================================
-    notify: {
-      options: {
-        title: '<%= pkg.name %> Grunt Notify',
-      },
-      success:{
-        options: {
-          message: 'Success!',
-        }
-      }
-    },
-    // ====================================================
-    jekyll: {
-      dist: {
-        options: {
-          config: '_config.yml'
-        }
-      }
-    },
+
     // ====================================================
     watch: {
-      options: {
-        spawn: false,
-        livereload : true
-      },
-      grunt: {
-        files: ['<%= jshint.grunt.src %>'],
-        tasks: [
-          'jshint:grunt',
-          'notify'
-        ]
-      },
       js: {
         files: [
-          '<%= pkg.source %>/js/*.js'
+          '<%= pkg.sourcePath %>/js/*.js'
         ],
         tasks: [
-          'uglify',
-          'jshint:source',
-          'jekyll',
-          'notify'
-        ]
-      },
-      html: {
-        files: [
-          '<%= pkg.docs %>/*.html',
-          '<%= pkg.docs %>/_includes/*',
-          '<%= pkg.docs %>/_posts/*',
-          '<%= pkg.docs %>/_layouts/*'
-        ],
-        tasks: [
-          'build-html',
-          'notify'
+          'uglify'
         ]
       },
       less: {
         files: [
-          '<%= pkg.source %>/less/*.less',
-          '<%= pkg.source %>/less/**/*.less'
+          '<%= pkg.sourcePath %>/less/*.less',
+          '<%= pkg.sourcePath %>/less/**/*.less'
         ],
         tasks: [
           'build-less',
-          'csslint',
-          'jekyll',
-          'notify'
-        ]
-      },
-      docsLess: {
-        files: [
-          '<%= pkg.assets %>/less/*.less',
-          '<%= pkg.assets %>/less/**/*.less'
-        ],
-        tasks: [
-          'build-docsLess',
-          'csslint',
-          'jekyll',
-          'notify'
+          'csslint'
         ]
       }
     },
-    // ====================================================
-    buildcontrol: {
-      options: {
-        dir: '<%= pkg.public %>',
-        commit: true,
-        push: true,
-        message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
-      },
-      pages: {
-        options: {
-          remote: 'git@github.com:blivesta/<%= pkg.name %>.git',
-          branch: 'gh-pages'
-        }
-      }
-    }
 
   });
 
   // ====================================================
-  grunt.registerTask('deploy', [
-    'buildcontrol',
-    'notify'
-  ]);
-
-  // ====================================================
   grunt.registerTask('build-less', [
     'less:source',
-    'autoprefixer:source',
-    'usebanner:source',
+    'autoprefixer',
+    'usebanner',
     'csscomb:source',
     'less:minify',
-  ]);
-
-  // ====================================================
-  grunt.registerTask('build-docsLess', [
-    'less:docs',
-    'autoprefixer:docs',
-    'usebanner:docs',
-    'csscomb:docs',
-    'less:docsMin',
-  ]);
-
-  // ====================================================
-  grunt.registerTask('build-js', [
-    'uglify'
-  ]);
-
-  // ====================================================
-  grunt.registerTask('build-html', [
-    'jekyll'
-  ]);
-
-  // ====================================================
-  grunt.registerTask('test', [
-    'jshint:all',
-    'csslint:dist'
   ]);
 
   // ====================================================
   grunt.registerTask('build', [
     'clean',
     'build-less',
-    'build-docsLess',
-    'build-js',
-    'build-html',
-    'test',
+    'uglify',
+    'jshint',
+    'csslint',
     'copy'
   ]);
 
@@ -372,7 +201,6 @@
   grunt.registerTask('default', function () {
     grunt.log.warn('`grunt` to start a watch.');
     grunt.task.run([
-      'connect',
       'watch'
     ]);
   });
