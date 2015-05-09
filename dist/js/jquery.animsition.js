@@ -1,5 +1,5 @@
 /*!
- * animsition v3.4.3
+ * animsition v3.5.1
  * http://blivesta.github.io/animsition/
  * Licensed under MIT
  * Author : blivesta
@@ -146,23 +146,25 @@
     },
     pageInBasic: function(inClass, inDuration) {
       var $this = $(this);
-      $this.css({
+      $this.trigger("animsition.start").css({
         "animation-duration": inDuration / 1e3 + "s"
       }).addClass(inClass).animateCallback(function() {
         $this.removeClass(inClass).css({
           opacity: 1
-        });
+        }).trigger("animsition.end");
       });
     },
     pageInOverlay: function(inClass, inDuration) {
       var $this = $(this);
       var options = $this.data(namespace).options;
-      $this.css({
+      $this.trigger("animsition.start").css({
         opacity: 1
       });
       $(options.overlayParentElement).children("." + options.overlayClass).css({
         "animation-duration": inDuration / 1e3 + "s"
-      }).addClass(inClass);
+      }).addClass(inClass).animateCallback(function() {
+        $this.trigger("animsition.end");
+      });
     },
     pageOut: function($self, url) {
       var _this = this;

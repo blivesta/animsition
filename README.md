@@ -38,7 +38,6 @@ $ grunt
 [cdnjs](https://cdnjs.com/libraries/animsition)
 
 - css/animsition.css
-- css/animsition.css.map
 - css/animsition.min.css
 - js/jquery.animsition.js
 - js/jquery.animsition.min.js
@@ -55,9 +54,9 @@ Please check that everything works before opening a pull-request.
 - [@triq6](https://github.com/triq6)
 - [@shgtkshruch](https://github.com/shgtkshruch)
 - [@gauravpadia](https://github.com/gauravpadia)
-- [@ungki](https://github.com/ungki)
+- [@ungki](https://github.com/ungki) (Maintainer)
 - [@vburlak](https://github.com/vburlak)
-
+- [@wpexplorer](https://github.com/wpexplorer)
 
 ## License
 Released under the [MIT](https://github.com/blivesta/animsition/blob/master/LICENSE.md) license.

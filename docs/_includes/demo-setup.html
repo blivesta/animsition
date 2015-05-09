@@ -133,3 +133,23 @@ $(document).ready(function() {
   });
 });
 {% endhighlight %}
+
+
+<h2 class="section-title">Events</h2>
+<h3 class="lead">Start</h3>
+{% highlight js %}
+$(".animsition").animsition({
+  // options
+}).one('animsition.start',function(){
+  ...
+})
+{% endhighlight %}
+
+<h3 class="lead">End</h3>
+{% highlight js %}
+$(".animsition").animsition({
+  // options
+}).one('animsition.end',function(){
+  ...
+})
+{% endhighlight %}

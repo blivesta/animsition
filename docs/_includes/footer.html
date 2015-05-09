@@ -62,11 +62,22 @@
   <script type="text/javascript">
   $(document).ready(function() {
     {% if page.layout == 'overlay' %}
-      $(".animsition-overlay").animsition({
-        // overlay:true
+    $('.animsition-overlay')
+      .animsition({ overlay:true })
+      .one('animsition.start',function(){
+        console.log('animsition.start');
+      }).one('animsition.end',function(){
+        console.log('animsition.end');
       });
     {% else %}
-      $(".animsition").animsition();
+    $(".animsition")
+      .animsition()
+      .one('animsition.start',function(){
+        console.log('animsition.start');
+      }).one('animsition.end',function(){
+        console.log('animsition.end');
+      })
+
     {% endif %}
 
   });

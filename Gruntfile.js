@@ -199,8 +199,7 @@
         src: [
           'js/jquery.<%= pkg.name %>.js',
           'js/jquery.<%= pkg.name %>.min.js',
-          'css/*.css',
-          'css/*.map'
+          'css/*.css'
         ],
         dest: './<%= pkg.distribution %>'
       }
