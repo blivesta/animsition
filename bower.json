@@ -20,11 +20,7 @@
   "ignore": [
     ".*",
     "src/js",
-    "docs",
-    "*.yml",
-    "*.html",
-    "*.json",
-    "Gruntfile.js"
+    "build",
   ],
   "dependencies": {
     "jquery": ">= 1.11.0"
