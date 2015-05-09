@@ -57,6 +57,7 @@ Please check that everything works before opening a pull-request.
 - [@ungki](https://github.com/ungki) (Maintainer)
 - [@vburlak](https://github.com/vburlak)
 - [@wpexplorer](https://github.com/wpexplorer)
+- [@armbull](https://github.com/armbull)
 
 ## License
 Released under the [MIT](https://github.com/blivesta/animsition/blob/master/LICENSE.md) license.
