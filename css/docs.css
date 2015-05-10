@@ -2440,7 +2440,7 @@ body {
 
 .docs-masthead {
   position: relative;
-  padding: 15px;
+  padding-bottom: 15px;
   padding-top: 60px;
   background-color: #242d35;
   background-image: linear-gradient(45deg, #242d35 0%, #85a1bb 100%);
