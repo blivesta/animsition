@@ -1,7 +1,6 @@
 {
   "name": "animsition",
   "description": "A simple and easy jQuery plugin for CSS animated page transitions.",
-  "version": "3.5.2",
   "keywords": [
     "css3",
     "js",
