@@ -224,7 +224,7 @@
       var $this = $(this);
 
       $this
-        .css({ "animation-duration" : (outDuration / 1000) + "s" })
+        .css({ "animation-duration" : ((outDuration + 1) / 1000) + "s" })
         .addClass(outClass)
         .animateCallback(function(){
           location.href = url
@@ -239,7 +239,7 @@
       var inClass = methods.animationCheck.call(_this,thisInClass,true,true);
 
       $(options.overlayParentElement).children('.' + options.overlayClass)
-        .css({ "animation-duration" : (outDuration / 1000) + "s" })
+        .css({ "animation-duration" : ((outDuration + 1) / 1000) + "s" })
         .removeClass(inClass)
         .addClass(outClass)
         .animateCallback(function(){
