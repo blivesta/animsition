@@ -24,6 +24,12 @@
       // Remove the "Animsition" in a browser
       // that does not support the "animaition-duration".
       var support = methods.supportCheck.call(this, options);
+
+      if(!document.getElementsByClassName('animsition').length){
+        console.log("Element does not exist on page.");
+        return methods.destroy.call( this );
+      }
+
       if(!support){
         // If do not have a console object to object window
         if (!('console' in window)) {
