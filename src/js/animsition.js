@@ -25,18 +25,18 @@
       // that does not support the "animaition-duration".
       var support = methods.supportCheck.call(this, options);
 
-      if(!document.getElementsByClassName('animsition').length){
-        console.log("Element does not exist on page.");
-        return methods.destroy.call( this );
-      }
-
-      if(!support){
+      if(!support || !this.length){
         // If do not have a console object to object window
         if (!('console' in window)) {
           window.console = {};
           window.console.log = function(str){return str};
         }
-        console.log("Animsition does not support this browser.");
+        if(!this.length){
+          console.log("Animsition: Element does not exist on page.");
+        }
+        if(!support){
+          console.log("Animsition: Does not support this browser.");
+        }
         return methods.destroy.call( this );
       }
 
