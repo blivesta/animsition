@@ -11,6 +11,7 @@
     "page transition",
     "jquery"
   ],
+  "main":"./dist/js/jquery.animsition.js",
   "url": "http://blivesta.github.io/animsition/",
   "author_url": "http://blivesta.com/",
   "licenses": "MIT",
@@ -18,7 +19,7 @@
   "buildPath": "./build",
   "distPath": "./dist",
   "repository": {
-    "url": "https://github.com/blivesta/animsiton.git",
+    "url": "https://github.com/blivesta/animsition.git",
     "type": "git"
   },
   "dependencies": {
