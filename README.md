@@ -49,15 +49,17 @@ Please check that everything works before opening a pull-request.
 
 
 ## Contributors
-- [@blivesta](https://github.com/blivesta)
+- [@blivesta](https://github.com/blivesta) (Maintainer)
+- [@ungki](https://github.com/ungki) (Maintainer)
+- [@gauravpadia](https://github.com/gauravpadia) (Maintainer)
 - [@munsonbh](https://github.com/munsonbh)
 - [@triq6](https://github.com/triq6)
 - [@shgtkshruch](https://github.com/shgtkshruch)
-- [@gauravpadia](https://github.com/gauravpadia)
-- [@ungki](https://github.com/ungki) (Maintainer)
 - [@vburlak](https://github.com/vburlak)
 - [@wpexplorer](https://github.com/wpexplorer)
 - [@armbull](https://github.com/armbull)
+- [@kkirsche](https://github.com/kkirsche)
+- [@justbartlett](https://github.com/justbartlett)
 
 ## License
 Released under the [MIT](https://github.com/blivesta/animsition/blob/master/LICENSE.md) license.
