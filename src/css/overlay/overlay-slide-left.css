@@ -1,0 +1,31 @@
+@keyframes overlay-slide-in-left {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+
+.overlay-slide-in-left {
+  width: 0;
+  animation-name: overlay-slide-in-left;
+}
+
+
+@keyframes overlay-slide-out-left {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+
+.overlay-slide-out-left {
+  left: 0;
+  width: 100%;
+  animation-name: overlay-slide-out-left;
+}
