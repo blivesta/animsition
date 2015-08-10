@@ -1,0 +1,36 @@
+@import "./base.css";
+@import "./loading.css";
+
+@import "./fade/fade.css";
+@import "./fade/fade-up.css";
+@import "./fade/fade-up-sm.css";
+@import "./fade/fade-up-lg.css";
+@import "./fade/fade-down.css";
+@import "./fade/fade-down-sm.css";
+@import "./fade/fade-down-lg.css";
+@import "./fade/fade-left.css";
+@import "./fade/fade-left-sm.css";
+@import "./fade/fade-left-lg.css";
+@import "./fade/fade-right.css";
+@import "./fade/fade-right-sm.css";
+@import "./fade/fade-right-lg.css";
+
+@import "./rotate/rotate.css";
+@import "./rotate/rotate-sm.css";
+@import "./rotate/rotate-lg.css";
+
+@import "./flip/flip-x.css";
+@import "./flip/flip-x-nr.css";
+@import "./flip/flip-x-fr.css";
+@import "./flip/flip-y.css";
+@import "./flip/flip-y-nr.css";
+@import "./flip/flip-y-fr.css";
+
+@import "./zoom/zoom.css";
+@import "./zoom/zoom-sm.css";
+@import "./zoom/zoom-lg.css";
+
+@import "./overlay/overlay-slide-top.css";
+@import "./overlay/overlay-slide-bottom.css";
+@import "./overlay/overlay-slide-left.css";
+@import "./overlay/overlay-slide-right.css";

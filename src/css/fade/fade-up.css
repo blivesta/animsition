@@ -1,0 +1,32 @@
+@keyframes fade-in-up {
+  0% {
+    transform: translateY(500px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.fade-in-up {
+  animation-name: fade-in-up;
+}
+
+
+@keyframes fade-out-up {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+}
+
+
+.fade-out-up {
+  animation-name: fade-out-up;
+}
