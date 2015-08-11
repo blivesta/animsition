@@ -24,14 +24,22 @@
       // Remove the "Animsition" in a browser
       // that does not support the "animaition-duration".
       var support = methods.supportCheck.call(this, options);
-      if(!support){
-        // If do not have a console object to object window
-        if (!('console' in window)) {
-          window.console = {};
-          window.console.log = function(str){return str};
+
+      if(!support && options.unSupportCss.length > 0){
+        if(!support || !this.length){
+          // If do not have a console object to object window
+          if (!('console' in window)) {
+            window.console = {};
+            window.console.log = function(str){return str};
+          }
+          if(!this.length){
+            console.log("Animsition: Element does not exist on page.");
+          }
+          if(!support){
+            console.log("Animsition: Does not support this browser.");
+          }
+          return methods.destroy.call( this );
         }
-        console.log("Animsition does not support this browser.");
-        return methods.destroy.call( this );
       }
 
       var overlayMode = methods.optionCheck.call(this, options);
