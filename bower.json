@@ -11,9 +11,7 @@
   ],
   "homepage": "http://git.blivesta.com/animsition",
   "main": [
-    "dist/css/animsition.css",
     "dist/css/animsition.min.css",
-    "dist/js/jquery.animsition.js",
     "dist/js/jquery.animsition.min.js"
   ],
   "ignore": [
