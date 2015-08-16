@@ -1,9 +1,8 @@
 # [Animsition](http://blivesta.github.io/animsition)
 
-![Bower version](https://img.shields.io/bower/v/animsition.svg?style=flat)
-[![npm version](https://img.shields.io/npm/v/animsition.svg?style=flat)](https://www.npmjs.com/package/animsition)
-[![Build Status](https://img.shields.io/travis/blivesta/animsition/master.svg?style=flat)](https://travis-ci.org/blivesta/animsition)
-[![Dependency Status](https://david-dm.org/blivesta/animsition.svg)](https://david-dm.org/blivesta/animsition)
+![Bower version](https://img.shields.io/bower/v/animsition.svg?style=flat-square)
+[![npm version](https://img.shields.io/npm/v/animsition.svg?style=flat-square)](https://www.npmjs.com/package/animsition)
+[![Build Status](https://img.shields.io/travis/blivesta/animsition/master.svg?style=flat-square)](https://travis-ci.org/blivesta/animsition)
 
 
 A simple and easy jQuery plugin for CSS animated page transitions.
@@ -29,7 +28,7 @@ Build
 $ gulp build
 ```
 
-Build -> Serve -> Watch
+Build -> Watch
 ```bash
 $ gulp
 ```
