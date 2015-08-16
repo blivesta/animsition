@@ -1,4 +1,4 @@
-var autoprefixer = require('autoprefixer-core');
+var autoprefixer = require('autoprefixer');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
 var gulp = require('gulp');
