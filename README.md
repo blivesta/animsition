@@ -60,6 +60,7 @@ Please check that everything works before opening a pull-request.
 - [@armbull](https://github.com/armbull)
 - [@kkirsche](https://github.com/kkirsche)
 - [@justbartlett](https://github.com/justbartlett)
+- [@brianmontanaweb](https://github.com/brianmontanaweb)
 
 ## License
 Released under the [MIT](https://github.com/blivesta/animsition/blob/master/LICENSE.md) license.
