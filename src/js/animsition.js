@@ -8,7 +8,7 @@
     factory(jQuery);
   }
 }(function ($) {
-  "use strict";
+  'use strict';
   var namespace = 'animsition';
   var methods = {
     init: function(options){
@@ -109,7 +109,7 @@
     removeLoading: function(){
       var $this     = $(this);
       var options   = $this.data(namespace).options;
-      var $loading  = $(options.loadingParentElement).children("."+options.loadingClass);
+      var $loading  = $(options.loadingParentElement).children('.' + options.loadingClass);
       $loading.fadeOut().remove();
     },
 
