@@ -42,16 +42,6 @@ gulp.task('css', function () {
 });
 
 
-gulp.task('min', function () {
-  return gulp.src(dirs.dist + '/css/' + pkg.name + '.css')
-    // .pipe(cssnano())
-    .pipe(csso())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(gulp.dest(dirs.dist + '/css'));
-});
-
-
-
 gulp.task('js', function(){
   return gulp.src(dirs.src + '/js/' + pkg.name + '.js')
     .pipe(jshint())
@@ -76,9 +66,7 @@ gulp.task('default',['build'], function(){
 
 gulp.task('build', ['cleanup'], function(cb){
   runSequence(
-
     ['js','css',],
-    // 'min',
     cb
   );
 });
