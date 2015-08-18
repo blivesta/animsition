@@ -1,14 +1,13 @@
 {
   "name": "animsition",
-  "version": "3.5.2",
+  "version": "3.6.0",
   "description": "A simple and easy jQuery plugin for CSS animated page transitions.",
   "keywords": [
     "css3",
     "js",
-    "less",
     "animation",
     "page transition",
-    "jquery"
+    "jQuery"
   ],
   "main":"./dist/js/jquery.animsition.js",
   "author": {
