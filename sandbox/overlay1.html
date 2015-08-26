@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandbox: overlay1 - Animsition</title>
+  <link href="sandbox.css" rel="stylesheet">
+  <link href="../dist/css/animsition.min.css" rel="stylesheet">
+</head>
+<body class="overlay-init">
+
+  <div class="animsition-overlay">
+
+    <div class="item bg-purple">
+      <h1>Animsition: overlay1</h1>
+    </div>
+
+    <h2>Defaults</h2>
+    <ol>
+      <li><a class="animsition-link" href="index.html">Basic</a></li>
+      <li><a class="animsition-link" href="options.html">Options</a></li>
+      <li><a class="animsition-link" href="data-options.html">Data options</a></li>
+    </ol>
+
+    <h2>Overlays</h2>
+    <ol>
+      <li><a class="animsition-link" href="overlay1.html" data-animsition-out="overlay-slide-out-left">Overlay1</a></li>
+      <li><a class="animsition-link" href="overlay2.html" data-animsition-out="overlay-slide-out-right">Overlay2</a></li>
+    </ol>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="../dist/js/jquery.animsition.min.js" charset="utf-8"></script>
+  <script>
+  $(document).on('ready', function(){
+    $('.animsition-overlay').animsition({
+      inClass: 'overlay-slide-in-top',
+      outClass: 'overlay-slide-out-top',
+      overlay : true,
+      overlayClass : 'animsition-overlay-slide',
+      overlayParentElement : 'body'
+    })
+    .one('animsition.start',function(){
+
+      $('body').removeClass();
+
+      $(this)
+        .find('.item')
+        .append('<h2 class="target">Callback: Start</h2>');
+
+      console.log('Callback: Start');
+    })
+    .one('animsition.end',function(){
+      $('.target', this).html('Callback: End');
+
+      console.log('Callback: End');
+    });
+  });
+  </script>
+
+</body>
+</html>

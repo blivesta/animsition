@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  font-family: 'Avenir Next','Helvetica Neue', sans-serif;
+}
+
+h1,
+h2,
+p {
+  padding-left:2rem;
+  padding-right:2rem;
+}
+
+h1 {
+  font-size: 2rem;
+}
+h2 {
+  font-size: 1.5rem;
+}
+
+.item {
+  color: #fff;
+  padding-top:2rem;
+  padding-bottom:2rem;
+  height:200px;
+}
+
+body.overlay-init,
+.animsition-loading {
+  background-color: #ddd;
+}
+
+.bg-indigo {
+  background-color: #3F51B5;
+}
+.bg-pink {
+  background-color: #E91E63;
+}
+.bg-purple {
+  background-color: #673AB7;
+}
+.bg-cyan {
+  background-color: #00BCD4;
+}
+.bg-yellow {
+  background-color: #FFEB3B;
+}
+.bg-green {
+  background-color: #4CAF50;
+}

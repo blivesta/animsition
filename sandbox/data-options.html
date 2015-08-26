@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandbox: data options - Animsition</title>
+  <link href="sandbox.css" rel="stylesheet">
+  <link href="../dist/css/animsition.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="animsition item bg-cyan" data-animsition-in="fade-in-up-sm" data-animsition-out="fade-out-up-sm" data-animsition-in-duration="1000">
+    <h1>Animsition: data options 1</h1>
+  </div>
+
+
+  <div class="animsition item bg-pink" data-animsition-in="fade-in-down-sm" data-animsition-out="fade-out-down-sm" data-animsition-in-duration="2000">
+    <h1>Sandbox: data options 2</h1>
+  </div>
+
+  <div class="animsition">
+
+    <h2>Defaults</h2>
+    <ol>
+      <li><a class="animsition-link" href="index.html">Basic</a></li>
+      <li><a class="animsition-link" href="options.html">Options</a></li>
+      <li><a class="animsition-link" href="data-options.html">Data options</a></li>
+    </ol>
+
+    <h2>Overlays</h2>
+    <ol>
+      <li><a class="animsition-link" href="overlay1.html">Overlay1</a></li>
+      <li><a class="animsition-link" href="overlay2.html">Overlay2</a></li>
+    </ol>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="../dist/js/jquery.animsition.min.js" charset="utf-8"></script>
+  <script>
+  $(document).on('ready', function(){
+    var $animsition = $('.animsition');
+    $animsition
+      .animsition()
+      .one('animsition.start',function(){
+        $(this).append('<h2 class="target">Callback: Start</h2>');
+        console.log('Callback: Start');
+      })
+      .one('animsition.end',function(){
+        $('.target', this).html('Callback: End');
+        console.log('Callback: End');
+      });
+  });
+  </script>
+
+</body>
+</html>
