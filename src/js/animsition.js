@@ -27,7 +27,8 @@
                                   '-o-animation-duration'],
         overlay               :   false,
         overlayClass          :   'animsition-overlay-slide',
-        overlayParentElement  :   'body'
+        overlayParentElement  :   'body',
+        hideElementAfterTrans :   '.animsition-hide-after-transition' // element to hide after transition
       }, options);
 
       // Remove the "Animsition" in a browser
@@ -239,12 +240,14 @@
 
     pageOutBasic: function(outClass,outDuration,url){
       var $this = $(this);
+      var options = $this.data(namespace).options;
 
       $this
         .css({ 'animation-duration' : (outDuration / 1000) + 's' })
         .addClass(outClass)
         .animateCallback(function(){
           location.href = url;
+          $(options.hideElementAfterTrans).hide();
         });
     },
 
@@ -261,6 +264,7 @@
         .addClass(outClass)
         .animateCallback(function(){
           location.href = url;
+          $(options.hideElementAfterTrans).hide();
         });
     },
 
