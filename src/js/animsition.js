@@ -240,8 +240,9 @@
     pageOutBasic: function(outClass,outDuration,url){
       var $this = $(this);
 
+      // (outDuration + 1) | #55 outDuration: 0 crashes on Safari only
       $this
-        .css({ "animation-duration" : ((outDuration + 1) / 1000) + "s" })
+        .css({ 'animation-duration' : ((outDuration + 1) / 1000) + 's' })
         .addClass(outClass)
         .animateCallback(function(){
           location.href = url;
@@ -255,8 +256,10 @@
       var thisInClass = $this.data('animsition-in');
       var inClass = methods.animationCheck.call(_this,thisInClass,true,true);
 
-      $(options.overlayParentElement).children('.' + options.overlayClass)
-        .css({ "animation-duration" : ((outDuration + 1) / 1000) + "s" })
+      // (outDuration + 1) | #55 outDuration: 0 crashes animsition on Safari only
+      $(options.overlayParentElement)
+        .children('.' + options.overlayClass)
+        .css({ 'animation-duration' : ((outDuration + 1) / 1000) + 's' })
         .removeClass(inClass)
         .addClass(outClass)
         .animateCallback(function(){
