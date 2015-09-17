@@ -30,6 +30,17 @@
         overlayParentElement  :   'body'
       }, options);
 
+      methods.settings = {
+        events: {
+          inStartLegacy: 'animsition.start', // Removed in v4.0
+          inEndLegacy: 'animsition.end', // Removed in v4.0
+          inStart: 'animsition.inStart',
+          inEnd: 'animsition.inEnd',
+          outStart: 'animsition.outStart',
+          outEnd: 'animsition.outEnd'
+        }
+      };
+
       // Remove the "Animsition" in a browser
       // that does not support the "animaition-duration".
       var support = methods.supportCheck.call(this, options);
@@ -188,14 +199,16 @@
       var $this = $(this);
 
       $this
-        .trigger('animsition.start')
         .css({ 'animation-duration' : (inDuration / 1000) + 's' })
         .addClass(inClass)
+        .trigger(methods.settings.events.inStartLegacy) // Removed in v4.0
+        .trigger(methods.settings.events.inStart)
         .animateCallback(function(){
           $this
             .removeClass(inClass)
             .css({ 'opacity' : 1 })
-            .trigger('animsition.end');
+            .trigger(methods.settings.events.inEndLegacy) // Removed in v4.0
+            .trigger(methods.settings.events.inEnd);
         });
     },
 
@@ -204,15 +217,18 @@
       var options = $this.data(namespace).options;
 
       $this
-        .trigger('animsition.start')
-        .css({ 'opacity' : 1 });
+        .css({ 'opacity' : 1 })
+        .trigger(methods.settings.events.inStartLegacy) // Removed in v4.0
+        .trigger(methods.settings.events.inStart);
 
       $(options.overlayParentElement)
         .children('.' + options.overlayClass)
         .css({ 'animation-duration' : (inDuration / 1000) + 's' })
         .addClass(inClass)
         .animateCallback(function(){
-          $this.trigger('animsition.end');
+          $this
+            .trigger(methods.settings.events.inEndLegacy) // Removed in v4.0
+            .trigger(methods.settings.events.inEnd);
         });
     },
 
@@ -244,10 +260,13 @@
       $this
         .css({ 'animation-duration' : ((outDuration + 1) / 1000) + 's' })
         .addClass(outClass)
+        .trigger(methods.settings.events.outStart)
         .animateCallback(function(){
-          location.href = url;
+          $this.trigger(methods.settings.events.outEnd);
+          window.location.href = url;
         });
     },
+
 
     pageOutOverlay: function(outClass,outDuration,url){
       var _this = this;
@@ -262,8 +281,10 @@
         .css({ 'animation-duration' : ((outDuration + 1) / 1000) + 's' })
         .removeClass(inClass)
         .addClass(outClass)
+        .trigger(methods.settings.events.outStart)
         .animateCallback(function(){
-          location.href = url;
+          $this.trigger(methods.settings.events.outEnd);
+          window.location.href = url;
         });
     },
 
