@@ -21,6 +21,7 @@
       <li><a class="animsition-link" href="index.html">Basic</a></li>
       <li><a class="animsition-link" href="options.html">Options</a></li>
       <li><a class="animsition-link" href="data-options.html">Data options</a></li>
+      <li><a class="animsition-link" href="events.html">Events</a></li>
     </ol>
 
     <h2>Overlays</h2>
@@ -32,7 +33,8 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
-  <script src="../dist/js/jquery.animsition.min.js" charset="utf-8"></script>
+  <script src="../src/js/animsition.js" charset="utf-8"></script>
+
   <script>
   $(document).on('ready', function(){
     $('.animsition-overlay').animsition({
@@ -50,13 +52,20 @@
         .find('.item')
         .append('<h2 class="target">Callback: Start</h2>');
 
-      console.log('Callback: Start');
+      console.log('event -> inStart');
     })
-    .one('animsition.end',function(){
+    .one('animsition.inEnd',function(){
       $('.target', this).html('Callback: End');
-
-      console.log('Callback: End');
+      console.log('event -> inEnd');
+    })
+    .one('animsition.outStart',function(){
+      console.log('event -> outStart');
+    })
+    .one('animsition.outEnd',function(){
+      $('.target', this).html('Callback: End');
+      console.log('event -> outEnd');
     });
+
   });
   </script>
 
