@@ -22,6 +22,7 @@
         loading               :    true,
         loadingParentElement  :   'body', //animsition wrapper element
         loadingClass          :   'animsition-loading',
+        loadingInner          :   '', // e.g '<img src="loading.svg" />'
         unSupportCss          : [ 'animation-duration',
                                   '-webkit-animation-duration',
                                   '-o-animation-duration'],
@@ -114,7 +115,7 @@
     },
 
     addLoading: function(options){
-      $(options.loadingParentElement).append('<div class="'+options.loadingClass+'"></div>');
+      $(options.loadingParentElement).append('<div class="' + options.loadingClass + '">' + options.loadingInner + '</div>');
     },
 
     removeLoading: function(){
