@@ -199,7 +199,7 @@
       var $this = $(this);
 
       $this
-        .css({ 'animation-duration' : (inDuration / 1000) + 's' })
+        .css({ 'animation-duration' : inDuration + 'ms' })
         .addClass(inClass)
         .trigger(methods.settings.events.inStartLegacy) // Removed in v4.0
         .trigger(methods.settings.events.inStart)
@@ -223,7 +223,7 @@
 
       $(options.overlayParentElement)
         .children('.' + options.overlayClass)
-        .css({ 'animation-duration' : (inDuration / 1000) + 's' })
+        .css({ 'animation-duration' : inDuration + 'ms' })
         .addClass(inClass)
         .animateCallback(function(){
           $this
@@ -258,7 +258,7 @@
 
       // (outDuration + 1) | #55 outDuration: 0 crashes on Safari only
       $this
-        .css({ 'animation-duration' : ((outDuration + 1) / 1000) + 's' })
+        .css({ 'animation-duration' : (outDuration + 1)  + 'ms' })
         .addClass(outClass)
         .trigger(methods.settings.events.outStart)
         .animateCallback(function(){
@@ -278,7 +278,7 @@
       // (outDuration + 1) | #55 outDuration: 0 crashes animsition on Safari only
       $(options.overlayParentElement)
         .children('.' + options.overlayClass)
-        .css({ 'animation-duration' : ((outDuration + 1) / 1000) + 's' })
+        .css({ 'animation-duration' : (outDuration + 1) + 'ms' })
         .removeClass(inClass)
         .addClass(outClass)
         .trigger(methods.settings.events.outStart)
