@@ -91,7 +91,7 @@
           // Firefox back button issue #4
           $window.on('unload.' + namespace, function() { });
 
-          $(options.linkElement).on('click.' + namespace, function(event) {
+          $(document).on('click.' + namespace, options.linkElement, function(event) {
             event.preventDefault();
             var $self = $(this);
             var url = $self.attr('href');
