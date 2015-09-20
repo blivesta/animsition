@@ -10,7 +10,7 @@
 }(function ($) {
   'use strict';
   var namespace = 'animsition';
-  var methods = {
+  var __ = {
     init: function(options){
       options = $.extend({
         inClass               :   'fade-in',
@@ -33,7 +33,7 @@
         overlayParentElement  :   'body'
       }, options);
 
-      methods.settings = {
+      __.settings = {
         timer: false,
         events: {
           inStartLegacy: 'animsition.start', // Removed in v4.0
@@ -47,7 +47,7 @@
 
       // Remove the "Animsition" in a browser
       // that does not support the "animaition-duration".
-      var support = methods.supportCheck.call(this, options);
+      var support = __.supportCheck.call(this, options);
 
       if(!support && options.unSupportCss.length > 0){
         if(!support || !this.length){
@@ -62,17 +62,17 @@
           if(!support){
             console.log('Animsition: Does not support this browser.');
           }
-          return methods.destroy.call(this);
+          return __.destroy.call(this);
         }
       }
 
-      var overlayMode = methods.optionCheck.call(this, options);
+      var overlayMode = __.optionCheck.call(this, options);
       if(overlayMode) {
-        methods.addOverlay.call(this, options);
+        __.addOverlay.call(this, options);
       }
 
       if(options.loading) {
-        methods.addLoading.call(this, options);
+        __.addLoading.call(this, options);
       }
 
       return this.each(function(){
@@ -89,11 +89,11 @@
             options: options
           });
 
-          if(options.timeout) methods.addTimer.call(_this);
+          if(options.timeout) __.addTimer.call(_this);
 
           $window.on('load.' + namespace + ' pageshow.' + namespace, function() {
-            if(methods.settings.timer) clearTimeout(methods.settings.timer);
-            methods.pageIn.call(_this);
+            if(__.settings.timer) clearTimeout(__.settings.timer);
+            __.pageIn.call(_this);
           });
 
           // Firefox back button issue #4
@@ -109,7 +109,7 @@
             if (event.which === 2 || event.metaKey || event.shiftKey || navigator.platform.toUpperCase().indexOf('WIN') !== -1 && event.ctrlKey) {
               window.open(url, '_blank');
             } else {
-              methods.pageOut.call(_this,$self,url);
+              __.pageOut.call(_this,$self,url);
             }
 
           });
@@ -118,17 +118,20 @@
     },
 
     addOverlay: function(options){
-      $(options.overlayParentElement).prepend('<div class="'+options.overlayClass+'"></div>');
+      $(options.overlayParentElement)
+        .prepend('<div class="'+options.overlayClass+'"></div>');
     },
 
     addLoading: function(options){
-      $(options.loadingParentElement).append('<div class="' + options.loadingClass + '">' + options.loadingInner + '</div>');
+      $(options.loadingParentElement)
+        .append('<div class="' + options.loadingClass + '">' + options.loadingInner + '</div>');
     },
 
     removeLoading: function(){
       var $this     = $(this);
       var options   = $this.data(namespace).options;
       var $loading  = $(options.loadingParentElement).children('.' + options.loadingClass);
+
       $loading.fadeOut().remove();
     },
 
@@ -137,8 +140,8 @@
       var $this = $(this);
       var options = $this.data(namespace).options;
 
-      methods.settings.timer = setTimeout(function(){
-        methods.pageIn.call(_this);
+      __.settings.timer = setTimeout(function(){
+        __.pageIn.call(_this);
         $(window).off('load.' + namespace + ' pageshow.' + namespace);
       }, options.timeoutCountdown);
     },
@@ -199,18 +202,18 @@
       var options = $this.data(namespace).options;
       var thisInDuration = $this.data('animsition-in-duration');
       var thisInClass = $this.data('animsition-in');
-      var inDuration = methods.animationCheck.call(_this,thisInDuration,false,true);
-      var inClass = methods.animationCheck.call(_this,thisInClass,true,true);
-      var overlayMode = methods.optionCheck.call(_this, options);
+      var inDuration = __.animationCheck.call(_this,thisInDuration,false,true);
+      var inClass = __.animationCheck.call(_this,thisInClass,true,true);
+      var overlayMode = __.optionCheck.call(_this, options);
 
       if(options.loading) {
-        methods.removeLoading.call(_this);
+        __.removeLoading.call(_this);
       }
 
       if(overlayMode) {
-        methods.pageInOverlay.call(_this,inClass,inDuration);
+        __.pageInOverlay.call(_this,inClass,inDuration);
       } else {
-        methods.pageInBasic.call(_this,inClass,inDuration);
+        __.pageInBasic.call(_this,inClass,inDuration);
       }
     },
 
@@ -220,14 +223,14 @@
       $this
         .css({ 'animation-duration' : inDuration + 'ms' })
         .addClass(inClass)
-        .trigger(methods.settings.events.inStartLegacy) // Removed in v4.0
-        .trigger(methods.settings.events.inStart)
+        .trigger(__.settings.events.inStartLegacy) // Removed in v4.0
+        .trigger(__.settings.events.inStart)
         .animateCallback(function(){
           $this
             .removeClass(inClass)
             .css({ 'opacity' : 1 })
-            .trigger(methods.settings.events.inEndLegacy) // Removed in v4.0
-            .trigger(methods.settings.events.inEnd);
+            .trigger(__.settings.events.inEndLegacy) // Removed in v4.0
+            .trigger(__.settings.events.inEnd);
         });
     },
 
@@ -237,8 +240,8 @@
 
       $this
         .css({ 'opacity' : 1 })
-        .trigger(methods.settings.events.inStartLegacy) // Removed in v4.0
-        .trigger(methods.settings.events.inStart);
+        .trigger(__.settings.events.inStartLegacy) // Removed in v4.0
+        .trigger(__.settings.events.inStart);
 
       $(options.overlayParentElement)
         .children('.' + options.overlayClass)
@@ -246,8 +249,8 @@
         .addClass(inClass)
         .animateCallback(function(){
           $this
-            .trigger(methods.settings.events.inEndLegacy) // Removed in v4.0
-            .trigger(methods.settings.events.inEnd);
+            .trigger(__.settings.events.inEndLegacy) // Removed in v4.0
+            .trigger(__.settings.events.inEnd);
         });
     },
 
@@ -261,14 +264,14 @@
       var thisOutDuration = $this.data('animsition-out-duration');
       var isOutClass = selfOutClass ? selfOutClass : thisOutClass;
       var isOutDuration = selfOutDuration ? selfOutDuration : thisOutDuration;
-      var outClass = methods.animationCheck.call(_this,isOutClass,true,false);
-      var outDuration = methods.animationCheck.call(_this, isOutDuration,false,false);
-      var overlayMode = methods.optionCheck.call(_this, options);
+      var outClass = __.animationCheck.call(_this,isOutClass,true,false);
+      var outDuration = __.animationCheck.call(_this, isOutDuration,false,false);
+      var overlayMode = __.optionCheck.call(_this, options);
 
       if(overlayMode) {
-        methods.pageOutOverlay.call(_this,outClass,outDuration,url);
+        __.pageOutOverlay.call(_this,outClass,outDuration,url);
       } else {
-        methods.pageOutBasic.call(_this,outClass,outDuration,url);
+        __.pageOutBasic.call(_this,outClass,outDuration,url);
       }
     },
 
@@ -279,9 +282,9 @@
       $this
         .css({ 'animation-duration' : (outDuration + 1)  + 'ms' })
         .addClass(outClass)
-        .trigger(methods.settings.events.outStart)
+        .trigger(__.settings.events.outStart)
         .animateCallback(function(){
-          $this.trigger(methods.settings.events.outEnd);
+          $this.trigger(__.settings.events.outEnd);
           window.location.href = url;
         });
     },
@@ -292,7 +295,7 @@
       var $this = $(this);
       var options = $this.data(namespace).options;
       var thisInClass = $this.data('animsition-in');
-      var inClass = methods.animationCheck.call(_this,thisInClass,true,true);
+      var inClass = __.animationCheck.call(_this,thisInClass,true,true);
 
       // (outDuration + 1) | #55 outDuration: 0 crashes animsition on Safari only
       $(options.overlayParentElement)
@@ -300,9 +303,9 @@
         .css({ 'animation-duration' : (outDuration + 1) + 'ms' })
         .removeClass(inClass)
         .addClass(outClass)
-        .trigger(methods.settings.events.outStart)
+        .trigger(__.settings.events.outStart)
         .animateCallback(function(){
-          $this.trigger(methods.settings.events.outEnd);
+          $this.trigger(__.settings.events.outEnd);
           window.location.href = url;
         });
     },
@@ -330,10 +333,10 @@
   };
 
   $.fn.animsition = function(method){
-    if ( methods[method] ) {
-      return methods[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
+    if ( __[method] ) {
+      return __[method].apply( this, Array.prototype.slice.call( arguments, 1 ));
     } else if ( typeof method === 'object' || ! method ) {
-      return methods.init.apply( this, arguments );
+      return __.init.apply( this, arguments );
     } else {
       $.error( 'Method ' +  method + ' does not exist on jQuery.'+namespace);
     }
