@@ -23,6 +23,8 @@
         loadingParentElement  :   'body', //animsition wrapper element
         loadingClass          :   'animsition-loading',
         loadingInner          :   '', // e.g '<img src="loading.svg" />'
+        timeout               :   false,
+        timeoutCountdown      :   5000,
         unSupportCss          : [ 'animation-duration',
                                   '-webkit-animation-duration',
                                   '-o-animation-duration'],
@@ -32,6 +34,7 @@
       }, options);
 
       methods.settings = {
+        timer: false,
         events: {
           inStartLegacy: 'animsition.start', // Removed in v4.0
           inEndLegacy: 'animsition.end', // Removed in v4.0
@@ -76,6 +79,7 @@
         var _this = this;
         var $this = $(this);
         var $window = $(window);
+        var $document = $(document);
         var data = $this.data(namespace);
 
         if (!data) {
@@ -85,14 +89,17 @@
             options: options
           });
 
+          if(options.timeout) methods.addTimer.call(_this);
+
           $window.on('load.' + namespace + ' pageshow.' + namespace, function() {
-            methods.pageIn.call( _this );
+            if(methods.settings.timer) clearTimeout(methods.settings.timer);
+            methods.pageIn.call(_this);
           });
 
           // Firefox back button issue #4
           $window.on('unload.' + namespace, function() { });
 
-          $(document).on('click.' + namespace, options.linkElement, function(event) {
+          $document.on('click.' + namespace, options.linkElement, function(event) {
             event.preventDefault();
             var $self = $(this);
             var url = $self.attr('href');
@@ -123,6 +130,17 @@
       var options   = $this.data(namespace).options;
       var $loading  = $(options.loadingParentElement).children('.' + options.loadingClass);
       $loading.fadeOut().remove();
+    },
+
+    addTimer: function(){
+      var _this = this;
+      var $this = $(this);
+      var options = $this.data(namespace).options;
+
+      methods.settings.timer = setTimeout(function(){
+        methods.pageIn.call(_this);
+        $(window).off('load.' + namespace + ' pageshow.' + namespace);
+      }, options.timeoutCountdown);
     },
 
     supportCheck: function(options){
