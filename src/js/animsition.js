@@ -323,7 +323,7 @@
   };
 
   $.fn.animateCallback = function(callback){
-    var end = 'animationend webkitAnimationEnd mozAnimationEnd oAnimationEnd MSAnimationEnd';
+    var end = 'animationend webkitAnimationEnd';
     return this.each(function() {
       $(this).bind(end, function(){
         $(this).unbind(end);
