@@ -7,10 +7,16 @@
   <title>Sandbox: overlay1 - Animsition</title>
   <link href="sandbox.css" rel="stylesheet">
   <link href="../dist/css/animsition.min.css" rel="stylesheet">
+  <style media="screen">
+    .animsition-overlay.bg-init,
+    .animsition-overlay-slide {
+      background-color: #81D4FA;
+    }
+  </style>
 </head>
-<body class="overlay-init">
+<body>
 
-  <div class="animsition-overlay">
+  <div class="animsition-overlay bg-init">
 
     <div class="item bg-purple">
       <h1>Animsition: overlay1</h1>
@@ -27,8 +33,8 @@
 
     <h2>Overlays</h2>
     <ol>
-      <li><a class="animsition-link" href="overlay1.html" data-animsition-out="overlay-slide-out-left">Overlay1</a></li>
-      <li><a class="animsition-link" href="overlay2.html" data-animsition-out="overlay-slide-out-right">Overlay2</a></li>
+      <li><a class="animsition-link" href="overlay1.html" data-animsition-out-class="overlay-slide-out-left">Overlay1</a></li>
+      <li><a class="animsition-link" href="overlay2.html" data-animsition-out-class="overlay-slide-out-right">Overlay2</a></li>
     </ol>
 
   </div>
@@ -47,7 +53,7 @@
     })
     .one('animsition.inStart',function(){
 
-      $('body').removeClass();
+      $(this).removeClass('bg-init');
 
       $(this)
         .find('.item')

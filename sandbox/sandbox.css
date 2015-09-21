@@ -28,11 +28,6 @@ h2 {
   display: inline-block;
 }
 
-body.overlay-init,
-.animsition-loading {
-  background-color: #ddd;
-}
-
 .bg-indigo {
   background-color: #3F51B5;
 }
