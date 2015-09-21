@@ -33,7 +33,8 @@
         // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
         overlay               :   false,
         overlayClass          :   'animsition-overlay-slide',
-        overlayParentElement  :   'body'
+        overlayParentElement  :   'body',
+        transition            :   function(url){ window.location.href = url; }
       }, options);
 
       __.settings = {
@@ -282,6 +283,7 @@
 
     outDefault: function(outClass, outDuration, url){
       var $this = $(this);
+      var options = $this.data(namespace).options;
 
       // (outDuration + 1) | #55 outDuration: 0 crashes on Safari only
       $this
@@ -290,7 +292,7 @@
         .trigger(__.settings.events.outStart)
         .animateCallback(function(){
           $this.trigger(__.settings.events.outEnd);
-          window.location.href = url;
+          options.transition(url);
         });
     },
 
@@ -311,7 +313,7 @@
         .trigger(__.settings.events.outStart)
         .animateCallback(function(){
           $this.trigger(__.settings.events.outEnd);
-          window.location.href = url;
+          options.transition(url);
         });
     },
 
