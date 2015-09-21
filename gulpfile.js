@@ -32,7 +32,8 @@ gulp.task('css', function () {
     cssImport(),
     autoprefixer({browsers: ['> 1%', 'last 2 versions']}),
   ];
-  return gulp.src(dirs.src + '/css/' + pkg.name + '.css')
+  return gulp
+    .src(dirs.src + '/css/' + pkg.name + '.css')
     .pipe(header(banner, {pkg:pkg}))
     .pipe(postcss(processors))
     .pipe(gulp.dest(dirs.dist + '/css'))
@@ -43,7 +44,8 @@ gulp.task('css', function () {
 
 
 gulp.task('js', function(){
-  return gulp.src(dirs.src + '/js/' + pkg.name + '.js')
+  return gulp
+    .src(dirs.src + '/js/' + pkg.name + '.js')
     .pipe(jshint())
     .pipe(jshint.reporter(stylish))
     .pipe(header(banner, { pkg:pkg }))
@@ -65,7 +67,10 @@ gulp.task('default',['build'], function(){
 
 gulp.task('build', ['cleanup'], function(cb){
   runSequence(
-    ['js','css',],
+    [
+      'js',
+      'css'
+    ],
     cb
   );
 });
