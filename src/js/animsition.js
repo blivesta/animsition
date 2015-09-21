@@ -310,9 +310,9 @@
     destroy: function(){
       return this.each(function(){
         var $this = $(this);
-        $(window).unbind('.'+namespace);
+        $(window).off('.'+ namespace);
         $this
-          .css({'opacity':1})
+          .css({'opacity': 1})
           .removeData(namespace);
       });
     }
@@ -322,8 +322,9 @@
   $.fn.animateCallback = function(callback){
     var end = 'animationend webkitAnimationEnd';
     return this.each(function() {
-      $(this).bind(end, function(){
-        $(this).unbind(end);
+      var $this = $(this);
+      $this.on(end, function(){
+        $this.off(end);
         return callback.call(this);
       });
     });
