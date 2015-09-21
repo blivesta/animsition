@@ -36,10 +36,10 @@ $ gulp
 ## CDN
 [cdnjs](https://cdnjs.com/libraries/animsition)
 
-- css/animsition.css
-- css/animsition.min.css
-- js/jquery.animsition.js
-- js/jquery.animsition.min.js
+- dist/css/animsition.css
+- dist/css/animsition.min.css
+- dist/js/animsition.js
+- dist/js/animsition.min.js
 
 ## Contributing
 
