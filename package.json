@@ -9,7 +9,7 @@
     "page transition",
     "jQuery"
   ],
-  "main":"./dist/js/jquery.animsition.js",
+  "main":"./dist/js/animsition.js",
   "author": {
     "name": "blivesta",
     "email": "enmt@blivesta.com",

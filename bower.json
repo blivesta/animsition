@@ -11,13 +11,10 @@
   "homepage": "http://git.blivesta.com/animsition",
   "main": [
     "dist/css/animsition.min.css",
-    "dist/js/jquery.animsition.min.js"
+    "dist/js/animsition.min.js"
   ],
   "ignore": [
     ".*",
     "sandbox"
-  ],
-  "dependencies": {
-    "jquery": ">= 1.11.0"
-  }
+  ]
 }
