@@ -95,7 +95,7 @@
 
           $window.on('load.' + namespace + ' pageshow.' + namespace, function() {
             if(__.settings.timer) clearTimeout(__.settings.timer);
-            __.pageIn.call(_this);
+            __.in.call(_this);
           });
 
           // Firefox back button issue #4
@@ -111,7 +111,7 @@
             if (event.which === 2 || event.metaKey || event.shiftKey || navigator.platform.toUpperCase().indexOf('WIN') !== -1 && event.ctrlKey) {
               window.open(url, '_blank');
             } else {
-              __.pageOut.call(_this,$self,url);
+              __.out.call(_this, $self, url);
             }
 
           });
@@ -143,7 +143,7 @@
       var options = $this.data(namespace).options;
 
       __.settings.timer = setTimeout(function(){
-        __.pageIn.call(_this);
+        __.in.call(_this);
         $(window).off('load.' + namespace + ' pageshow.' + namespace);
       }, options.timeoutCountdown);
     },
@@ -198,7 +198,7 @@
       return data;
     },
 
-    pageIn: function(){
+    in: function(){
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
@@ -211,13 +211,13 @@
       if(options.loading) __.removeLoading.call(_this);
 
       if(overlayMode) {
-        __.pageInOverlay.call(_this,inClass,inDuration);
+        __.inOverlay.call(_this, inClass, inDuration);
       } else {
-        __.pageInBasic.call(_this,inClass,inDuration);
+        __.inDefault.call(_this, inClass, inDuration);
       }
     },
 
-    pageInBasic: function(inClass,inDuration){
+    inDefault: function(inClass, inDuration){
       var $this = $(this);
 
       $this
@@ -234,7 +234,7 @@
         });
     },
 
-    pageInOverlay: function(inClass,inDuration){
+    inOverlay: function(inClass, inDuration){
       var $this = $(this);
       var options = $this.data(namespace).options;
 
@@ -254,7 +254,7 @@
         });
     },
 
-    pageOut: function($self,url){
+    out: function($self, url){
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
@@ -269,13 +269,13 @@
       var overlayMode = __.optionCheck.call(_this, options);
 
       if(overlayMode) {
-        __.pageOutOverlay.call(_this,outClass,outDuration,url);
+        __.outOverlay.call(_this, outClass, outDuration, url);
       } else {
-        __.pageOutBasic.call(_this,outClass,outDuration,url);
+        __.outDefault.call(_this, outClass, outDuration, url);
       }
     },
 
-    pageOutBasic: function(outClass,outDuration,url){
+    outDefault: function(outClass, outDuration, url){
       var $this = $(this);
 
       // (outDuration + 1) | #55 outDuration: 0 crashes on Safari only
@@ -290,7 +290,7 @@
     },
 
 
-    pageOutOverlay: function(outClass,outDuration,url){
+    outOverlay: function(outClass, outDuration, url){
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
