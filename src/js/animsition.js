@@ -25,11 +25,9 @@
         loadingInner          :   '', // e.g '<img src="loading.svg" />'
         timeout               :   false,
         timeoutCountdown      :   5000,
-        onLoadEvent           :   true, // If `false` to disable the `$window.on('load.animsition')`.
-        unSupportCss          : [ 'animation-duration',
-                                  '-webkit-animation-duration',
-                                  '-o-animation-duration'],
-        // "unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+        onLoadEvent           :   true,
+        browser               : [ 'animation-duration', '-webkit-animation-duration'],
+        // "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
         // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
         overlay               :   false,
         overlayClass          :   'animsition-overlay-slide',
@@ -58,7 +56,7 @@
       // that does not support the "animaition-duration".
       var support = __.supportCheck.call(this, options);
 
-      if(!support && options.unSupportCss.length > 0){
+      if(!support && options.browser.length > 0){
         if(!support || !this.length){
           // If do not have a console object to object window
           if (!('console' in window)) {
@@ -152,7 +150,7 @@
 
     supportCheck: function(options){
       var $this = $(this);
-      var props = options.unSupportCss;
+      var props = options.browser;
       var propsNum = props.length;
       var support  = false;
 
