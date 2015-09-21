@@ -35,6 +35,15 @@
 
       __.settings = {
         timer: false,
+        data: {
+          inClassLegacy: 'animsition-in', // Removed in v4.0
+          inClass: 'animsition-in-class',
+          inDuration: 'animsition-in-duration',
+          outClassLegacy: 'animsition-out', // Removed in v4.0
+          outClass: 'animsition-out-class',
+          outDuration: 'animsition-out-duration',
+          overlay: 'animsition-overlay'
+        },
         events: {
           inStartLegacy: 'animsition.start', // Removed in v4.0
           inEndLegacy: 'animsition.end', // Removed in v4.0
@@ -56,24 +65,17 @@
             window.console = {};
             window.console.log = function(str){ return str; };
           }
-          if(!this.length){
-            console.log('Animsition: Element does not exist on page.');
-          }
-          if(!support){
-            console.log('Animsition: Does not support this browser.');
-          }
+          if(!this.length) console.log('Animsition: Element does not exist on page.');
+          if(!support) console.log('Animsition: Does not support this browser.');
           return __.destroy.call(this);
         }
       }
 
       var overlayMode = __.optionCheck.call(this, options);
-      if(overlayMode) {
-        __.addOverlay.call(this, options);
-      }
 
-      if(options.loading) {
-        __.addLoading.call(this, options);
-      }
+      if(overlayMode) __.addOverlay.call(this, options);
+
+      if(options.loading) __.addLoading.call(this, options);
 
       return this.each(function(){
         var _this = this;
@@ -167,7 +169,7 @@
     optionCheck: function(options){
       var $this = $(this);
       var overlayMode;
-      if(options.overlay || $this.data('animsition-overlay')){
+      if(options.overlay || $this.data(__.settings.data.overlay)){
         overlayMode = true;
       } else {
         overlayMode = false;
@@ -200,15 +202,13 @@
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var thisInDuration = $this.data('animsition-in-duration');
-      var thisInClass = $this.data('animsition-in');
+      var thisInDuration = $this.data(__.settings.data.inDuration); // *Legacy Removed in v4.0
+      var thisInClass = $this.data(__.settings.data.inClass) || $this.data(__.settings.data.inClassLegacy); // *Legacy Removed in v4.0
       var inDuration = __.animationCheck.call(_this,thisInDuration,false,true);
       var inClass = __.animationCheck.call(_this,thisInClass,true,true);
       var overlayMode = __.optionCheck.call(_this, options);
 
-      if(options.loading) {
-        __.removeLoading.call(_this);
-      }
+      if(options.loading) __.removeLoading.call(_this);
 
       if(overlayMode) {
         __.pageInOverlay.call(_this,inClass,inDuration);
@@ -258,10 +258,10 @@
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var selfOutClass = $self.data('animsition-out');
-      var thisOutClass = $this.data('animsition-out');
-      var selfOutDuration = $self.data('animsition-out-duration');
-      var thisOutDuration = $this.data('animsition-out-duration');
+      var selfOutClass = $self.data(__.settings.data.outClass) || $self.data(__.settings.data.outClassLegacy); // *Legacy Removed in v4.0
+      var thisOutClass = $this.data(__.settings.data.outClass) || $this.data(__.settings.data.outClassLegacy); // *Legacy Removed in v4.0
+      var selfOutDuration = $self.data(__.settings.data.outDuration);
+      var thisOutDuration = $this.data(__.settings.data.outDuration);
       var isOutClass = selfOutClass ? selfOutClass : thisOutClass;
       var isOutDuration = selfOutDuration ? selfOutDuration : thisOutDuration;
       var outClass = __.animationCheck.call(_this,isOutClass,true,false);
@@ -294,7 +294,7 @@
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var thisInClass = $this.data('animsition-in');
+      var thisInClass = $this.data(__.settings.data.inClass) || $this.data(__.settings.data.inClassLegacy); // *Legacy Removed in v4.0
       var inClass = __.animationCheck.call(_this,thisInClass,true,true);
 
       // (outDuration + 1) | #55 outDuration: 0 crashes animsition on Safari only
