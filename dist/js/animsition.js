@@ -211,7 +211,7 @@
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var thisInDuration = $this.data(__.settings.data.inDuration); // *Legacy Removed in v4.0
+      var thisInDuration = $this.data(__.settings.data.inDuration);
       var thisInClass = $this.data(__.settings.data.inClass);
       var inDuration = __.animationCheck.call(_this, thisInDuration, false, true);
       var inClass = __.animationCheck.call(_this, thisInClass, true, true);
@@ -232,13 +232,11 @@
       $this
         .css({ 'animation-duration' : inDuration + 'ms' })
         .addClass(inClass)
-        .trigger(__.settings.events.inStartLegacy) // Removed in v4.0
         .trigger(__.settings.events.inStart)
         .animateCallback(function(){
           $this
             .removeClass(inClass)
             .css({ 'opacity' : 1 })
-            .trigger(__.settings.events.inEndLegacy) // Removed in v4.0
             .trigger(__.settings.events.inEnd);
         });
     },
@@ -249,7 +247,6 @@
 
       $this
         .css({ 'opacity' : 1 })
-        .trigger(__.settings.events.inStartLegacy) // Removed in v4.0
         .trigger(__.settings.events.inStart);
 
       $(options.overlayParentElement)
@@ -258,7 +255,6 @@
         .addClass(inClass)
         .animateCallback(function(){
           $this
-            .trigger(__.settings.events.inEndLegacy) // Removed in v4.0
             .trigger(__.settings.events.inEnd);
         });
     },
@@ -267,8 +263,8 @@
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var selfOutClass = $self.data(__.settings.data.outClass) || $self.data(__.settings.data.outClassLegacy); // *Legacy Removed in v4.0
-      var thisOutClass = $this.data(__.settings.data.outClass) || $this.data(__.settings.data.outClassLegacy); // *Legacy Removed in v4.0
+      var selfOutClass = $self.data(__.settings.data.outClass);
+      var thisOutClass = $this.data(__.settings.data.outClass);
       var selfOutDuration = $self.data(__.settings.data.outDuration);
       var thisOutDuration = $this.data(__.settings.data.outDuration);
       var isOutClass = selfOutClass ? selfOutClass : thisOutClass;
