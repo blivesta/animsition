@@ -51,6 +51,9 @@ body.overlay-init,
 .bg-green {
   background-color: #4CAF50;
 }
+.bg-brown {
+  background-color: #795548;
+}
 .bg-blueGrey {
   background-color: #607D8B;
 }
