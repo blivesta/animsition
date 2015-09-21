@@ -85,9 +85,7 @@
         if (!data) {
           options = $.extend({}, options);
 
-          $this.data(namespace, {
-            options: options
-          });
+          $this.data(namespace, { options: options });
 
           if(options.timeout) __.addTimer.call(_this);
 
