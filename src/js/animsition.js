@@ -121,7 +121,7 @@
 
     addOverlay: function(options){
       $(options.overlayParentElement)
-        .prepend('<div class="'+options.overlayClass+'"></div>');
+        .prepend('<div class="' + options.overlayClass + '"></div>');
     },
 
     addLoading: function(options){
@@ -204,8 +204,8 @@
       var options = $this.data(namespace).options;
       var thisInDuration = $this.data(__.settings.data.inDuration); // *Legacy Removed in v4.0
       var thisInClass = $this.data(__.settings.data.inClass) || $this.data(__.settings.data.inClassLegacy); // *Legacy Removed in v4.0
-      var inDuration = __.animationCheck.call(_this,thisInDuration,false,true);
-      var inClass = __.animationCheck.call(_this,thisInClass,true,true);
+      var inDuration = __.animationCheck.call(_this, thisInDuration, false, true);
+      var inClass = __.animationCheck.call(_this, thisInClass, true, true);
       var overlayMode = __.optionCheck.call(_this, options);
 
       if(options.loading) __.removeLoading.call(_this);
@@ -264,8 +264,8 @@
       var thisOutDuration = $this.data(__.settings.data.outDuration);
       var isOutClass = selfOutClass ? selfOutClass : thisOutClass;
       var isOutDuration = selfOutDuration ? selfOutDuration : thisOutDuration;
-      var outClass = __.animationCheck.call(_this,isOutClass,true,false);
-      var outDuration = __.animationCheck.call(_this, isOutDuration,false,false);
+      var outClass = __.animationCheck.call(_this, isOutClass, true, false);
+      var outDuration = __.animationCheck.call(_this, isOutDuration, false, false);
       var overlayMode = __.optionCheck.call(_this, options);
 
       if(overlayMode) {
@@ -295,7 +295,7 @@
       var $this = $(this);
       var options = $this.data(namespace).options;
       var thisInClass = $this.data(__.settings.data.inClass) || $this.data(__.settings.data.inClassLegacy); // *Legacy Removed in v4.0
-      var inClass = __.animationCheck.call(_this,thisInClass,true,true);
+      var inClass = __.animationCheck.call(_this, thisInClass, true, true);
 
       // (outDuration + 1) | #55 outDuration: 0 crashes animsition on Safari only
       $(options.overlayParentElement)
