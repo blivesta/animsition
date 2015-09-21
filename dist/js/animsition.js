@@ -40,23 +40,20 @@
         // The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
         overlay               :   false,
         overlayClass          :   'animsition-overlay-slide',
-        overlayParentElement  :   'body'
+        overlayParentElement  :   'body',
+        transition            :   function(url){ window.location.href = url; }
       }, options);
 
       __.settings = {
         timer: false,
         data: {
-          inClassLegacy: 'animsition-in', // Removed in v4.0
           inClass: 'animsition-in-class',
           inDuration: 'animsition-in-duration',
-          outClassLegacy: 'animsition-out', // Removed in v4.0
           outClass: 'animsition-out-class',
           outDuration: 'animsition-out-duration',
           overlay: 'animsition-overlay'
         },
         events: {
-          inStartLegacy: 'animsition.start', // Removed in v4.0
-          inEndLegacy: 'animsition.end', // Removed in v4.0
           inStart: 'animsition.inStart',
           inEnd: 'animsition.inEnd',
           outStart: 'animsition.outStart',
@@ -215,7 +212,7 @@
       var $this = $(this);
       var options = $this.data(namespace).options;
       var thisInDuration = $this.data(__.settings.data.inDuration); // *Legacy Removed in v4.0
-      var thisInClass = $this.data(__.settings.data.inClass) || $this.data(__.settings.data.inClassLegacy); // *Legacy Removed in v4.0
+      var thisInClass = $this.data(__.settings.data.inClass);
       var inDuration = __.animationCheck.call(_this, thisInDuration, false, true);
       var inClass = __.animationCheck.call(_this, thisInClass, true, true);
       var overlayMode = __.optionCheck.call(_this, options);
@@ -289,6 +286,7 @@
 
     outDefault: function(outClass, outDuration, url){
       var $this = $(this);
+      var options = $this.data(namespace).options;
 
       // (outDuration + 1) | #55 outDuration: 0 crashes on Safari only
       $this
@@ -297,7 +295,7 @@
         .trigger(__.settings.events.outStart)
         .animateCallback(function(){
           $this.trigger(__.settings.events.outEnd);
-          window.location.href = url;
+          options.transition(url);
         });
     },
 
@@ -306,7 +304,7 @@
       var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
-      var thisInClass = $this.data(__.settings.data.inClass) || $this.data(__.settings.data.inClassLegacy); // *Legacy Removed in v4.0
+      var thisInClass = $this.data(__.settings.data.inClass);
       var inClass = __.animationCheck.call(_this, thisInClass, true, true);
 
       // (outDuration + 1) | #55 outDuration: 0 crashes animsition on Safari only
@@ -318,7 +316,7 @@
         .trigger(__.settings.events.outStart)
         .animateCallback(function(){
           $this.trigger(__.settings.events.outEnd);
-          window.location.href = url;
+          options.transition(url);
         });
     },
 
