@@ -22,6 +22,8 @@
       <li><a class="animsition-link" href="options.html">Options</a></li>
       <li><a class="animsition-link" href="data-options.html">Data options</a></li>
       <li><a class="animsition-link" href="events.html">Events</a></li>
+      <li><a class="animsition-link" href="custom-load.html">Custom load</a></li>
+      <li><a class="animsition-link" href="custom-link.html">Custom link</a></li>
     </ol>
 
     <h2>Overlays</h2>
@@ -40,9 +42,15 @@
       inClass:'zoom-in-sm',
       outClass:'zoom-out-sm',
     })
+    .one('animsition.start',function(){
+      console.log('event -> start `Removed in v4.0`');
+    })
     .one('animsition.inStart',function(){
       console.log('event -> inStart');
       $(this).append('<h2 class="target">Callback: Start</h2>');
+    })
+    .one('animsition.end',function(){
+      console.log('event -> end `Removed in v4.0`');
     })
     .one('animsition.inEnd',function(){
       $('.target', this).html('Callback: End');

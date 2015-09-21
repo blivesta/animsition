@@ -24,6 +24,10 @@ h2 {
   height:200px;
 }
 
+.col {
+  display: inline-block;
+}
+
 body.overlay-init,
 .animsition-loading {
   background-color: #ddd;
@@ -49,4 +53,7 @@ body.overlay-init,
 }
 .bg-blueGrey {
   background-color: #607D8B;
+}
+.bg-black {
+  background-color: #000;
 }

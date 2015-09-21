@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandbox: Custom link - Animsition</title>
+  <link href="sandbox.css" rel="stylesheet">
+  <link href="../dist/css/animsition.css" rel="stylesheet">
+</head>
+<body>
+  <div class="animsition">
+
+    <div class="item bg-indigo">
+      <h1>Animsition: Custom link</h1>
+      <div id="js-albums"></div>
+    </div>
+
+    <h2>Defaults</h2>
+    <ol>
+      <li><a class="custom-link" href="index.html">Basic</a></li>
+      <li><a class="custom-link" href="options.html">Options</a></li>
+      <li><a class="custom-link" href="data-options.html">Data options</a></li>
+      <li><a class="custom-link" href="events.html">Events</a></li>
+      <li><a class="custom-link" href="custom-load.html">Custom load</a></li>
+      <li><a class="custom-link" href="custom-link.html">Custom link</a></li>
+    </ol>
+
+    <h2>Overlays</h2>
+    <ol>
+      <li><a class="custom-link" href="overlay1.html">Overlay1</a></li>
+      <li><a class="custom-link" href="overlay2.html">Overlay2</a></li>
+    </ol>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="../src/js/animsition.js" charset="utf-8"></script>
+  <script type="text/javascript">
+
+    $(document).on('ready', function(){
+      var $animsition = $('.animsition');
+      $animsition
+      .animsition()
+      .each(function(i){
+        $(this).animsition('in');
+        $('.custom-link').on('click', function(){
+          event.preventDefault();
+          var $elm = $(this);
+          var url = $elm.attr('href');
+          $animsition.animsition('out', $elm, url);
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

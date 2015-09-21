@@ -10,7 +10,7 @@
 </head>
 <body>
 
-  <div class="animsition item bg-cyan" data-animsition-in="fade-in-up-sm" data-animsition-out="fade-out-up-sm" data-animsition-in-duration="1000">
+  <div class="animsition item bg-cyan" data-animsition-in-class="fade-in-up-sm" data-animsition-out-class="fade-out-up-sm" data-animsition-in-duration="1000">
     <h1>Animsition: data options 1</h1>
   </div>
 
@@ -27,6 +27,8 @@
       <li><a class="animsition-link" href="options.html">Options</a></li>
       <li><a class="animsition-link" href="data-options.html">Data options</a></li>
       <li><a class="animsition-link" href="events.html">Events</a></li>
+      <li><a class="animsition-link" href="custom-load.html">Custom load</a></li>
+      <li><a class="animsition-link" href="custom-link.html">Custom link</a></li>
     </ol>
 
     <h2>Overlays</h2>
@@ -34,8 +36,8 @@
       <li><a class="animsition-link" href="overlay1.html">Overlay1</a></li>
       <li><a class="animsition-link" href="overlay2.html">Overlay2</a></li>
     </ol>
-  </div>
 
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
   <script src="../src/js/animsition.js" charset="utf-8"></script>
@@ -51,7 +53,7 @@
       })
       .one('animsition.inEnd',function(){
         $('.target', this).html('Callback: End');
-      console.log('event -> inEnd');
+        console.log('event -> inEnd');
       });
   });
   </script>

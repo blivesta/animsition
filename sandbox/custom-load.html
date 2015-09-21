@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandbox: Custom load - Animsition</title>
+  <link href="sandbox.css" rel="stylesheet">
+  <link href="../dist/css/animsition.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="item bg-black">
+    <h1>Animsition: Custom load</h1>
+  </div>
+
+  <h2>Instagram</h2>
+  <div id="js-albums"></div>
+
+  <h2>Defaults</h2>
+  <ol>
+    <li><a class="animsition-link" href="index.html">Basic</a></li>
+    <li><a class="animsition-link" href="options.html">Options</a></li>
+    <li><a class="animsition-link" href="data-options.html">Data options</a></li>
+    <li><a class="animsition-link" href="events.html">Events</a></li>
+    <li><a class="animsition-link" href="custom-load.html">Custom load</a></li>
+    <li><a class="animsition-link" href="custom-link.html">Custom link</a></li>
+  </ol>
+
+  <h2>Overlays</h2>
+  <ol>
+    <li><a class="animsition-link" href="overlay1.html">Overlay1</a></li>
+    <li><a class="animsition-link" href="overlay2.html">Overlay2</a></li>
+  </ol>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" charset="utf-8"></script>
+  <script src="../src/js/animsition.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    (function () {
+      var image = function() {
+        var d = $.Deferred();
+        $.ajax({
+          url: './data.json',
+          success: d.resolve
+        });
+        return d.promise();
+      };
+
+      image().then(function(data, textStatus, jqXHR) {
+        $('#js-albums')
+        .addClass('animsition')
+        .append(
+          $('<a>')
+          .addClass('col')
+          .addClass('animsition-link')
+          .attr('href', './custom-load.html')
+          .append(
+            $('<img>')
+            .attr('width', '600')
+            .attr('src', data.images.url)
+          )
+        );
+
+        $('.animsition').animsition({
+          onLoadEvent: false
+        })
+        .each(function(i){
+          $(this).animsition('in');
+        });
+
+      });
+
+    }());
+  </script>
+
+</body>
+</html>
