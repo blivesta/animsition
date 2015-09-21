@@ -25,6 +25,7 @@
         loadingInner          :   '', // e.g '<img src="loading.svg" />'
         timeout               :   false,
         timeoutCountdown      :   5000,
+        onLoadEvent           :   true, // If `false` to disable the `$window.on('load.animsition')`.
         unSupportCss          : [ 'animation-duration',
                                   '-webkit-animation-duration',
                                   '-o-animation-duration'],
@@ -97,6 +98,8 @@
             if(__.settings.timer) clearTimeout(__.settings.timer);
             __.in.call(_this);
           });
+
+          if(!options.onLoadEvent) $window.off('load.' + namespace + ' pageshow.' + namespace);
 
           // Firefox back button issue #4
           $window.on('unload.' + namespace, function() { });
