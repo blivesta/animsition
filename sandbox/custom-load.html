@@ -48,15 +48,17 @@
       image().then(function(data, textStatus, jqXHR) {
         $('#js-albums')
         .addClass('animsition')
+        .attr('data-animsition-in-class', data.items[0].inClass)
+        .attr('data-animsition-out-class', data.items[0].outClass)
         .append(
           $('<a>')
           .addClass('col')
           .addClass('animsition-link')
-          .attr('href', './custom-load.html')
+          .attr('href', data.items[0].url)
           .append(
             $('<img>')
             .attr('width', '600')
-            .attr('src', data.images.url)
+            .attr('src', data.items[0].image)
           )
         );
 

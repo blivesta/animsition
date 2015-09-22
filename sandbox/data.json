@@ -1,5 +1,15 @@
 {
-  "images": {
-    "url": "http://git.blivesta.com/crosscover/images/01.jpg"
-  }
+  "items": [
+    {
+      "inClass" : "fade-in-up",
+      "outClass": "fade-out-up",
+      "image": "http://git.blivesta.com/crosscover/images/01.jpg",
+      "url": "./custom-load.html"
+    }, {
+      "inClass" : "fade-in-down",
+      "outClass": "fade-out-down",
+      "image": "http://git.blivesta.com/crosscover/images/02.jpg",
+      "url": "./custom-load.html"
+    }
+  ]
 }
