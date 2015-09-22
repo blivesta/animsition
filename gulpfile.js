@@ -37,7 +37,11 @@ gulp.task('css', function () {
     .pipe(header(banner, {pkg:pkg}))
     .pipe(postcss(processors))
     .pipe(gulp.dest(dirs.dist + '/css'))
-    .pipe(cssnano())
+    .pipe(cssnano({
+      autoprefixer: false,
+      reduceIdents: false,
+      mergeIdents: false
+    }))
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest(dirs.dist + '/css'));
 });
