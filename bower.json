@@ -14,7 +14,6 @@
     "dist/js/animsition.min.js"
   ],
   "ignore": [
-    ".*",
-    "sandbox"
+    ".*"
   ]
 }
