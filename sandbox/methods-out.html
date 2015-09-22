@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandbox: Methods out - Animsition</title>
+  <link href="sandbox.css" rel="stylesheet">
+  <link href="../dist/css/animsition.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="animsition">
+
+    <div class="item bg-brown">
+      <h1>Animsition: Methods out</h1>
+    </div>
+
+    <h2>Defaults</h2>
+    <ol>
+      <li><a class="foo" href="index.html">Basic</a></li>
+      <li><a class="foo" href="options.html">Options</a></li>
+      <li><a class="foo" href="data-options.html">Data options</a></li>
+      <li><a class="foo" href="methods-in.html">Methods in</a></li>
+      <li><a class="foo" href="methods-out.html">Methods out</a></li>
+    </ol>
+
+    <h2>Overlays</h2>
+    <ol>
+      <li><a class="foo" href="overlay1.html">Overlay1</a></li>
+      <li><a class="foo" href="overlay2.html">Overlay2</a></li>
+    </ol>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+  <script src="../dist/js/animsition.min.js" charset="utf-8"></script>
+  <script type="text/javascript">
+    var $animsition = $('.animsition');
+
+    $(document).ready(function() {
+      $animsition.animsition({
+        onLoadEvent: false
+      })
+      .each(function(i){
+        $(this).animsition('in');
+      });
+    });
+
+    $(document).on('click', '.foo', function(event){
+      event.preventDefault();
+      var $elem = $(this);
+      var url = $elem.attr('href');
+      $animsition.animsition('out', $elem, url);
+    });
+
+  </script>
+
+</body>
+</html>
