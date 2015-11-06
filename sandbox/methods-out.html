@@ -40,7 +40,10 @@
       $animsition.animsition({
         onLoadEvent: false
       })
-      .each(function(i){
+    });
+
+    $(window).on('load', function() {
+      $animsition.each(function(i){
         $(this).animsition('in');
       });
     });

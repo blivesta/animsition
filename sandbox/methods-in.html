@@ -61,14 +61,13 @@
             .attr('src', data.items[0].image)
           )
         );
-
+      }).then(function() {
         $('.animsition').animsition({
           onLoadEvent: false
         })
         .each(function(i){
           $(this).animsition('in');
         });
-
       });
 
     }());
