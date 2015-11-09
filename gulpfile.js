@@ -1,3 +1,5 @@
+'use strict';
+
 var autoprefixer = require('autoprefixer');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
@@ -24,7 +26,8 @@ var banner = [
 
 var dirs = {
   src:'./src',
-  dist:'./dist'
+  dist:'./dist',
+  sandbox:'./sandbox'
 };
 
 gulp.task('css', function () {
@@ -61,7 +64,7 @@ gulp.task('js', function(){
 });
 
 gulp.task('cleanup', function(cb){
-  return del([ './dist' ],cb);
+  return del([ dirs.dist ],cb);
 });
 
 gulp.task('default',['build'], function(){
@@ -70,11 +73,5 @@ gulp.task('default',['build'], function(){
 });
 
 gulp.task('build', ['cleanup'], function(cb){
-  runSequence(
-    [
-      'js',
-      'css'
-    ],
-    cb
-  );
+  runSequence('js', 'css', cb);
 });
