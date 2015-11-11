@@ -208,6 +208,11 @@
 
       if(options.loading) __.removeLoading.call(_this);
 
+      var outClass = $this.data(namespace).outClass;
+      if (outClass) {
+        $this.removeClass(outClass);
+      }
+
       if(overlayMode) {
         __.inOverlay.call(_this, inClass, inDuration);
       } else {
@@ -261,6 +266,8 @@
       var outClass = __.animationCheck.call(_this, isOutClass, true, false);
       var outDuration = __.animationCheck.call(_this, isOutDuration, false, false);
       var overlayMode = __.optionCheck.call(_this, options);
+
+      $this.data(namespace).outClass = outClass;
 
       if(overlayMode) {
         __.outOverlay.call(_this, outClass, outDuration, url);
