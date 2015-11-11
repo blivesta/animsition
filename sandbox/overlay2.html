@@ -8,15 +8,15 @@
   <link href="sandbox.css" rel="stylesheet">
   <link href="../dist/css/animsition.min.css" rel="stylesheet">
   <style media="screen">
-    .animsition-overlay.bg-init,
+    .bg-init,
     .animsition-overlay-slide {
       background-color: #81D4FA;
     }
   </style>
 </head>
-<body>
+<body class="bg-init">
 
-  <div class="animsition-overlay bg-init">
+  <div class="animsition-overlay">
 
     <div class="item bg-green">
       <h1>Animsition: overlay2</h1>
@@ -52,7 +52,7 @@
     })
     .one('animsition.inStart',function(){
 
-      $(this).removeClass('bg-init');
+      $('body').removeClass('bg-init');
 
       $(this)
         .find('.item')
