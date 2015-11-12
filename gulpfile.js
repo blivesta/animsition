@@ -1,3 +1,7 @@
+'use strict';
+
+var browserSync = require('browser-sync');
+var browserReload = browserSync.reload;
 var autoprefixer = require('autoprefixer');
 var cssnano = require('gulp-cssnano');
 var del = require('del');
@@ -24,7 +28,8 @@ var banner = [
 
 var dirs = {
   src:'./src',
-  dist:'./dist'
+  dist:'./dist',
+  sandbox:'./sandbox'
 };
 
 gulp.task('css', function () {
@@ -60,21 +65,29 @@ gulp.task('js', function(){
     .pipe(gulp.dest(dirs.dist + '/js'));
 });
 
-gulp.task('cleanup', function(cb){
-  return del([ './dist' ],cb);
+gulp.task('serve', function() {
+  browserSync.init({
+    server: {
+      baseDir: '.',
+      directory: true
+    }
+  });
+  gulp.watch([dirs.src + '/css/**/*.css'], ['css']);
+  gulp.watch([dirs.src + '/js/*.js'], ['js']);
+  gulp.watch([
+    dirs.dist + '/**/*.min.{css,js}',
+    dirs.sandbox + '/*.{css,html}'
+  ]).on('change', browserReload);
 });
 
-gulp.task('default',['build'], function(){
-  gulp.watch(['./src/css/**/*.css'], ['css']);
-  gulp.watch(['./src/js/*.js'], ['js']);
+gulp.task('cleanup', function(cb){
+  return del([ dirs.dist ],cb);
+});
+
+gulp.task('default', ['build'], function(cb) {
+  runSequence('serve', cb);
 });
 
 gulp.task('build', ['cleanup'], function(cb){
-  runSequence(
-    [
-      'js',
-      'css'
-    ],
-    cb
-  );
+  runSequence('js', 'css', cb);
 });

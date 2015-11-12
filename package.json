@@ -25,6 +25,7 @@
     "setup": "npm i && gulp build"
   },
   "devDependencies": {
+    "browser-sync": "^2.9.12",
     "autoprefixer":"^6.0.3",
     "del":"^1.2.0",
     "gulp":"^3.9.0",
