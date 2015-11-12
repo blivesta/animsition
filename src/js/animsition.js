@@ -89,12 +89,16 @@
 
           if(options.timeout) __.addTimer.call(_this);
 
-          $window.on('load.' + namespace + ' pageshow.' + namespace, function() {
+          $window.on('load.' + namespace, function() {
             if(__.settings.timer) clearTimeout(__.settings.timer);
             __.in.call(_this);
           });
 
-          if(!options.onLoadEvent) $window.off('load.' + namespace + ' pageshow.' + namespace);
+          $window.on('pageshow.' + namespace, function(event) {
+            if(event.originalEvent.persisted) __.in.call(_this);
+          });
+
+          if(!options.onLoadEvent) $window.off('load.' + namespace);
 
           // Firefox back button issue #4
           $window.on('unload.' + namespace, function() { });
