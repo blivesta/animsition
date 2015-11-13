@@ -1,5 +1,5 @@
 /*!
- * animsition v4.0.0
+ * animsition v4.0.1
  * A simple and easy jQuery plugin for CSS animated page transitions.
  * http://blivesta.github.io/animsition
  * License : MIT
@@ -96,12 +96,16 @@
 
           if(options.timeout) __.addTimer.call(_this);
 
-          $window.on('load.' + namespace + ' pageshow.' + namespace, function() {
-            if(__.settings.timer) clearTimeout(__.settings.timer);
-            __.in.call(_this);
-          });
+          if(options.onLoadEvent) {
+            $window.on('load.' + namespace, function() {
+              if(__.settings.timer) clearTimeout(__.settings.timer);
+              __.in.call(_this);
+            });
+          }
 
-          if(!options.onLoadEvent) $window.off('load.' + namespace + ' pageshow.' + namespace);
+          $window.on('pageshow.' + namespace, function(event) {
+            if(event.originalEvent.persisted) __.in.call(_this);
+          });
 
           // Firefox back button issue #4
           $window.on('unload.' + namespace, function() { });
@@ -149,7 +153,7 @@
 
       __.settings.timer = setTimeout(function(){
         __.in.call(_this);
-        $(window).off('load.' + namespace + ' pageshow.' + namespace);
+        $(window).off('load.' + namespace);
       }, options.timeoutCountdown);
     },
 
@@ -212,8 +216,11 @@
       var inDuration = __.animationCheck.call(_this, thisInDuration, false, true);
       var inClass = __.animationCheck.call(_this, thisInClass, true, true);
       var overlayMode = __.optionCheck.call(_this, options);
+      var outClass = $this.data(namespace).outClass;
 
       if(options.loading) __.removeLoading.call(_this);
+
+      if(outClass) $this.removeClass(outClass);
 
       if(overlayMode) {
         __.inOverlay.call(_this, inClass, inDuration);
@@ -268,6 +275,8 @@
       var outClass = __.animationCheck.call(_this, isOutClass, true, false);
       var outDuration = __.animationCheck.call(_this, isOutDuration, false, false);
       var overlayMode = __.optionCheck.call(_this, options);
+
+      $this.data(namespace).outClass = outClass;
 
       if(overlayMode) {
         __.outOverlay.call(_this, outClass, outDuration, url);

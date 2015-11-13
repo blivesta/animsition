@@ -1,3 +1,10 @@
+## v4.0.1
+
+- Fixed : Safari back button bug. #79 #80 Thanks @nvartolomei
+- Fixed : sandbox overlay markup #76
+- Added browser-sync to devDependencies
+
+
 # v4.0.0
 
 - Added `loadingInner` option.
