@@ -209,13 +209,11 @@
       var inDuration = __.animationCheck.call(_this, thisInDuration, false, true);
       var inClass = __.animationCheck.call(_this, thisInClass, true, true);
       var overlayMode = __.optionCheck.call(_this, options);
+      var outClass = $this.data(namespace).outClass;
 
       if(options.loading) __.removeLoading.call(_this);
 
-      var outClass = $this.data(namespace).outClass;
-      if (outClass) {
-        $this.removeClass(outClass);
-      }
+      if(outClass) $this.removeClass(outClass);
 
       if(overlayMode) {
         __.inOverlay.call(_this, inClass, inDuration);
