@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandbox: home - Animsition</title>
+  <link href="sandbox.css" rel="stylesheet">
+  <link href="../dist/css/animsition.min.css" rel="stylesheet">
+</head>
+<body>                        
+
+  <a href="index.html" class="animsition-link">animsition called only on click (don't need to wrap body in a global div... jquery does it for us...)</a>
+  May be usefull with certain templates, and if we don't want a always loading div...
+
+  <script>
+      $(document).ready(function () {
+
+          $(".animsition-link").on("click", function(){
+              $( "body" ).wrapInner( "<div class='animsition'></div>");
+              $('.animsition').animsition();
+          });
+
+      });
+  </script>
+
+</body>
+</html>                
