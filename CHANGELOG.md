@@ -1,3 +1,8 @@
+## v4.0.2
+
+- [#97](https://github.com/blivesta/animsition/issues/97) Thanks [@JPustkuchen](https://github.com/JPustkuchen)
+
+
 ## v4.0.1
 
 - Fixed : Safari back button bug. #79 #80 Thanks @nvartolomei
