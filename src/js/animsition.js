@@ -71,9 +71,13 @@
 
       var overlayMode = __.optionCheck.call(this, options);
 
-      if(overlayMode) __.addOverlay.call(this, options);
+      if (overlayMode && $('.' + options.overlayClass).length <= 0) {
+        __.addOverlay.call(this, options);
+      }
 
-      if(options.loading) __.addLoading.call(this, options);
+      if (options.loading && $('.' + options.loadingClass).length <= 0) {
+        __.addLoading.call(this, options);
+      }
 
       return this.each(function(){
         var _this = this;
