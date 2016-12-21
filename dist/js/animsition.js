@@ -323,6 +323,9 @@
           $this.trigger(__.settings.events.outEnd);
           options.transition(url);
         });
+	    if (options.loading && $('.' + options.loadingClass).length <= 0) {
+		  __.addLoading.call(this, options);
+	    }
     },
 
     destroy: function(){
