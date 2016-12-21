@@ -62,6 +62,7 @@ Please check that everything works before opening a pull-request.
 - [@brianmontanaweb](https://github.com/brianmontanaweb)
 - [@Superpencil](https://github.com/Superpencil)
 - [@tegansnyder](https://github.com/tegansnyder)
+- [@nvartolomei](https://github.com/nvartolomei)
 
 ## License
 Released under the [MIT](https://github.com/blivesta/animsition/blob/master/LICENSE.md) license.

@@ -18,7 +18,7 @@
         inDuration            :    1500,
         outDuration           :    800,
         linkElement           :   '.animsition-link',
-        // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+        // e.g. linkElement   :   'a:not([target="_blank"]):not([href^="#"])'
         loading               :    true,
         loadingParentElement  :   'body', //animsition wrapper element
         loadingClass          :   'animsition-loading',
@@ -71,9 +71,13 @@
 
       var overlayMode = __.optionCheck.call(this, options);
 
-      if(overlayMode) __.addOverlay.call(this, options);
+      if (overlayMode && $('.' + options.overlayClass).length <= 0) {
+        __.addOverlay.call(this, options);
+      }
 
-      if(options.loading) __.addLoading.call(this, options);
+      if (options.loading && $('.' + options.loadingClass).length <= 0) {
+        __.addLoading.call(this, options);
+      }
 
       return this.each(function(){
         var _this = this;
@@ -89,12 +93,16 @@
 
           if(options.timeout) __.addTimer.call(_this);
 
-          $window.on('load.' + namespace + ' pageshow.' + namespace, function() {
-            if(__.settings.timer) clearTimeout(__.settings.timer);
-            __.in.call(_this);
-          });
+          if(options.onLoadEvent) {
+            $window.on('load.' + namespace, function() {
+              if(__.settings.timer) clearTimeout(__.settings.timer);
+              __.in.call(_this);
+            });
+          }
 
-          if(!options.onLoadEvent) $window.off('load.' + namespace + ' pageshow.' + namespace);
+          $window.on('pageshow.' + namespace, function(event) {
+            if(event.originalEvent.persisted) __.in.call(_this);
+          });
 
           // Firefox back button issue #4
           $window.on('unload.' + namespace, function() { });
@@ -142,7 +150,7 @@
 
       __.settings.timer = setTimeout(function(){
         __.in.call(_this);
-        $(window).off('load.' + namespace + ' pageshow.' + namespace);
+        $(window).off('load.' + namespace);
       }, options.timeoutCountdown);
     },
 
@@ -205,8 +213,11 @@
       var inDuration = __.animationCheck.call(_this, thisInDuration, false, true);
       var inClass = __.animationCheck.call(_this, thisInClass, true, true);
       var overlayMode = __.optionCheck.call(_this, options);
+      var outClass = $this.data(namespace).outClass;
 
       if(options.loading) __.removeLoading.call(_this);
+
+      if(outClass) $this.removeClass(outClass);
 
       if(overlayMode) {
         __.inOverlay.call(_this, inClass, inDuration);
@@ -262,6 +273,8 @@
       var outDuration = __.animationCheck.call(_this, isOutDuration, false, false);
       var overlayMode = __.optionCheck.call(_this, options);
 
+      $this.data(namespace).outClass = outClass;
+
       if(overlayMode) {
         __.outOverlay.call(_this, outClass, outDuration, url);
       } else {
@@ -303,6 +316,9 @@
           $this.trigger(__.settings.events.outEnd);
           options.transition(url);
         });
+	    if (options.loading && $('.' + options.loadingClass).length <= 0) {
+		  __.addLoading.call(this, options);
+	    }
     },
 
     destroy: function(){
