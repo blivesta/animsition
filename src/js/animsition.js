@@ -283,6 +283,7 @@
     },
 
     outDefault: function(outClass, outDuration, url){
+      var _this = this;
       var $this = $(this);
       var options = $this.data(namespace).options;
 
@@ -292,6 +293,10 @@
         .addClass(outClass)
         .trigger(__.settings.events.outStart)
         .animateCallback(function(){
+          if (options.loading && $('.' + options.loadingClass).length <= 0) {
+            __.addLoading.call(_this, options);
+          }
+
           $this.trigger(__.settings.events.outEnd);
           options.transition(url);
         });
@@ -313,6 +318,10 @@
         .addClass(outClass)
         .trigger(__.settings.events.outStart)
         .animateCallback(function(){
+          if (options.loading && $('.' + options.loadingClass).length <= 0) {
+            __.addLoading.call(_this, options);
+          }
+
           $this.trigger(__.settings.events.outEnd);
           options.transition(url);
         });
