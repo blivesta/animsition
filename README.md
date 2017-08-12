@@ -71,7 +71,7 @@ Released under the [MIT](https://github.com/blivesta/animsition/blob/master/LICE
 ---
 
 
-## Wordpress plugin
+## WordPress plugin
 
 ### [Page Transition](http://wordpress.org/plugins/page-transition/ "Page Transition")
 - @numixtech
