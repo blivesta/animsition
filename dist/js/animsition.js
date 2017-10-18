@@ -17,6 +17,10 @@
 }(function ($) {
   'use strict';
   var namespace = 'animsition';
+  var loaded = false;
+  $(window).on('load', function() {
+    loaded = true;
+  });
   var __ = {
     init: function(options){
       options = $.extend({
@@ -101,10 +105,15 @@
           if(options.timeout) __.addTimer.call(_this);
 
           if(options.onLoadEvent) {
-            $window.on('load.' + namespace, function() {
+            if(loaded) {
               if(__.settings.timer) clearTimeout(__.settings.timer);
               __.in.call(_this);
-            });
+            } else {
+              $window.on('load', function(e) {
+                if(__.settings.timer) clearTimeout(__.settings.timer);
+                __.in.call(_this);
+              });
+            }
           }
 
           $window.on('pageshow.' + namespace, function(event) {
