@@ -2,6 +2,7 @@
 
 ![Bower version](https://img.shields.io/bower/v/animsition.svg?style=flat-square)
 [![npm version](https://img.shields.io/npm/v/animsition.svg?style=flat-square)](https://www.npmjs.com/package/animsition)
+[![jsDelivr Hits](https://data.jsdelivr.com/v1/package/npm/animsition/badge)](https://www.jsdelivr.com/package/npm/animsition)
 [![Build Status](https://img.shields.io/travis/blivesta/animsition/master.svg?style=flat-square)](https://travis-ci.org/blivesta/animsition)
 
 
