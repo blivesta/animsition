@@ -16,8 +16,8 @@
   }
 }(function ($) {
   'use strict';
-  var namespace = 'animsition';
-  var __ = {
+  const namespace = 'animsition';
+  const __ = {
     init: function(options){
       options = $.extend({
         inClass               :   'fade-in',
@@ -61,7 +61,7 @@
 
       // Remove the "Animsition" in a browser
       // that does not support the "animaition-duration".
-      var support = __.supportCheck.call(this, options);
+      const support = __.supportCheck.call(this, options);
 
       if(!support && options.browser.length > 0){
         if(!support || !this.length){
@@ -76,7 +76,7 @@
         }
       }
 
-      var overlayMode = __.optionCheck.call(this, options);
+      const overlayMode = __.optionCheck.call(this, options);
 
       if (overlayMode && $('.' + options.overlayClass).length <= 0) {
         __.addOverlay.call(this, options);
@@ -87,11 +87,11 @@
       }
 
       return this.each(function(){
-        var _this = this;
-        var $this = $(this);
-        var $window = $(window);
-        var $document = $(document);
-        var data = $this.data(namespace);
+        const _this = this;
+        const $this = $(this);
+        const $window = $(window);
+        const $document = $(document);
+        const data = $this.data(namespace);
 
         if (!data) {
           options = $.extend({}, options);
@@ -116,8 +116,8 @@
 
           $document.on('click.' + namespace, options.linkElement, function(event) {
             event.preventDefault();
-            var $self = $(this);
-            var url = $self.attr('href');
+            const $self = $(this);
+            const url = $self.attr('href');
 
             // middle mouse button issue #24
             // if(middle mouse button || command key || shift key || win control key)
@@ -143,17 +143,17 @@
     },
 
     removeLoading: function(){
-      var $this     = $(this);
-      var options   = $this.data(namespace).options;
-      var $loading  = $(options.loadingParentElement).children('.' + options.loadingClass);
+      const $this     = $(this);
+      const options   = $this.data(namespace).options;
+      const $loading  = $(options.loadingParentElement).children('.' + options.loadingClass);
 
       $loading.fadeOut().remove();
     },
 
     addTimer: function(){
-      var _this = this;
-      var $this = $(this);
-      var options = $this.data(namespace).options;
+      const _this = this;
+      const $this = $(this);
+      const options = $this.data(namespace).options;
 
       __.settings.timer = setTimeout(function(){
         __.in.call(_this);
@@ -162,65 +162,55 @@
     },
 
     supportCheck: function(options){
-      var $this = $(this);
-      var props = options.browser;
-      var propsNum = props.length;
-      var support  = false;
+      const $this = $(this);
+      const props = options.browser;
+      const propsNum = props.length;
 
-      if (propsNum === 0) {
-        support = true;
-      }
+      if (propsNum === 0) return true;
       for (var i = 0; i < propsNum; i++) {
         if (typeof $this.css(props[i]) === 'string') {
-          support = true;
-          break;
+          return true;
         }
       }
-      return support;
+      return false;
     },
 
     optionCheck: function(options){
-      var $this = $(this);
-      var overlayMode;
-      if(options.overlay || $this.data(__.settings.data.overlay)){
-        overlayMode = true;
-      } else {
-        overlayMode = false;
-      }
-      return overlayMode;
+      const $this = $(this);
+      return options.overlay || $this.data(__.settings.data.overlay);
     },
 
     animationCheck : function(data, stateClass, stateIn){
-      var $this = $(this);
-      var options = $this.data(namespace).options;
-      var dataType = typeof data;
-      var dataDuration = !stateClass && dataType === 'number';
-      var dataClass = stateClass && dataType === 'string' && data.length > 0;
+      const $this = $(this);
+      const options = $this.data(namespace).options;
+      const dataType = typeof data;
+      const dataDuration = !stateClass && dataType === 'number';
+      const dataClass = stateClass && dataType === 'string' && data.length > 0;
 
-      if(dataDuration || dataClass){
-        data = data;
-      } else if(stateClass && stateIn) {
-        data = options.inClass;
-      } else if(!stateClass && stateIn) {
-        data = options.inDuration;
-      } else if(stateClass && !stateIn) {
-        data = options.outClass;
-      } else if(!stateClass && !stateIn) {
-        data = options.outDuration;
+      if(!dataDuration && !dataClass){
+        if(stateClass && stateIn) {
+          data = options.inClass;
+        } else if(!stateClass && stateIn) {
+          data = options.inDuration;
+        } else if(stateClass && !stateIn) {
+          data = options.outClass;
+        } else if(!stateClass && !stateIn) {
+          data = options.outDuration;
+        }
       }
       return data;
     },
 
     in: function(){
-      var _this = this;
-      var $this = $(this);
-      var options = $this.data(namespace).options;
-      var thisInDuration = $this.data(__.settings.data.inDuration);
-      var thisInClass = $this.data(__.settings.data.inClass);
-      var inDuration = __.animationCheck.call(_this, thisInDuration, false, true);
-      var inClass = __.animationCheck.call(_this, thisInClass, true, true);
-      var overlayMode = __.optionCheck.call(_this, options);
-      var outClass = $this.data(namespace).outClass;
+      const _this = this;
+      const $this = $(this);
+      const options = $this.data(namespace).options;
+      const thisInDuration = $this.data(__.settings.data.inDuration);
+      const thisInClass = $this.data(__.settings.data.inClass);
+      const inDuration = __.animationCheck.call(_this, thisInDuration, false, true);
+      const inClass = __.animationCheck.call(_this, thisInClass, true, true);
+      const overlayMode = __.optionCheck.call(_this, options);
+      const outClass = $this.data(namespace).outClass;
 
       if(options.loading) __.removeLoading.call(_this);
 
@@ -234,7 +224,7 @@
     },
 
     inDefault: function(inClass, inDuration){
-      var $this = $(this);
+      const $this = $(this);
 
       $this
         .css({ 'animation-duration' : inDuration + 'ms' })
@@ -249,8 +239,8 @@
     },
 
     inOverlay: function(inClass, inDuration){
-      var $this = $(this);
-      var options = $this.data(namespace).options;
+      const $this = $(this);
+      const options = $this.data(namespace).options;
 
       $this
         .css({ 'opacity' : 1 })
@@ -267,18 +257,18 @@
     },
 
     out: function($self, url){
-      var _this = this;
-      var $this = $(this);
-      var options = $this.data(namespace).options;
-      var selfOutClass = $self.data(__.settings.data.outClass);
-      var thisOutClass = $this.data(__.settings.data.outClass);
-      var selfOutDuration = $self.data(__.settings.data.outDuration);
-      var thisOutDuration = $this.data(__.settings.data.outDuration);
-      var isOutClass = selfOutClass ? selfOutClass : thisOutClass;
-      var isOutDuration = selfOutDuration ? selfOutDuration : thisOutDuration;
-      var outClass = __.animationCheck.call(_this, isOutClass, true, false);
-      var outDuration = __.animationCheck.call(_this, isOutDuration, false, false);
-      var overlayMode = __.optionCheck.call(_this, options);
+      const _this = this;
+      const $this = $(this);
+      const options = $this.data(namespace).options;
+      const selfOutClass = $self.data(__.settings.data.outClass);
+      const thisOutClass = $this.data(__.settings.data.outClass);
+      const selfOutDuration = $self.data(__.settings.data.outDuration);
+      const thisOutDuration = $this.data(__.settings.data.outDuration);
+      const isOutClass = selfOutClass ? selfOutClass : thisOutClass;
+      const isOutDuration = selfOutDuration ? selfOutDuration : thisOutDuration;
+      const outClass = __.animationCheck.call(_this, isOutClass, true, false);
+      const outDuration = __.animationCheck.call(_this, isOutDuration, false, false);
+      const overlayMode = __.optionCheck.call(_this, options);
 
       $this.data(namespace).outClass = outClass;
 
@@ -290,8 +280,8 @@
     },
 
     outDefault: function(outClass, outDuration, url){
-      var $this = $(this);
-      var options = $this.data(namespace).options;
+      const $this = $(this);
+      const options = $this.data(namespace).options;
 
       // (outDuration + 1) | #55 outDuration: 0 crashes on Safari only
       $this
@@ -306,11 +296,11 @@
 
 
     outOverlay: function(outClass, outDuration, url){
-      var _this = this;
-      var $this = $(this);
-      var options = $this.data(namespace).options;
-      var thisInClass = $this.data(__.settings.data.inClass);
-      var inClass = __.animationCheck.call(_this, thisInClass, true, true);
+      const _this = this;
+      const $this = $(this);
+      const options = $this.data(namespace).options;
+      const thisInClass = $this.data(__.settings.data.inClass);
+      const inClass = __.animationCheck.call(_this, thisInClass, true, true);
 
       // (outDuration + 1) | #55 outDuration: 0 crashes animsition on Safari only
       $(options.overlayParentElement)
@@ -327,7 +317,7 @@
 
     destroy: function(){
       return this.each(function(){
-        var $this = $(this);
+        const $this = $(this);
         $(window).off('.'+ namespace);
         $this
           .css({'opacity': 1})
@@ -338,9 +328,9 @@
   };
 
   $.fn.animateCallback = function(callback){
-    var end = 'animationend webkitAnimationEnd';
+    const end = 'animationend webkitAnimationEnd';
     return this.each(function() {
-      var $this = $(this);
+      const $this = $(this);
       $this.on(end, function(){
         $this.off(end);
         return callback.call(this);
